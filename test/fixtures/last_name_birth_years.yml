@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name_id: 1
+  birth_year: 1
+  count: 1
+
+two:
+  name_id: 1
+  birth_year: 1
+  count: 1
