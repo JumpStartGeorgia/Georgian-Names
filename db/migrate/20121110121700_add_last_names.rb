@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AddLastNames < ActiveRecord::Migration
   def up
 		puts "***************************"

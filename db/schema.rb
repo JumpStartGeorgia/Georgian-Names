@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110121700) do
+ActiveRecord::Schema.define(:version => 20121111124142) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121110121700) do
     t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
   end
 
   add_index "birth_years", ["name_id"], :name => "index_birth_years_on_name_id"
@@ -29,24 +30,27 @@ ActiveRecord::Schema.define(:version => 20121110121700) do
     t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
   end
 
   add_index "districts", ["name_id"], :name => "index_districts_on_name_id"
 
   create_table "name_totals", :force => true do |t|
-    t.integer  "name_type"
+    t.integer  "identifier"
     t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total_type"
   end
 
-  add_index "name_totals", ["name_type"], :name => "index_name_totals_on_name_type"
+  add_index "name_totals", ["total_type", "identifier"], :name => "index_name_totals_on_total_type_and_identifier"
 
   create_table "names", :force => true do |t|
     t.integer  "name_type"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "rank"
   end
 
   add_index "names", ["name_type", "name"], :name => "idx_names"
