@@ -3,7 +3,7 @@ class Name < ActiveRecord::Base
 	has_many :birth_years
 	has_many :districts
 
-	attr_accessible :name_type, :name
+	attr_accessible :name_type, :name, :count
 
   TYPE = {:first_name => 1, :last_name => 2}
 

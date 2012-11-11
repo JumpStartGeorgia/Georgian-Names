@@ -13,16 +13,17 @@ class AddLastNames < ActiveRecord::Migration
 
 		# add distinct last_names
 		puts "adding distinct last name"
-		sql = 'insert into names(name_type, name, created_at, updated_at) '
-		sql << 'select distinct '
+		sql = 'insert into names(name_type, name, count, created_at, updated_at) '
+		sql << 'select '
 		sql << Name::TYPE[:last_name].to_s
-		sql << ', last_name, "'
+		sql << ', last_name, sum(name_count), "'
 		sql << time
 		sql << '", "'
 		sql << time
 		sql << '" '
 		sql << 'from voter_list_names.last_names_district '
 		sql << 'where last_name != "---" and last_name != "–––––" and last_name != "––––––" '
+		sql << 'group by last_name '
 		sql << 'order by last_name '
     connection.execute(sql)
 

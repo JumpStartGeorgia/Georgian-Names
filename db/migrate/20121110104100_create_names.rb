@@ -3,6 +3,7 @@ class CreateNames < ActiveRecord::Migration
     create_table :names do |t|
 			t.integer :name_type
       t.string :name
+      t.integer :count
 
       t.timestamps
     end

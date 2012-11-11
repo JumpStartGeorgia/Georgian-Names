@@ -12,16 +12,17 @@ class AddFirstNames < ActiveRecord::Migration
 
 		# add distinct first_names
 		puts "adding distinct first name"
-		sql = 'insert into names(name_type, name, created_at, updated_at) '
-		sql << 'select distinct '
+		sql = 'insert into names(name_type, name, count, created_at, updated_at) '
+		sql << 'select '
 		sql << Name::TYPE[:first_name].to_s
-		sql << ', first_name, "'
+		sql << ', first_name, sum(name_count), "'
 		sql << time
 		sql << '", "'
 		sql << time
 		sql << '" '
 		sql << 'from voter_list_names.first_names_district '
 		sql << 'where first_name != "---" '
+		sql << 'group by first_name '
 		sql << 'order by first_name '
     connection.execute(sql)
 
