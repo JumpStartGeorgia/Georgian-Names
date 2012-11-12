@@ -1,1 +1,22 @@
-Hi!
+<div class="row">
+  <div class="span4">
+    <h3>Top First Names</h3>
+    <ol class="standard">
+    <% @top_first.each do |name| %>
+      <li>
+        <%= link_to name.name, first_name_path(name.name) %><%= ": #{number_with_delimiter(name.count)}" %>
+      </li>
+    <% end %>
+    </ol>
+   </div> 
+  <div class="span4">
+    <h3>Top Last Names</h3>
+    <ol class="standard">
+    <% @top_last.each do |name| %>
+      <li>
+        <%= link_to name.name, last_name_path(name.name) %><%= ": #{number_with_delimiter(name.count)}" %>
+      </li>
+    <% end %>
+    </ol>
+   </div> 
+</div>   

@@ -21,12 +21,21 @@ class Name < ActiveRecord::Base
 		end
 	end
 
+  def self.top_first_names(limit=10)
+    where(:name_type => Name::TYPE[:first_name]).order("count desc").limit(limit)
+  end
+
+  def self.top_last_names(limit=10)
+    where(:name_type => Name::TYPE[:last_name]).order("count desc").limit(limit)
+  end
+
 	def by_years
-		birth_years.map{|x| {:birth_year => x.birth_year, :count => x.count}}
+		birth_years.map{|x| {:birth_year => x.birth_year, :count => x.count, :rank => x.rank}}
 	end
 
 	def by_districts
-		districts.map{|x| {:district_id => x.district_id, :count => x.count}}
+		districts.map{|x| {:district_id => x.district_id, :count => x.count, :rank => x.rank}}
 	end
+	
 
 end
