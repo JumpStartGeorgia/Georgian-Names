@@ -3,6 +3,8 @@ class RootController < ApplicationController
   def index
     @top_first = Name.top_first_names
     @top_last = Name.top_last_names
+    @total_first = NameTotal.first_name
+    @total_last = NameTotal.last_name
   end
 
   def first_name

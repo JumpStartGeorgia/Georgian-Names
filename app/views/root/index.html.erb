@@ -8,6 +8,9 @@
       </li>
     <% end %>
     </ol>
+    <p>
+    Total First Names: <%= number_with_delimiter(@total_first.count)%>
+    </p>
    </div> 
   <div class="span4">
     <h3>Top Last Names</h3>
@@ -18,5 +21,8 @@
       </li>
     <% end %>
     </ol>
+    <p>
+    Total Last Names: <%= number_with_delimiter(@total_last.count)%>
+    </p>
    </div> 
 </div>   

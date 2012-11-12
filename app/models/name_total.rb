@@ -3,4 +3,12 @@ class NameTotal < ActiveRecord::Base
 	
 	
 	TYPE = {:name => 1, :first_name_district => 2, :first_name_birth_year => 3, :last_name_district => 4, :last_name_birth_year => 5}
+	
+	def self.first_name
+	  where(:total_type => NameTotal::TYPE[:name], :identifier => Name::TYPE[:first_name]).first
+	end
+
+	def self.last_name
+	  where(:total_type => NameTotal::TYPE[:name], :identifier => Name::TYPE[:last_name]).first
+	end
 end
