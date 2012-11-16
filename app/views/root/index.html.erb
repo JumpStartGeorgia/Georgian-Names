@@ -1,6 +1,6 @@
 <div class="row">
   <div class="span4">
-    <h3>First Names</h3>
+    <h3><%= t('app.common.first_name')%></h3>
     
     <%= form_tag search_first_name_path, :method => :get, :class => "form-inline" do %>
 			<%= text_field_tag 'name' %>
@@ -20,7 +20,7 @@
     </p>
    </div> 
   <div class="span4">
-    <h3>Last Names</h3>
+    <h3><%= t('app.common.last_name')%></h3>
 
     <%= form_tag search_last_name_path, :method => :get, :class => "form-inline" do %>
 			<%= text_field_tag 'name' %>

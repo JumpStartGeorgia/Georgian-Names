@@ -10,8 +10,8 @@ class RootController < ApplicationController
   def first_name
     @type = Name::TYPE[:first]
     @name = Name.by_first_name(params[:id])
-    @birth_years = @name.by_years
-    @districts = @name.by_districts
+    @birth_years = @name.by_years if @name
+    @districts = @name.by_districts if @name
 
     render :name
   end
@@ -19,8 +19,8 @@ class RootController < ApplicationController
   def last_name 
     @type = Name::TYPE[:last]
     @name = Name.by_last_name(params[:id])
-    @birth_years = @name.by_years
-    @districts = @name.by_districts
+    @birth_years = @name.by_years if @name
+    @districts = @name.by_districts if @name
     
     render :name
   end
@@ -28,8 +28,8 @@ class RootController < ApplicationController
   def search_first_name
     @type = Name::TYPE[:first]
     @name = Name.by_first_name(params[:name])
-    @birth_years = @name.by_years
-    @districts = @name.by_districts
+    @birth_years = @name.by_years if @name
+    @districts = @name.by_districts if @name
 
     render :name
   end
@@ -37,8 +37,8 @@ class RootController < ApplicationController
   def search_last_name 
     @type = Name::TYPE[:last]
     @name = Name.by_last_name(params[:name])
-    @birth_years = @name.by_years
-    @districts = @name.by_districts
+    @birth_years = @name.by_years if @name
+    @districts = @name.by_districts if @name
     
     render :name
   end

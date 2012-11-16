@@ -7,7 +7,7 @@
   <% if @name %>
    <%= @name.name %>
   <% else %>
-    <%= params[:id] %>
+    <%= params[:name] %>
   <% end %>
 </h1>
 
@@ -38,5 +38,5 @@
      </div> 
   </div>   
 <% else %>
-  <%= "'#{params[:id]}' does not exist."%>
+  <%= "'#{params[:name]}' does not exist."%>
 <% end %>
