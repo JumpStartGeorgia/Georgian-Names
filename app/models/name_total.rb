@@ -11,4 +11,28 @@ class NameTotal < ActiveRecord::Base
 	def self.last_name
 	  where(:total_type => NameTotal::TYPE[:name], :identifier => Name::TYPE[:last_name]).first
 	end
+	
+	def self.first_name_birth_year(year)
+	  if year
+	    where(:total_type => NameTotal::TYPE[:first_name_birth_year], :identifier => year).first
+	  end
+  end
+
+	def self.last_name_birth_year(year)
+	  if year
+	    where(:total_type => NameTotal::TYPE[:last_name_birth_year], :identifier => year).first
+	  end
+  end
+
+	def self.first_name_district(year)
+	  if year
+	    where(:total_type => NameTotal::TYPE[:first_name_district], :identifier => year).first
+	  end
+  end
+
+	def self.last_name_district(year)
+	  if year
+	    where(:total_type => NameTotal::TYPE[:last_name_district], :identifier => year).first
+	  end
+  end
 end

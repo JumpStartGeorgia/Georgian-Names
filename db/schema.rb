@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121112193343) do
+ActiveRecord::Schema.define(:version => 20121116103906) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20121112193343) do
     t.integer  "rank"
   end
 
+  add_index "birth_years", ["count"], :name => "index_birth_years_on_count"
   add_index "birth_years", ["name_id"], :name => "index_birth_years_on_name_id"
 
   create_table "districts", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20121112193343) do
     t.integer  "rank"
   end
 
+  add_index "districts", ["count"], :name => "index_districts_on_count"
   add_index "districts", ["name_id"], :name => "index_districts_on_name_id"
 
   create_table "name_totals", :force => true do |t|
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20121112193343) do
     t.integer  "total_type"
   end
 
+  add_index "name_totals", ["count"], :name => "index_name_totals_on_count"
   add_index "name_totals", ["total_type", "identifier"], :name => "index_name_totals_on_total_type_and_identifier"
 
   create_table "names", :force => true do |t|
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20121112193343) do
     t.integer  "rank"
   end
 
-  add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
+  add_index "names", ["count"], :name => "index_names_on_count"
   add_index "names", ["name_type", "name"], :name => "idx_names"
 
   create_table "users", :force => true do |t|
