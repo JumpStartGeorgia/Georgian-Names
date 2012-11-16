@@ -4,32 +4,39 @@
   <% elsif @type == Name::TYPE[:first] %>
     Last Name: 
   <% end %>
+  <% if @name %>
    <%= @name.name %>
+  <% else %>
+    <%= params[:id] %>
+  <% end %>
 </h1>
 
-
-<div class="row">
-  <div class="span4">
-    <h3>Name Stats</h3>
-    <ul class="standard">
-      <li>Rank: <%= number_with_delimiter(@name.rank) %></li>
-      <li>Total in Country: <%= number_with_delimiter(@name.count) %></li>
-    </ul>
-   </div> 
-  <div class="span4">
-    <h3>Name by Birth Year</h3>
-    <ul class="standard">
-    <% @birth_years.each do |year| %>
-      <li><%= "#{year[:birth_year]} - Rank: #{number_with_delimiter(year[:rank])}; Total: #{number_with_delimiter(year[:count])}" %></li>
-    <% end %>
-    </ul>
-   </div> 
-  <div class="span4">
-    <h3>Name by District</h3>
-    <ul class="standard">
-    <% @districts.each do |district| %>
-      <li><%= "#{district[:district_id]} - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %></li>
-    <% end %>
-    </ul>
-   </div> 
-</div>   
+<% if @name %>
+  <div class="row">
+    <div class="span4">
+      <h3>Name Stats</h3>
+      <ul class="standard">
+        <li>Rank: <%= number_with_delimiter(@name.rank) %></li>
+        <li>Total in Country: <%= number_with_delimiter(@name.count) %></li>
+      </ul>
+     </div> 
+    <div class="span4">
+      <h3>Name by Birth Year</h3>
+      <ul class="standard">
+      <% @birth_years.each do |year| %>
+        <li><%= "#{year[:birth_year]} - Rank: #{number_with_delimiter(year[:rank])}; Total: #{number_with_delimiter(year[:count])}" %></li>
+      <% end %>
+      </ul>
+     </div> 
+    <div class="span4">
+      <h3>Name by District</h3>
+      <ul class="standard">
+      <% @districts.each do |district| %>
+        <li><%= "#{district[:district_id]} - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %></li>
+      <% end %>
+      </ul>
+     </div> 
+  </div>   
+<% else %>
+  <%= "'#{params[:id]}' does not exist."%>
+<% end %>

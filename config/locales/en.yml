@@ -21,6 +21,7 @@ en:
       list: View All
       cancel: Cancel
       reset: Reset
+      search: Search
     titles:
       new: "New %{model}"
       edit: "Edit %{model}"
@@ -45,6 +46,8 @@ en:
       new: New
     common:
       app_name: Bootstrap Starter Project
+      first_name: First Name
+      last_name: Last Name
   layouts:
     application:
       admin: Admin

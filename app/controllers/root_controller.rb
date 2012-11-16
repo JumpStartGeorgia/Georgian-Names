@@ -25,4 +25,22 @@ class RootController < ApplicationController
     render :name
   end
 
+  def search_first_name
+    @type = Name::TYPE[:first]
+    @name = Name.by_first_name(params[:name])
+    @birth_years = @name.by_years
+    @districts = @name.by_districts
+
+    render :name
+  end
+  
+  def search_last_name 
+    @type = Name::TYPE[:last]
+    @name = Name.by_last_name(params[:name])
+    @birth_years = @name.by_years
+    @districts = @name.by_districts
+    
+    render :name
+  end
+
 end

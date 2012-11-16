@@ -21,6 +21,7 @@ ka:
       list: იხილეთ სრულად
       cancel: გაუქმება
       reset: საწყის კონფიგურაციაზე დაბრუნება
+      search: Search
     titles:
       new: "ახალი %{model}"
       edit: "შეცვლა %{model}"
@@ -45,6 +46,8 @@ ka:
       new: ახალი
     common:
       app_name: Bootstrap Starter Project
+      first_name: სახელი
+      last_name: გვარი
   layouts:
     application:
       admin: ადმინისტრატო
