@@ -24,15 +24,15 @@ class NameTotal < ActiveRecord::Base
 	  end
   end
 
-	def self.first_name_district(year)
-	  if year
-	    where(:total_type => NameTotal::TYPE[:first_name_district], :identifier => year).first
+	def self.first_name_district(district)
+	  if district
+	    where(:total_type => NameTotal::TYPE[:first_name_district], :identifier => district).first
 	  end
   end
 
-	def self.last_name_district(year)
-	  if year
-	    where(:total_type => NameTotal::TYPE[:last_name_district], :identifier => year).first
+	def self.last_name_district(district)
+	  if district
+	    where(:total_type => NameTotal::TYPE[:last_name_district], :identifier => district).first
 	  end
   end
 end

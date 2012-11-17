@@ -24,7 +24,10 @@
       <h3>Name by Birth Year</h3>
       <ul class="standard">
       <% @birth_years.each do |year| %>
-        <li><%= "#{year[:birth_year]} - Rank: #{number_with_delimiter(year[:rank])}; Total: #{number_with_delimiter(year[:count])}" %></li>
+        <li>
+          <%= link_to year[:birth_year], year_path(year[:birth_year]) %>
+          <%= " - Rank: #{number_with_delimiter(year[:rank])}; Total: #{number_with_delimiter(year[:count])}" %>
+        </li>
       <% end %>
       </ul>
      </div> 
@@ -32,7 +35,10 @@
       <h3>Name by District</h3>
       <ul class="standard">
       <% @districts.each do |district| %>
-        <li><%= "#{district[:district_id]} - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %></li>
+        <li>
+          <%= link_to district[:district_id], district_path(district[:district_id]) %>
+          <%= " - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %>
+        </li>
       <% end %>
       </ul>
      </div> 
