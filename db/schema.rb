@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117160057) do
+ActiveRecord::Schema.define(:version => 20121117171002) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20121117160057) do
   add_index "birth_years", ["birth_year"], :name => "index_birth_years_on_birth_year"
   add_index "birth_years", ["count"], :name => "index_birth_years_on_count"
   add_index "birth_years", ["name_id"], :name => "index_birth_years_on_name_id"
+
+  create_table "district_names", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "district_names", ["name"], :name => "index_district_names_on_name"
 
   create_table "districts", :force => true do |t|
     t.integer  "name_id"

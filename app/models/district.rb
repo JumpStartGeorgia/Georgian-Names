@@ -1,5 +1,6 @@
 class District < ActiveRecord::Base
 	belongs_to :name
+	belongs_to :district_name, :class_name => "DistrictName", :foreign_key => "district_id"
 
 	attr_accessible :name_id, :district_id, :count
 	attr_accessible :district_count

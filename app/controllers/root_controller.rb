@@ -52,11 +52,14 @@ class RootController < ApplicationController
   end
   
   def district 
-    @district_first_names = District.by_district(params[:id], Name::TYPE[:first_name])
-    @total_first = NameTotal.first_name_district(params[:id])
-    @district_last_names = District.by_district(params[:id], Name::TYPE[:last_name])
-    @total_last = NameTotal.last_name_district(params[:id])
-    @population = NameTotal.district_population(params[:id])
+    @district = DistrictName.find_by_id(params[:id])
+    if @district
+      @district_first_names = District.by_district(params[:id], Name::TYPE[:first_name])
+      @total_first = NameTotal.first_name_district(params[:id])
+      @district_last_names = District.by_district(params[:id], Name::TYPE[:last_name])
+      @total_last = NameTotal.last_name_district(params[:id])
+      @population = NameTotal.district_population(params[:id])
+    end
   end
 
 

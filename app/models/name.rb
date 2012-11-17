@@ -34,7 +34,7 @@ class Name < ActiveRecord::Base
 	end
 
 	def by_districts
-		districts.map{|x| {:district_id => x.district_id, :count => x.count, :rank => x.rank}}
+		districts.map{|x| {:district_id => x.district_id, :district_name => x.district_name.name, :count => x.count, :rank => x.rank}}
 	end
 	
 
