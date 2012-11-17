@@ -44,21 +44,17 @@ class RootController < ApplicationController
   end
 
   def year
-    @first_names = BirthYear.by_year(params[:id], Name::TYPE[:first_name])
-    @total_first_name = NameTotal.first_name_birth_year(params[:id])
-    @last_names = BirthYear.by_year(params[:id], Name::TYPE[:last_name])
-    @total_last_name = NameTotal.last_name_birth_year(params[:id])
-
-    render :name
+    @year_first_names = BirthYear.by_year(params[:id], Name::TYPE[:first_name])
+    @total_first = NameTotal.first_name_birth_year(params[:id])
+    @year_last_names = BirthYear.by_year(params[:id], Name::TYPE[:last_name])
+    @total_last = NameTotal.last_name_birth_year(params[:id])
   end
   
   def district 
-    @first_names = District.by_district(params[:id], Name::TYPE[:first_name])
-    @total_first_name = NameTotal.first_name_district(params[:id])
-    @last_names = District.by_district(params[:id], Name::TYPE[:last_name])
-    @total_last_name = NameTotal.last_name_district(params[:id])
-    
-    render :name
+    @district_first_names = District.by_district(params[:id], Name::TYPE[:first_name])
+    @total_first = NameTotal.first_name_district(params[:id])
+    @district_last_names = District.by_district(params[:id], Name::TYPE[:last_name])
+    @total_last = NameTotal.last_name_district(params[:id])
   end
 
 
