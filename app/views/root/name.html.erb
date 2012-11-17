@@ -36,7 +36,7 @@
       <ul class="standard">
       <% @districts.each do |district| %>
         <li>
-          <%= link_to district[:district_name], district_path(district[:district_id]) %>
+          <%= link_to district[:district_name], district_path(district[:district_name]) %>
           <%= " - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %>
         </li>
       <% end %>
