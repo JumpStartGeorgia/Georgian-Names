@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20121116103906) do
     t.integer  "rank"
   end
 
+  add_index "birth_years", ["birth_year"], :name => "index_birth_years_on_birth_year"
   add_index "birth_years", ["count"], :name => "index_birth_years_on_count"
   add_index "birth_years", ["name_id"], :name => "index_birth_years_on_name_id"
 
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20121116103906) do
   end
 
   add_index "districts", ["count"], :name => "index_districts_on_count"
+  add_index "districts", ["district_id"], :name => "index_districts_on_district_id"
   add_index "districts", ["name_id"], :name => "index_districts_on_name_id"
 
   create_table "name_totals", :force => true do |t|
