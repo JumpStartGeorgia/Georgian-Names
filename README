@@ -3,3 +3,8 @@ JumpStart's Georgian Names Project
 A simple application to search for Georgian names (first or last) and see how popular it is.
 
 The data comes from the August 2012 Voter List. Since the data comes from the voter list, anyone under the age of 18 is not included.  At this time, this is the most accurate list of names in Georgia.  Well, that I know of.
+
+TODO
+- create birth year graphs
+- create map
+- use js to convert ascii input to utf8 ka as they type in the search box
