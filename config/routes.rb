@@ -10,8 +10,8 @@ BootstrapStarter::Application.routes.draw do
 			resources :users
 		end
 
-    match '/sakheli/:id', :to => 'root#first_name', :as => :first_name, :via => :get
-    match '/gvari/:id', :to => 'root#last_name', :as => :last_name, :via => :get
+    match '/sakheli/:name', :to => 'root#first_name', :as => :first_name, :via => :get
+    match '/gvari/:name', :to => 'root#last_name', :as => :last_name, :via => :get
     match '/district/:id', :to => 'root#district', :as => :district, :via => :get
     match '/year/:id', :to => 'root#year', :as => :year, :via => :get
     match '/search_sakheli', :to => 'root#search_first_name', :as => :search_first_name, :via => :get

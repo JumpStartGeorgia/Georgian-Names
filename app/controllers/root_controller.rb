@@ -8,8 +8,8 @@ class RootController < ApplicationController
   end
 
   def first_name
-    @type = Name::TYPE[:first]
-    @name = Name.by_first_name(params[:id])
+    @type = Name::TYPE[:first_name]
+    @name = Name.by_first_name(params[:name])
     @birth_years = @name.by_years if @name
     @districts = @name.by_districts if @name
 
@@ -17,8 +17,8 @@ class RootController < ApplicationController
   end
   
   def last_name 
-    @type = Name::TYPE[:last]
-    @name = Name.by_last_name(params[:id])
+    @type = Name::TYPE[:last_name]
+    @name = Name.by_last_name(params[:name])
     @birth_years = @name.by_years if @name
     @districts = @name.by_districts if @name
     
@@ -26,7 +26,7 @@ class RootController < ApplicationController
   end
 
   def search_first_name
-    @type = Name::TYPE[:first]
+    @type = Name::TYPE[:first_name]
     @name = Name.by_first_name(params[:name])
     @birth_years = @name.by_years if @name
     @districts = @name.by_districts if @name
@@ -35,11 +35,11 @@ class RootController < ApplicationController
   end
   
   def search_last_name 
-    @type = Name::TYPE[:last]
+    @type = Name::TYPE[:last_name]
     @name = Name.by_last_name(params[:name])
     @birth_years = @name.by_years if @name
     @districts = @name.by_districts if @name
-    
+    logger.debug "type = #{@type}"
     render :name
   end
 
