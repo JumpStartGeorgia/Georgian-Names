@@ -5,6 +5,8 @@ class RootController < ApplicationController
     @top_last = Name.top_last_names
     @total_first = NameTotal.first_name
     @total_last = NameTotal.last_name
+    
+    gon.chart_age_population = true
   end
 
   def first_name
