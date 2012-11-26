@@ -10,9 +10,6 @@ $(function () {
             title: {
                 text: 'Number of People With a Given Age'
             },
-            subtitle: {
-                text: 'Source: 2012 August Voter List'
-            },
             xAxis: {
                 title: {
                     text: 'Age'

@@ -1,30 +1,12 @@
 <div class="row">
-  <div class="span4">
-    <h3><%= t('app.common.first_name')%></h3>    
-    <ol class="standard">
-    <% @top_first.each do |name| %>
-      <li>
-        <%= link_to name.name, first_name_path(name.name) %><%= ": #{number_with_delimiter(name.count)}" %>
-      </li>
-    <% end %>
-    </ol>
-    <p>
-    Total First Names: <%= number_with_delimiter(@total_first.count)%>
-    </p>
-   </div> 
-  <div class="span4">
-    <h3><%= t('app.common.last_name')%></h3>
-    <ol class="standard">
-    <% @top_last.each do |name| %>
-      <li>
-        <%= link_to name.name, last_name_path(name.name) %><%= ": #{number_with_delimiter(name.count)}" %>
-      </li>
-    <% end %>
-    </ol>
-    <p>
-    Total Last Names: <%= number_with_delimiter(@total_last.count)%>
-    </p>
-   </div>  
+  <div class="span6">
+    <div id="chart_top_fnames" style="min-width: 300px; height: 300px; margin: 20px auto"></div>
+  </div> 
+  <div class="span6">
+    <div id="chart_top_lnames" style="min-width: 300px; height: 300px; margin: 20px auto"></div>
+  </div>  
 </div>   
 
-<div id="chart_age_population" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<div id="chart_age_population" style="min-width: 400px; height: 400px; margin: 20px auto"></div>
+
+

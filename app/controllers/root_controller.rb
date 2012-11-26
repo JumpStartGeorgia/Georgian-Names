@@ -1,12 +1,14 @@
 class RootController < ApplicationController
 
   def index
-    @top_first = Name.top_first_names
-    @top_last = Name.top_last_names
-    @total_first = NameTotal.first_name
-    @total_last = NameTotal.last_name
+#    @top_first = Name.top_first_names
+#    @top_last = Name.top_last_names
+#    @total_first = NameTotal.first_name
+#    @total_last = NameTotal.last_name
     
     gon.chart_age_population = true
+    gon.chart_top_fnames = true
+    gon.chart_top_lnames = true
   end
 
   def first_name
