@@ -45,7 +45,7 @@ en:
       confirm: Are you sure?
       new: New
     common:
-      app_name: Bootstrap Starter Project
+      app_name: "What's in a Georgian Name?"
       first_name: First Name
       last_name: Last Name
   layouts:

@@ -29,8 +29,12 @@ class Name < ActiveRecord::Base
     where(:name_type => Name::TYPE[:last_name]).order("count desc").limit(limit)
   end
 
-	def by_years
+	def by_years_hash
 		birth_years.map{|x| {:birth_year => x.birth_year, :count => x.count, :rank => x.rank}}
+	end
+
+	def by_age_array
+		birth_years.map{|x| [2012-x.birth_year, x.count, x.rank]}.sort{|a,b| a[0] <=> b[0]}
 	end
 
 	def by_districts

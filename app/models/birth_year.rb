@@ -10,4 +10,5 @@ class BirthYear < ActiveRecord::Base
       .order("birth_years.count desc, names.name asc").limit(limit)
     end
   end
+  
 end

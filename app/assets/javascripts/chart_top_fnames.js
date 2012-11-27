@@ -4,17 +4,17 @@ $(function () {
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'chart_top_fnames',
+                renderTo: gon.chart_top_fnames_id,
                 type: 'bar'
             },
             title: {
-                text: 'Top 10 First Names'
+                text: gon.chart_top_fnames_title
             },
             subtitle: {
-                text: 'Total First Names: 47,180'
+                text: gon.chart_top_fnames_subtitle
             },
             xAxis: {
-                categories: ['გიორგი', 'ნინო', 'დავით', 'მაია', 'თამარ', 'ნანა', 'მანანა', 'ნათელა', 'ნათია', 'ზურაბ'],
+                categories: gon.chart_top_fnames_yaxis_names,
                 title: {
                     text: null
                 }
@@ -22,7 +22,7 @@ $(function () {
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Number of People with First Name',
+                    text: gon.chart_top_fnames_yaxis,
                     align: 'middle'
                 },
                 labels: {
@@ -68,7 +68,7 @@ $(function () {
                             }
                         }
                     },
-                data: [115360, 81036, 48721, 44442, 43021, 37315, 33257, 31958, 30364, 28741]
+                data: gon.chart_top_fnames_yaxis_data
             }]
         });
     });

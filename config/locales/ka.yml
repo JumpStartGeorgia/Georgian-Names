@@ -45,7 +45,7 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: Bootstrap Starter Project
+      app_name: "What's in a Georgian Name?"
       first_name: სახელი
       last_name: გვარი
   layouts:

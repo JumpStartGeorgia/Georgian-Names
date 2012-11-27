@@ -1,10 +1,19 @@
 <h1>
-  Birth Year: <%= params[:id] %>
+  <%= 2012-params[:id].to_i %> Years Old (<%= params[:id] %>)
 </h1>
 
 <h3>
   Number of People Born in this Year: <%= number_with_delimiter(@population.count) %>
 </h3>
+
+<div class="row">
+  <div class="span6">
+    <div id="chart_top_fnames" style="min-width: 300px; height: 300px; margin: 20px auto"></div>
+  </div> 
+  <div class="span6">
+    <div id="chart_top_lnames" style="min-width: 300px; height: 300px; margin: 20px auto"></div>
+  </div>  
+</div>   
 
 <div class="row">
   <div class="span4">

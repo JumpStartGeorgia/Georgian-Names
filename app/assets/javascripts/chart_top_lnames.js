@@ -4,17 +4,17 @@ $(function () {
     $(document).ready(function() {
         chart = new Highcharts.Chart({
             chart: {
-                renderTo: 'chart_top_lnames',
+                renderTo: gon.chart_top_lnames_id,
                 type: 'bar'
             },
             title: {
-                text: 'Top 10 Last Names'
+                text: gon.chart_top_lnames_title
             },
             subtitle: {
-                text: 'Total Last Names: 74,481'
+                text: gon.chart_top_lnames_subtitle
             },
             xAxis: {
-                categories: ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე'],
+                categories: gon.chart_top_lnames_yaxis_names,
                 title: {
                     text: null
                 }
@@ -22,7 +22,7 @@ $(function () {
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Number of People with Last Name',
+                    text: gon.chart_top_lnames_yaxis,
                     align: 'middle'
                 },
                 labels: {
@@ -68,7 +68,7 @@ $(function () {
                             }
                         }
                     },
-                data: [21033, 14449, 13912, 12586, 10827, 10250, 9977, 9977, 9184, 9152]
+                data: gon.chart_top_lnames_yaxis_data
             }]
         });
     });
