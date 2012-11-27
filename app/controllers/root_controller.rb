@@ -1,5 +1,6 @@
 # encoding: utf-8
 class RootController < ApplicationController
+	require 'utf8_converter'
 
   def index
 #    @top_first = Name.top_first_names
@@ -30,6 +31,19 @@ class RootController < ApplicationController
     gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
     gon.chart_top_lnames_yaxis_names = ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე']
     gon.chart_top_lnames_yaxis_data = [21033, 14449, 13912, 12586, 10827, 10250, 9977, 9977, 9184, 9152]
+
+
+		if I18n.locale != :ka
+			# convert georgian characters to latin
+			(0..gon.chart_top_fnames_yaxis_names.length-1).each do |i|
+				gon.chart_top_fnames_yaxis_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_fnames_yaxis_names[i]).titlecase
+			end
+			(0..gon.chart_top_lnames_yaxis_names.length-1).each do |i|
+				gon.chart_top_lnames_yaxis_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_lnames_yaxis_names[i]).titlecase
+			end
+		end
+
+
   end
 
   def first_name

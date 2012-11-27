@@ -1,4 +1,5 @@
 class DistrictName < ActiveRecord::Base
+	require 'utf8_converter'
 	attr_accessible :name, :id
 
   has_many :districts
