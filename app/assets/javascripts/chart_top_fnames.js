@@ -64,7 +64,7 @@ $(function () {
                 point: {
                         events: {
                             click: function() {
-                                location.href = gon.first_name_path + chart.xAxis[0].categories[this.x];
+                                location.href = gon.first_name_path + gon.chart_top_fnames_link_names[this.x];
                             }
                         }
                     },

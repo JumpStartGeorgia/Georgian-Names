@@ -22,6 +22,7 @@ class RootController < ApplicationController
     gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(47180)}"
     gon.chart_top_fnames_yaxis = 'Number of People with First Name'
     gon.chart_top_fnames_yaxis_names = ['გიორგი', 'ნინო', 'დავით', 'მაია', 'თამარ', 'ნანა', 'მანანა', 'ნათელა', 'ნათია', 'ზურაბ']
+    gon.chart_top_fnames_link_names = ['გიორგი', 'ნინო', 'დავით', 'მაია', 'თამარ', 'ნანა', 'მანანა', 'ნათელა', 'ნათია', 'ზურაბ']
     gon.chart_top_fnames_yaxis_data = [115360, 81036, 48721, 44442, 43021, 37315, 33257, 31958, 30364, 28741]
 
     gon.chart_top_lnames = true
@@ -30,6 +31,7 @@ class RootController < ApplicationController
     gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(74481)}"
     gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
     gon.chart_top_lnames_yaxis_names = ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე']
+    gon.chart_top_lnames_link_names = ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე']
     gon.chart_top_lnames_yaxis_data = [21033, 14449, 13912, 12586, 10827, 10250, 9977, 9977, 9184, 9152]
 
 
@@ -58,7 +60,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_data = years_array
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age'
+      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
     end
 
@@ -78,7 +80,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_data = years_array
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age'
+      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
     end
 
@@ -98,7 +100,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_data = years_array
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age'
+      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
     end
 
@@ -117,7 +119,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_data = years_array
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age'
+      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
     end
 

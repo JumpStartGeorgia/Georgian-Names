@@ -32,7 +32,12 @@ $(function () {
             tooltip: {
                 crosshairs: true,
                 formatter: function() {
-                        return this.x +' years old (' + (2012-this.x) + '): '+ Highcharts.numberFormat(this.y,0,',');
+                    var x = '<strong>' + this.x +' years old (' + (2012-this.x) + ')</strong>'+ 
+                        '<br/>Total: ' + Highcharts.numberFormat(this.y,0,',');
+                    if (this.point.config.length > 2){
+                      x += '<br />Rank: ' + this.point.config[2];
+                    }
+                    return x;
                 }
             },
             series: [{
