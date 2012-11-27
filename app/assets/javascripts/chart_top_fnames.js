@@ -60,6 +60,14 @@ $(function () {
             },
             series: [{
                 showInLegend: false,
+                cursor: 'pointer',
+                point: {
+                        events: {
+                            click: function() {
+                                location.href = gon.first_name_path + chart.xAxis[0].categories[this.x];
+                            }
+                        }
+                    },
                 data: [115360, 81036, 48721, 44442, 43021, 37315, 33257, 31958, 30364, 28741]
             }]
         });

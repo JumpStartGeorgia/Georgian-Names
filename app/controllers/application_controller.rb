@@ -58,6 +58,10 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 	def initialize_gon
 		gon.set = true
 		gon.highlight_first_form_field = true
+		x = "placeholder"
+		gon.year_path = year_path(x).gsub(x, "")
+		gon.first_name_path = first_name_path(x).gsub(x, "")
+		gon.last_name_path = last_name_path(x).gsub(x, "")
 	end
 
 	# after user logs in, go to admin page
