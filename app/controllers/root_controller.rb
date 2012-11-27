@@ -9,7 +9,7 @@ class RootController < ApplicationController
 #    @total_last = NameTotal.last_name
 
     gon.chart_age_population = true
-    gon.chart_age_pop_title = 'Number of People With a Given Age'
+    gon.chart_age_pop_title = 'Age of the Population'
     gon.chart_age_pop_subtitle = "Total Population: #{view_context.number_with_delimiter(3613745)}"
     gon.chart_age_pop_xaxis = 'Age'
     gon.chart_age_pop_yaxis = '# of People'
