@@ -148,6 +148,7 @@ class RootController < ApplicationController
     gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(@total_first.count)}"
     gon.chart_top_fnames_yaxis = 'Number of People with First Name'
     gon.chart_top_fnames_yaxis_names = @year_first_names.map{|x| x.name.name}
+    gon.chart_top_fnames_link_names = @year_first_names.map{|x| x.name.name}
     gon.chart_top_fnames_yaxis_data = @year_first_names.map{|x| x.count}
 
     gon.chart_top_lnames = true
@@ -156,6 +157,7 @@ class RootController < ApplicationController
     gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(@total_last.count)}"
     gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
     gon.chart_top_lnames_yaxis_names = @year_last_names.map{|x| x.name.name}
+    gon.chart_top_lnames_link_names = @year_last_names.map{|x| x.name.name}
     gon.chart_top_lnames_yaxis_data = @year_last_names.map{|x| x.count}
 
   end
@@ -175,6 +177,7 @@ class RootController < ApplicationController
       gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(@total_first.count)}"
       gon.chart_top_fnames_yaxis = 'Number of People with First Name'
       gon.chart_top_fnames_yaxis_names = @district_first_names.map{|x| x.name.name}
+      gon.chart_top_fnames_link_names = @district_first_names.map{|x| x.name.name}
       gon.chart_top_fnames_yaxis_data = @district_first_names.map{|x| x.count}
 
       gon.chart_top_lnames = true
@@ -183,6 +186,7 @@ class RootController < ApplicationController
       gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(@total_last.count)}"
       gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
       gon.chart_top_lnames_yaxis_names = @district_last_names.map{|x| x.name.name}
+      gon.chart_top_lnames_link_names = @district_last_names.map{|x| x.name.name}
       gon.chart_top_lnames_yaxis_data = @district_last_names.map{|x| x.count}
     end
   end

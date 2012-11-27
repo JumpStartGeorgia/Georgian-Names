@@ -97,7 +97,8 @@ $(function () {
             
             // set the data series
             options.series = [{
-                showInLegend: false,
+                //showInLegend: false,
+                name: gon.chart_age_pop_yaxis,
                 cursor: 'pointer',
                 color: '#4572A7',
                 point: {
@@ -109,7 +110,8 @@ $(function () {
                     },
                 data: gon.chart_age_pop_data
             }, {
-                showInLegend: false,
+                //showInLegend: false,
+                name: gon.chart_age_pop_yaxis2,
                 yAxis: 1,
                 color: '#AA4643',
                 data: gon.chart_age_rank_data
