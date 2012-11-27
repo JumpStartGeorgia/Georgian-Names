@@ -1,11 +1,19 @@
 class Name < ActiveRecord::Base
-
+	require 'utf8_converter'
 	has_many :birth_years
 	has_many :districts
 
 	attr_accessible :name_type, :name, :count
 
   TYPE = {:first_name => 1, :last_name => 2}
+
+	def name
+		if I18n.locale == :ka
+			return read_attribute(:name)
+		else
+			return Utf8Converter.convert_ka_to_en(read_attribute(:name)).titlecase
+		end
+	end
 
 	def self.by_first_name(first_name)
 		if first_name
@@ -40,6 +48,6 @@ class Name < ActiveRecord::Base
 	def by_districts
 		districts.includes(:district_name).order("district_names.name").map{|x| {:district_id => x.district_id, :district_name => x.district_name.name, :count => x.count, :rank => x.rank}}
 	end
-	
+
 
 end
