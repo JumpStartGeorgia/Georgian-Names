@@ -58,10 +58,12 @@ class RootController < ApplicationController
 
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
+      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
       gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
+      gon.chart_age_pop_yaxis2 = 'Name Rank'
     end
 
     render :name
@@ -78,10 +80,13 @@ class RootController < ApplicationController
 
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
+      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
       gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
+      gon.chart_age_pop_yaxis2 = 'Name Rank'
+
     end
 
     render :name
@@ -98,10 +103,12 @@ class RootController < ApplicationController
 
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
+      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
       gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
+      gon.chart_age_pop_yaxis2 = 'Name Rank'
     end
 
     render :name
@@ -117,10 +124,12 @@ class RootController < ApplicationController
 
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
+      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
       gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
       gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
       gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
       gon.chart_age_pop_yaxis = '# of People'
+      gon.chart_age_pop_yaxis2 = 'Name Rank'
     end
 
     render :name
