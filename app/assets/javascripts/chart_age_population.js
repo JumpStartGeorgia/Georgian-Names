@@ -17,7 +17,11 @@ $(function () {
                 title: {
                     text: gon.chart_age_pop_xaxis
                 },
-                min: 15
+                labels: {
+                  formatter: function() {
+                        return this.value + '<br/> (' + (2012-this.value) + ')';
+                  }
+                }
             },
             yAxis: {
                 title: {
