@@ -1,9 +1,11 @@
 <h1>
-  <%= generate_medal number_with_delimiter(@name.rank) %>
+
+  <%= generate_medal number_with_delimiter(@name.rank) if @name %>
+
   <% if @type == Name::TYPE[:first_name] %>
     First Name:
   <% elsif @type == Name::TYPE[:last_name] %>
-    Last Name: 
+    Last Name:
   <% end %>
   <% if @name %>
    <%= @name.name %>
@@ -24,7 +26,7 @@
         <li>Rank: <%= number_with_delimiter(@name.rank) %></li>
         <li>Total in Country: <%= number_with_delimiter(@name.count) %></li>
       </ul>
-     </div> 
+     </div>
     <div class="span4">
       <h3>Name by Birth Year</h3>
       <ul class="standard">
@@ -35,7 +37,7 @@
         </li>
       <% end %>
       </ul>
-     </div> 
+     </div>
     <div class="span4">
       <h3>Name by District</h3>
       <ul class="standard">
@@ -46,8 +48,8 @@
         </li>
       <% end %>
       </ul>
-     </div> 
-  </div>   
+     </div>
+  </div>
 <% else %>
   <%= "'#{params[:name]}' does not exist."%>
 <% end %>
