@@ -1,4 +1,5 @@
 <h1>
+  <%= generate_medal number_with_delimiter(@name.rank) %>
   <% if @type == Name::TYPE[:first_name] %>
     First Name:
   <% elsif @type == Name::TYPE[:last_name] %>
@@ -12,6 +13,8 @@
 </h1>
 
 <% if @name %>
+
+
   <div id="chart_age_population" style="min-width: 400px; height: 400px; margin: 20px auto"></div>
 
   <div class="row">

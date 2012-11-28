@@ -24,6 +24,28 @@ module ApplicationHelper
 		text.html_safe
 	end
 
+  def generate_medal(rank)
+    x = nil
+    if rank
+      img_path = 'medal-th.png'
+      case rank.to_i
+        when 1
+          img_path = 'gold-medal-th.png'
+        when 2
+          img_path = 'silver-medal-th.png'
+        when 3
+          img_path = 'bronze-medal-th.png'
+      end
+      x = content_tag :div, :class => 'medal_wrapper' do
+        image_tag(img_path) +
+        content_tag(:div, content_tag(:p, "##{rank}"), :class => 'medal_text')
+      end
+    end
+    Rails.logger.debug "@@@@@@@@@@@ rank = #{rank}, class = #{rank.class}"
+    Rails.logger.debug "@@@@@@@@@@@ img path = #{img_path}"
+    Rails.logger.debug "@@@@@@@@@@@ x = #{x}"
+    return x
+  end
 
 	# Based on https://gist.github.com/1182136
   class BootstrapLinkRenderer < ::WillPaginate::ActionView::LinkRenderer
