@@ -1,7 +1,8 @@
 # encoding: utf-8
 class RootController < ApplicationController
 	require 'utf8_converter'
-
+  require 'add_data_to_json'
+  
   def index
 #    @top_first = Name.top_first_names
 #    @top_last = Name.top_last_names
@@ -51,43 +52,14 @@ class RootController < ApplicationController
   def first_name
     @type = Name::TYPE[:first_name]
     @name = Name.by_first_name(params[:name])
-    if @name
-      @birth_years = @name.by_years_hash
-      years_array = @name.by_age_array
-      @districts = @name.by_districts
-
-      gon.chart_age_population = true
-      gon.chart_age_pop_data = years_array
-      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
-      gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
-      gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
-      gon.chart_age_pop_yaxis = '# of People'
-      gon.chart_age_pop_yaxis2 = 'Name Rank'
-    end
-
+    load_name_variables
     render :name
   end
 
   def last_name
     @type = Name::TYPE[:last_name]
     @name = Name.by_last_name(params[:name])
-
-    if @name
-      @birth_years = @name.by_years_hash
-      years_array = @name.by_age_array
-      @districts = @name.by_districts
-
-      gon.chart_age_population = true
-      gon.chart_age_pop_data = years_array
-      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
-      gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
-      gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
-      gon.chart_age_pop_yaxis = '# of People'
-      gon.chart_age_pop_yaxis2 = 'Name Rank'
-
-    end
+    load_name_variables
 
     render :name
   end
@@ -95,21 +67,7 @@ class RootController < ApplicationController
   def search_first_name
     @type = Name::TYPE[:first_name]
     @name = Name.by_first_name(params[:name])
-
-    if @name
-      @birth_years = @name.by_years_hash
-      years_array = @name.by_age_array
-      @districts = @name.by_districts
-
-      gon.chart_age_population = true
-      gon.chart_age_pop_data = years_array
-      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
-      gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
-      gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
-      gon.chart_age_pop_yaxis = '# of People'
-      gon.chart_age_pop_yaxis2 = 'Name Rank'
-    end
+    load_name_variables
 
     render :name
   end
@@ -117,20 +75,7 @@ class RootController < ApplicationController
   def search_last_name
     @type = Name::TYPE[:last_name]
     @name = Name.by_last_name(params[:name])
-    if @name
-      @birth_years = @name.by_years_hash
-      years_array = @name.by_age_array
-      @districts = @name.by_districts
-
-      gon.chart_age_population = true
-      gon.chart_age_pop_data = years_array
-      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
-      gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
-      gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
-      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
-      gon.chart_age_pop_yaxis = '# of People'
-      gon.chart_age_pop_yaxis2 = 'Name Rank'
-    end
+    load_name_variables
 
     render :name
   end
@@ -191,5 +136,32 @@ class RootController < ApplicationController
     end
   end
 
+  protected
+  def load_name_variables
+    if @name
+      @birth_years = @name.by_years_hash
+      years_array = @name.by_age_array
+      @districts = @name.by_districts
 
+      # get shape json and add data to json
+      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
+      AddDataToJson.rank(json,@districts)
+
+      gon.chart_age_population = true
+      gon.chart_age_pop_data = years_array
+      gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
+      gon.chart_age_pop_title = "Number of '#{@name.name}' With a Given Age"
+      gon.chart_age_pop_subtitle = "Number of '#{@name.name}': #{view_context.number_with_delimiter(@name.count)}"
+      gon.chart_age_pop_xaxis = 'Age<br />(Birth Year)'
+      gon.chart_age_pop_yaxis = '# of People'
+      gon.chart_age_pop_yaxis2 = 'Name Rank'
+      
+      gon.map_json = json
+      gon.map_title = "'#{@name.name}' Rank by District"
+      gon.map_sub_title1 = "Overall Rank: #{view_context.number_with_delimiter(@name.rank)}"
+      gon.map_sub_title2 = "Overall Total: #{view_context.number_with_delimiter(@name.count)}"
+      @color_legend = AddDataToJson.rank_colors
+    end
+  end
+  
 end
