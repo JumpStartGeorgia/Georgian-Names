@@ -8,6 +8,7 @@ var w = 960,
 
 var map = d3.select("#map")
   .append("svg:svg")
+    .attr("id", "svg_map")
     .attr("width", w + 40)
     .attr("height", h + 20);
 
