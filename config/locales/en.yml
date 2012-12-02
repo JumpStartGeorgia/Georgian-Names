@@ -45,7 +45,7 @@ en:
       confirm: Are you sure?
       new: New
     common:
-      app_name: "What's in a Georgian Name?"
+      app_name: "What's in a Name?"
       first_name: First Name
       last_name: Last Name
   layouts:

@@ -7,17 +7,20 @@ module AddDataToJson
           value['properties']['rank'] = 'No Data'
           value['properties']['count'] = 'No Data'
           value['properties']['color'] = '#666666'
+          value['properties']['url'] = nil
         else
           data_record = data.select{|x| x[:district_id] == value['properties']['district_id']}
           if data_record && !data_record.empty?
             value['properties']['rank'] = data_record.first[:rank]
             value['properties']['count'] = data_record.first[:count]
             value['properties']['color'] = get_rank_color(data_record.first[:rank])
+            value['properties']['url'] = Rails.application.routes.url_helpers.district_path(:id => data_record.first[:permalink], :locale => I18n.locale)
           else
             # no data exists
             value['properties']['rank'] = 'No Data'
             value['properties']['count'] = 'No Data'
             value['properties']['color'] = '#666666'
+            value['properties']['url'] = nil
           end
         end
       end

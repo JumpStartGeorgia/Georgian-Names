@@ -45,7 +45,7 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: "What's in a Georgian Name?"
+      app_name: "What's in a Name?"
       first_name: სახელი
       last_name: გვარი
   layouts:

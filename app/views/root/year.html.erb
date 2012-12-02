@@ -21,7 +21,7 @@
     <ol class="standard">
     <% @year_first_names.each do |year| %>
       <li>
-        <%= link_to year.name.name, first_name_path(year.name.name) %><%= ": #{number_with_delimiter(year.count)}" %>
+        <%= link_to year.name.name, first_name_path(year.name.permalink) %><%= ": #{number_with_delimiter(year.count)}" %>
       </li>
     <% end %>
     </ol>
@@ -34,7 +34,7 @@
     <ol class="standard">
     <% @year_last_names.each do |year| %>
       <li>
-        <%= link_to year.name.name, last_name_path(year.name.name) %><%= ": #{number_with_delimiter(year.count)}" %>
+        <%= link_to year.name.name, last_name_path(year.name.permalink) %><%= ": #{number_with_delimiter(year.count)}" %>
       </li>
     <% end %>
     </ol>

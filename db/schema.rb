@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117171002) do
+ActiveRecord::Schema.define(:version => 20121202181125) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(:version => 20121117171002) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name_en"
   end
 
   add_index "district_names", ["name"], :name => "index_district_names_on_name"
+  add_index "district_names", ["name_en"], :name => "index_district_names_on_name_en"
 
   create_table "districts", :force => true do |t|
     t.integer  "name_id"
@@ -65,10 +67,11 @@ ActiveRecord::Schema.define(:version => 20121117171002) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rank"
+    t.string   "name_en"
   end
 
   add_index "names", ["count"], :name => "index_names_on_count"
-  add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
+  add_index "names", ["name_en"], :name => "index_names_on_name_en"
   add_index "names", ["name_type", "name"], :name => "idx_names"
 
   create_table "users", :force => true do |t|

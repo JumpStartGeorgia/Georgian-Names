@@ -23,7 +23,6 @@ class RootController < ApplicationController
     gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(47180)}"
     gon.chart_top_fnames_yaxis = 'Number of People with First Name'
     gon.chart_top_fnames_yaxis_names = ['გიორგი', 'ნინო', 'დავით', 'მაია', 'თამარ', 'ნანა', 'მანანა', 'ნათელა', 'ნათია', 'ზურაბ']
-    gon.chart_top_fnames_link_names = ['გიორგი', 'ნინო', 'დავით', 'მაია', 'თამარ', 'ნანა', 'მანანა', 'ნათელა', 'ნათია', 'ზურაბ']
     gon.chart_top_fnames_yaxis_data = [115360, 81036, 48721, 44442, 43021, 37315, 33257, 31958, 30364, 28741]
 
     gon.chart_top_lnames = true
@@ -32,9 +31,18 @@ class RootController < ApplicationController
     gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(74481)}"
     gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
     gon.chart_top_lnames_yaxis_names = ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე']
-    gon.chart_top_lnames_link_names = ['ბერიძე', 'კაპანაძე', 'გელაშვილი', 'მაისურაძე', 'გიორგაძე', 'მამედოვი', 'წიკლაური', 'ლომიძე', 'მამედოვა', 'ბოლქვაძე']
     gon.chart_top_lnames_yaxis_data = [21033, 14449, 13912, 12586, 10827, 10250, 9977, 9977, 9184, 9152]
 
+
+    # convert links to latin
+    gon.chart_top_fnames_link_names = []
+    gon.chart_top_lnames_link_names = []
+		(0..gon.chart_top_fnames_yaxis_names.length-1).each do |i|
+			gon.chart_top_fnames_link_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_fnames_yaxis_names[i]).downcase
+		end
+		(0..gon.chart_top_lnames_yaxis_names.length-1).each do |i|
+			gon.chart_top_lnames_link_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_lnames_yaxis_names[i]).downcase
+		end
 
 		if I18n.locale != :ka
 			# convert georgian characters to latin
@@ -45,7 +53,6 @@ class RootController < ApplicationController
 				gon.chart_top_lnames_yaxis_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_lnames_yaxis_names[i]).titlecase
 			end
 		end
-
 
   end
 
@@ -66,7 +73,8 @@ class RootController < ApplicationController
 
   def search_first_name
     @type = Name::TYPE[:first_name]
-    @name = Name.by_first_name(params[:name])
+    en_name = Utf8Converter.convert_ka_to_en(params[:name])
+    @name = Name.by_first_name(en_name)
     load_name_variables
 
     render :name
@@ -74,7 +82,8 @@ class RootController < ApplicationController
 
   def search_last_name
     @type = Name::TYPE[:last_name]
-    @name = Name.by_last_name(params[:name])
+    en_name = Utf8Converter.convert_ka_to_en(params[:name])
+    @name = Name.by_last_name(en_name)
     load_name_variables
 
     render :name
@@ -93,7 +102,7 @@ class RootController < ApplicationController
     gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(@total_first.count)}"
     gon.chart_top_fnames_yaxis = 'Number of People with First Name'
     gon.chart_top_fnames_yaxis_names = @year_first_names.map{|x| x.name.name}
-    gon.chart_top_fnames_link_names = @year_first_names.map{|x| x.name.name}
+    gon.chart_top_fnames_link_names = @year_first_names.map{|x| x.name.permalink}
     gon.chart_top_fnames_yaxis_data = @year_first_names.map{|x| x.count}
 
     gon.chart_top_lnames = true
@@ -102,13 +111,13 @@ class RootController < ApplicationController
     gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(@total_last.count)}"
     gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
     gon.chart_top_lnames_yaxis_names = @year_last_names.map{|x| x.name.name}
-    gon.chart_top_lnames_link_names = @year_last_names.map{|x| x.name.name}
+    gon.chart_top_lnames_link_names = @year_last_names.map{|x| x.name.permalink}
     gon.chart_top_lnames_yaxis_data = @year_last_names.map{|x| x.count}
 
   end
 
   def district
-    @district = DistrictName.find_by_name(params[:id])
+    @district = DistrictName.find_by_name_en(params[:id])
     if @district
       @district_first_names = District.by_district(@district.id, Name::TYPE[:first_name])
       @total_first = NameTotal.first_name_district(@district.id)
@@ -122,7 +131,7 @@ class RootController < ApplicationController
       gon.chart_top_fnames_subtitle = "Total First Names: #{view_context.number_with_delimiter(@total_first.count)}"
       gon.chart_top_fnames_yaxis = 'Number of People with First Name'
       gon.chart_top_fnames_yaxis_names = @district_first_names.map{|x| x.name.name}
-      gon.chart_top_fnames_link_names = @district_first_names.map{|x| x.name.name}
+      gon.chart_top_fnames_link_names = @district_first_names.map{|x| x.name.permalink}
       gon.chart_top_fnames_yaxis_data = @district_first_names.map{|x| x.count}
 
       gon.chart_top_lnames = true
@@ -131,7 +140,7 @@ class RootController < ApplicationController
       gon.chart_top_lnames_subtitle = "Total Last Names: #{view_context.number_with_delimiter(@total_last.count)}"
       gon.chart_top_lnames_yaxis = 'Number of People with Last Name'
       gon.chart_top_lnames_yaxis_names = @district_last_names.map{|x| x.name.name}
-      gon.chart_top_lnames_link_names = @district_last_names.map{|x| x.name.name}
+      gon.chart_top_lnames_link_names = @district_last_names.map{|x| x.name.permalink}
       gon.chart_top_lnames_yaxis_data = @district_last_names.map{|x| x.count}
     end
   end

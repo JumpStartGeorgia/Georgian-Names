@@ -1,5 +1,4 @@
 class Name < ActiveRecord::Base
-	require 'utf8_converter'
 	has_many :birth_years
 	has_many :districts
 
@@ -11,20 +10,24 @@ class Name < ActiveRecord::Base
 		if I18n.locale == :ka
 			return read_attribute(:name)
 		else
-			return Utf8Converter.convert_ka_to_en(read_attribute(:name)).titlecase
+			return read_attribute(:name_en).titlecase
 		end
+	end
+
+	def permalink
+		read_attribute(:name_en)
 	end
 
 	def self.by_first_name(first_name)
 		if first_name
-			x = where(:name_type => Name::TYPE[:first_name], :name => first_name)
+			x = where(:name_type => Name::TYPE[:first_name], :name_en => first_name)
 			return x.first if x && !x.empty?
 		end
 	end
 
 	def self.by_last_name(last_name)
 		if last_name
-			x = where(:name_type => Name::TYPE[:last_name], :name => last_name)
+			x = where(:name_type => Name::TYPE[:last_name], :name_en => last_name)
 			return x.first if x && !x.empty?
 		end
 	end
@@ -46,7 +49,9 @@ class Name < ActiveRecord::Base
 	end
 
 	def by_districts
-		districts.includes(:district_name).order("district_names.name").map{|x| {:district_id => x.district_id, :district_name => x.district_name.name, :count => x.count, :rank => x.rank}}
+		districts.includes(:district_name).order("district_names.name")
+		.map{|x| {:district_id => x.district_id, :district_name => x.district_name.name, 
+		  :permalink => x.district_name.permalink, :count => x.count, :rank => x.rank}}
 	end
 
 

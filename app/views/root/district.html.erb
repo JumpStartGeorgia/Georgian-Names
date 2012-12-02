@@ -27,7 +27,7 @@
       <ol class="standard">
       <% @district_first_names.each do |district| %>
         <li>
-          <%= link_to district.name.name, first_name_path(district.name.name) %><%= ": #{number_with_delimiter(district.count)}" %>
+          <%= link_to district.name.name, first_name_path(district.name.permalink) %><%= ": #{number_with_delimiter(district.count)}" %>
         </li>
       <% end %>
       </ol>
@@ -40,7 +40,7 @@
       <ol class="standard">
       <% @district_last_names.each do |district| %>
         <li>
-          <%= link_to district.name.name, last_name_path(district.name.name) %><%= ": #{number_with_delimiter(district.count)}" %>
+          <%= link_to district.name.name, last_name_path(district.name.permalink) %><%= ": #{number_with_delimiter(district.count)}" %>
         </li>
       <% end %>
       </ol>

@@ -93,7 +93,7 @@
           <% @districts.each do |district| %>
             <tr>
               <td>
-                <%= link_to district[:district_name], district_path(district[:district_name]) %>
+                <%= link_to district[:district_name], district_path(district[:permalink]) %>
               </td>
               <td>
                 <%= number_with_delimiter(district[:rank]) %>

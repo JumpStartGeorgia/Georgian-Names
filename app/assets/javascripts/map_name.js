@@ -50,6 +50,8 @@ var map = d3.select("#map")
         return d["properties"]["color"]
       }).attr("district_name",function(d){
         return d["properties"]["district_name"]
+      }).attr("url",function(d){
+        return d["properties"]["url"]
       }).attr("rank",function(d){
         return d["properties"]["rank"]
       }).attr("count",function(d){
@@ -67,7 +69,14 @@ var map = d3.select("#map")
         function(){
           $('#map_info_box').hide();
         }
-      )
+      );
+
+    // when click on district, load district page
+    $('g#district path').click(
+        function(){
+          if ($(this).attr('url') !== undefined)
+          window.location.href = $(this).attr('url');
+      });
   
   }
 });
