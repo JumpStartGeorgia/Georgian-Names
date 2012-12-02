@@ -1,12 +1,10 @@
 class AddEnNames < ActiveRecord::Migration
   def up
-=begin
     add_column :names, :name_en, :string
     add_index :names, :name_en
 
     add_column :district_names, :name_en, :string
     add_index :district_names, :name_en
-=end
   end
 
   def down
