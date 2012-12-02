@@ -72,33 +72,61 @@
 
   <div class="row">
     <div class="span4">
-      <h3>Name Stats</h3>
-      <ul class="standard">
-        <li>Rank: <%= number_with_delimiter(@name.rank) %></li>
-        <li>Total in Country: <%= number_with_delimiter(@name.count) %></li>
-      </ul>
-     </div>
-    <div class="span4">
       <h3>Name by Birth Year</h3>
-      <ul class="standard">
-      <% @birth_years.each do |year| %>
-        <li>
-          <%= link_to year[:birth_year], year_path(year[:birth_year]) %>
-          <%= " - Rank: #{number_with_delimiter(year[:rank])}; Total: #{number_with_delimiter(year[:count])}" %>
-        </li>
-      <% end %>
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Birth Year</th>
+            <th>Rank</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @birth_years.each do |year| %>
+            <tr>
+              <td>
+                <%= link_to year[:birth_year], year_path(year[:birth_year]) %>
+              </td>
+              <td>
+                <%= number_with_delimiter(year[:rank]) %>
+              </td>
+              <td>
+                <%= number_with_delimiter(year[:count]) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
      </div>
+    <div class="span2">
+      &nbsp;
+    </div>
     <div class="span4">
       <h3>Name by District</h3>
-      <ul class="standard">
-      <% @districts.each do |district| %>
-        <li>
-          <%= link_to district[:district_name], district_path(district[:district_name]) %>
-          <%= " - Rank: #{number_with_delimiter(district[:rank])}; Total: #{number_with_delimiter(district[:count])}" %>
-        </li>
-      <% end %>
-      </ul>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>District</th>
+            <th>Rank</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @districts.each do |district| %>
+            <tr>
+              <td>
+                <%= link_to district[:district_name], district_path(district[:district_name]) %>
+              </td>
+              <td>
+                <%= number_with_delimiter(district[:rank]) %>
+              </td>
+              <td>
+                <%= number_with_delimiter(district[:count]) %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
      </div>
   </div>
 
