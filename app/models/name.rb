@@ -32,6 +32,21 @@ class Name < ActiveRecord::Base
 		end
 	end
 
+	def self.search_by_first_name(first_name)
+		if first_name
+			x = select("name_en").where(:name_type => Name::TYPE[:first_name], :name_en => first_name)
+			return x.first if x && !x.empty?
+		end
+	end
+
+	def self.search_by_last_name(last_name)
+		if last_name
+			x = select("name_en").where(:name_type => Name::TYPE[:last_name], :name_en => last_name)
+			return x.first if x && !x.empty?
+		end
+	end
+
+
   def self.top_first_names(limit=10)
     where(:name_type => Name::TYPE[:first_name]).order("count desc").limit(limit)
   end

@@ -41,9 +41,6 @@ module ApplicationHelper
         content_tag(:div, content_tag(:p, "##{rank}"), :class => 'medal_text')
       end
     end
-    Rails.logger.debug "@@@@@@@@@@@ rank = #{rank}, class = #{rank.class}"
-    Rails.logger.debug "@@@@@@@@@@@ img path = #{img_path}"
-    Rails.logger.debug "@@@@@@@@@@@ x = #{x}"
     return x
   end
 

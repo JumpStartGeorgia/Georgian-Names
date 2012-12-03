@@ -74,19 +74,25 @@ class RootController < ApplicationController
   def search_first_name
     @type = Name::TYPE[:first_name]
     en_name = Utf8Converter.convert_ka_to_en(params[:name])
-    @name = Name.by_first_name(en_name)
-    load_name_variables
+    @name = Name.search_by_first_name(en_name)
 
-    render :name
+    if @name
+      redirect_to first_name_path(@name.permalink) 
+    else
+      render :name
+    end
   end
 
   def search_last_name
     @type = Name::TYPE[:last_name]
     en_name = Utf8Converter.convert_ka_to_en(params[:name])
-    @name = Name.by_last_name(en_name)
-    load_name_variables
+    @name = Name.search_by_last_name(en_name)
 
-    render :name
+    if @name
+      redirect_to last_name_path(@name.permalink) 
+    else
+      render :name
+    end
   end
 
   def year
