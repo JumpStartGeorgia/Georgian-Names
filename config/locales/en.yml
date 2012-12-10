@@ -82,3 +82,7 @@ en:
         title: New User
       show:
         title: User Details
+  root:
+    index:
+      search_first_name: Search by First Name
+      search_last_name: Search by Last Name

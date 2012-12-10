@@ -67,7 +67,6 @@ ka:
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
-
   admin:
     index:
       title: ადმინისტრატორის განყოფილება
@@ -83,3 +82,7 @@ ka:
         title: ახალი მომხმარებელი
       show:
         title: მომხმარებლის დეტალები
+  root:
+    index:
+      search_first_name: Search by First Name
+      search_last_name: Search by Last Name
