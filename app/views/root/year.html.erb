@@ -1,9 +1,9 @@
 <h1>
-  <%= 2012-params[:id].to_i %> Years Old (<%= params[:id] %>)
+  <%= "#{params[:id]} (#{@static_year-params[:id].to_i} Years Old)" %>
 </h1>
 
 <h3>
-  Number of People Born in this Year: <%= number_with_delimiter(@population.count) %>
+  Number of People Alive from this Year: <%= number_with_delimiter(@population.count) %>
 </h3>
 
 <div class="row">

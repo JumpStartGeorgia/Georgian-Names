@@ -39,9 +39,11 @@ class NameTotal < ActiveRecord::Base
 	  end
   end
 
-	def self.birth_year_population(year)
+	def self.birth_year_population(year=nil)
 	  if year
 	    where(:total_type => NameTotal::TYPE[:birth_year_population], :identifier => year).first
+	  else
+	    where(:total_type => NameTotal::TYPE[:birth_year_population]).order("identifier asc")
 	  end
   end
 

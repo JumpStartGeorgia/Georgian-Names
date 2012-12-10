@@ -60,7 +60,7 @@ class Name < ActiveRecord::Base
 	end
 
 	def by_age_array
-		birth_years.map{|x| [2012-x.birth_year, x.count, x.rank]}.sort{|a,b| a[0] <=> b[0]}
+		birth_years.map{|x| [x.birth_year, x.count, x.rank]}.sort{|a,b| a[0] <=> b[0]}
 	end
 
 	def by_districts
