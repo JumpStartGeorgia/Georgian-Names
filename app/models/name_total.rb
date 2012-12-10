@@ -47,9 +47,11 @@ class NameTotal < ActiveRecord::Base
 	  end
   end
 
-	def self.district_population(district)
+	def self.district_population(district=nil)
 	  if district
 	    where(:total_type => NameTotal::TYPE[:district_population], :identifier => district).first
+    else
+      where(:total_type => NameTotal::TYPE[:district_population])
 	  end
   end
 

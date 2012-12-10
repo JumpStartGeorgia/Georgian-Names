@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
+
 <div class="row">
   <div class="span6" style="font-size: 18px;">
     <p>
@@ -36,3 +38,28 @@
 </div>
 
 <div id="chart_age_population"></div>
+
+  <div id="map_container">
+    <div id="map"></div>
+    <div id="map_legend">
+      <h3>Legend</h3>
+      <ul>
+        <% @color_legend.each do |color|%>
+          <li>
+            <span style="background-color: <%=color[:color]%>; border: solid 1px #333;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <%= color[:rank] %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="map_info_box" style="display: none;">
+      <ul>
+        <li>
+          District: <span id="map_district_name"></span>
+        </li>
+        <li>
+          Total: <span id="map_district_count"></span>
+        </li>
+      </ul>
+    </div>
+  </div>

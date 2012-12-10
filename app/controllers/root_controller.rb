@@ -1,5 +1,6 @@
 # encoding: utf-8
 class RootController < ApplicationController
+  require 'utf8_converter'
   require 'add_data_to_json'
   
   def index
@@ -7,7 +8,9 @@ class RootController < ApplicationController
     @top_last = Name.top_last_names
     @total_first = NameTotal.first_name
     @total_last = NameTotal.last_name
-
+    @population = NameTotal.district_population.map{|x| {:district_id => x.identifier, :district_name => "???", 
+		  :permalink => "#", :count => x.count}}
+    
     pop = NameTotal.birth_year_population
     pop_sum = pop.map{|x| x.count}.inject(:+)
     gon.chart_age_population = true
@@ -16,7 +19,6 @@ class RootController < ApplicationController
     gon.chart_age_pop_xaxis = 'Birth Year<br />(Age)'
     gon.chart_age_pop_yaxis = '# of People'
     gon.chart_age_pop_data = pop.map{|x| [x.identifier, x.count]}
-
 
     gon.chart_top_fnames = true
     gon.chart_top_fnames_id = 'chart_top_fnames'
@@ -37,14 +39,14 @@ class RootController < ApplicationController
     gon.chart_top_lnames_link_names = @top_last.map{|x| x.permalink}
 
 
-    # convert links to latin
-    gon.chart_top_lnames_link_names = []
-		(0..gon.chart_top_fnames_yaxis_names.length-1).each do |i|
-			gon.chart_top_fnames_link_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_fnames_yaxis_names[i]).downcase
-		end
-		(0..gon.chart_top_lnames_yaxis_names.length-1).each do |i|
-			gon.chart_top_lnames_link_names[i] = Utf8Converter.convert_ka_to_en(gon.chart_top_lnames_yaxis_names[i]).downcase
-		end
+    # get shape json and add data to json
+    json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
+    AddDataToJson.population(json,@population)
+    
+    gon.map_population_json = json
+    gon.map_title = "Population by District"
+    gon.map_sub_title1 = "Overall Total: #{view_context.number_with_delimiter(pop_sum)}"
+    @color_legend = AddDataToJson.population_colors
 
   end
 
@@ -163,7 +165,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_yaxis = '# of People'
       gon.chart_age_pop_yaxis2 = 'Name Rank'
       
-      gon.map_json = json
+      gon.map_name_json = json
       gon.map_title = "'#{@name.name}' Rank by District"
       gon.map_sub_title1 = "Overall Rank: #{view_context.number_with_delimiter(@name.rank)}"
       gon.map_sub_title2 = "Overall Total: #{view_context.number_with_delimiter(@name.count)}"

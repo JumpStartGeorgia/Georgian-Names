@@ -1,5 +1,5 @@
 $(function () {
-  if (gon.map_name_json) {
+  if (gon.map_population_json) {
     var proj = d3.geo.mercator().translate([-4000,5050]).scale(37000);
     var path = d3.geo.path().projection(proj);
 
@@ -43,7 +43,7 @@ var map = d3.select("#map")
     .text(gon.map_sub_title2);
 
     districts.selectAll("path")
-    .data(gon.map_name_json.features)
+    .data(gon.map_population_json.features)
     .enter().append("path")
       .attr("d", path)
       .attr("fill",function(d){
@@ -52,8 +52,6 @@ var map = d3.select("#map")
         return d["properties"]["district_name"]
       }).attr("url",function(d){
         return d["properties"]["url"]
-      }).attr("rank",function(d){
-        return d["properties"]["rank"]
       }).attr("count",function(d){
         return d["properties"]["count"]
       });
@@ -62,7 +60,6 @@ var map = d3.select("#map")
     $('g#district path').hover(
         function(){
           $('#map_info_box #map_district_name').html($(this).attr('district_name') === undefined ? 'No Data' : $(this).attr('district_name'));
-          $('#map_info_box #map_district_rank').html($(this).attr('rank') === undefined ? 'No Data' : $(this).attr('rank'));
           $('#map_info_box #map_district_count').html($(this).attr('count') === undefined ? 'No Data' : $(this).attr('count'));
           $('#map_info_box').show();
         },

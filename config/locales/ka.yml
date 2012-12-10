@@ -48,6 +48,7 @@ ka:
       app_name: "What's in a Name?"
       first_name: სახელი
       last_name: გვარი
+      no_data: No Data
   layouts:
     application:
       admin: ადმინისტრატო

@@ -262,12 +262,12 @@ svg#svg_map text.sub_title {
   font-size: 20px;
 }
 #district path {
-  stroke: #000;
-  stroke-width: .3px;
+  stroke: #333;
+  stroke-width: 1px;
 }
 #district path:hover {
-  fill: #000;
-  stroke-width: .3px;
+  fill: #333;
+  stroke-width: 1px;
   cursor: pointer;
 }
 

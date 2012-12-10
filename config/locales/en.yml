@@ -48,6 +48,8 @@ en:
       app_name: "What's in a Name?"
       first_name: First Name
       last_name: Last Name
+      no_data: No Data
+
   layouts:
     application:
       admin: Admin
