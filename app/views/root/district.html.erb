@@ -1,5 +1,5 @@
 <h1>
-  District: 
+  <%= t('.title')%>
   <% if @district %>
     <%= @district.name %>
   <% else %>
@@ -9,7 +9,7 @@
 
 <% if @district %>
   <h3>
-    Number of People in <%= "#{@district.name}: #{number_with_delimiter(@population.count)}" %>
+    <%= t('.subtitle', :district => @district.name, :count => number_with_delimiter(@population.count)) %>
   </h3>
 
 <div class="row">
@@ -32,7 +32,7 @@
       <% end %>
       </ol>
       <p>
-      Total Unique First Names: <%= number_with_delimiter(@total_first.count)%>
+      <%= t('.total_first', :count => number_with_delimiter(@total_first.count)) %>
       </p>
      </div> 
     <div class="span4">
@@ -45,10 +45,10 @@
       <% end %>
       </ol>
       <p>
-      Total Unique Last Names: <%= number_with_delimiter(@total_last.count)%>
+      <%= t('.total_last', :count => number_with_delimiter(@total_last.count)) %>
       </p>
      </div>  
   </div>   
 <% else %>
-  <%= "District #{params[:id]} does not exist."%>
+  <%= t('.not_exist', :district => params[:id])%>
 <% end %>

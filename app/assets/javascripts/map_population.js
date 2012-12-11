@@ -59,8 +59,8 @@ var map = d3.select("#map")
     // show map info box when rollover district
     $('g#district path').hover(
         function(){
-          $('#map_info_box #map_district_name').html($(this).attr('district_name') === undefined ? 'No Data' : $(this).attr('district_name'));
-          $('#map_info_box #map_district_count').html($(this).attr('count') === undefined ? 'No Data' : $(this).attr('count'));
+          $('#map_info_box #map_district_name').html($(this).attr('district_name') === undefined ? gon.no_data : $(this).attr('district_name'));
+          $('#map_info_box #map_district_count').html($(this).attr('count') === undefined ? gon.no_data : $(this).attr('count'));
           $('#map_info_box').show();
         },
         function(){

@@ -49,6 +49,58 @@ ka:
       first_name: სახელი
       last_name: გვარი
       no_data: No Data
+  charts:
+    population:
+      total: "Total: "
+      rank: "Rank: "
+      years_old: " years old"
+      all:
+        title: Age of the Population
+        subtitle: "Total Population: %{count}"
+        xaxis1: Birth Year
+        xaxis2: Age
+        yaxis: Number of People
+      name:
+        title: "Number of '%{name}' With a Given Age"
+        subtitle: "Number of '%{name}': %{count}"
+        xaxis1: Birth Year
+        xaxis2: Age
+        yaxis1: Number of People
+        yaxis2: Name Rank
+    name:
+        first:
+          title: Top 10 First Names
+          subtitle: "Total First Names: %{count}"
+          yaxis: Number of People with First Name
+        last:
+          title: Top 10 Last Names
+          subtitle: "Total Last Names: %{count}"
+          yaxis: Number of People with Last Name
+    map:
+      district: District
+      total: Total
+      rank: Rank
+      all:
+        legend: Legend
+        title: Population by District
+        subtitle1: "Overall Total: %{count}"
+      name:
+        legend: Rank Legend
+        title: "'%{name}' Rank by District"
+        subtitle1: "Overall Rank: %{rank}"
+        subtitle2: "Overall Total: %{count}"
+  tables:
+    year:
+      title: Name by Birth Year
+      year: Birth Year
+      age: Age
+      rank: Rank
+      total: Total
+    district:
+      title: Name by District
+      district: District
+      rank: Rank
+      total: Total
   layouts:
     application:
       admin: ადმინისტრატო
@@ -87,3 +139,20 @@ ka:
     index:
       search_first_name: Search by First Name
       search_last_name: Search by Last Name
+    name:
+      title_first: "First Name:"
+      title_last: "Last Name:"
+      not_exist: "'%{name}' could not be found."      
+    district:
+      title: "District:"
+      subtitle: "Number of People in '%{district}': %{count}"
+      total_first: "Total Unique First Names: %{count}"
+      total_last: "Total Unique Last Names: %{count}"
+      not_exist: "District '%{district}' could not be found."
+    year:
+      title: "%{year} (%{age} Years Old)"
+      subtitle: "Number of People Alive from %{year}: %{count}"
+      total_first: "Total Unique First Names: %{count}"
+      total_last: "Total Unique Last Names: %{count}"
+      not_exist: "Year '%{year}' could not be found."
+            

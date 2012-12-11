@@ -29,14 +29,14 @@ $(function () {
                     var x;
                     if (this.series.index == 1) {
                       // the values for count and rank have switched places
-                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + ' years old)</strong>'+ 
-                          '<br/>Total: ' + Highcharts.numberFormat(this.point.config[2],0,',') +
-                          '<br />Rank: ' + this.y;
+                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + gon.chart_age_pop_popup_years_old + ')</strong>'+ 
+                          '<br/>' + gon.chart_age_pop_popup_total + Highcharts.numberFormat(this.point.config[2],0,',') +
+                          '<br />' + gon.chart_age_pop_popup_rank + this.y;
                     } else {
-                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + ' years old)</strong>'+ 
-                          '<br/>Total: ' + Highcharts.numberFormat(this.y,0,',');
+                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + gon.chart_age_pop_popup_years_old + ')</strong>'+ 
+                          '<br/>' + gon.chart_age_pop_popup_total + Highcharts.numberFormat(this.y,0,',');
                       if (this.point.config.length > 2){
-                        x += '<br />Rank: ' + this.point.config[2];
+                        x += '<br />' + gon.chart_age_pop_popup_rank + this.point.config[2];
                       }
                     }
                     return x;
