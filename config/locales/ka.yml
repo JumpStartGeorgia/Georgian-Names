@@ -45,65 +45,65 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: "What's in a Name?"
+      app_name: "შენი სახელი?"
       first_name: სახელი
       last_name: გვარი
-      no_data: No Data
+      no_data: მონაცემები არ მოიძებნა
   charts:
     population:
-      total: "Total: "
-      rank: "Rank: "
-      years_old: " years old"
+      total: "სულ: "
+      rank: "შეფასება: "
+      years_old: " წლოვანება"
       all:
-        title: Age of the Population
-        subtitle: "Total Population: %{count}"
-        xaxis1: Birth Year
-        xaxis2: Age
-        yaxis: Number of People
+        title: მოსახლეობის ასაკი
+        subtitle: "მოსახლეობა: %{count}"
+        xaxis1: დაბადების წელი
+        xaxis2: ასაკი
+        yaxis: რაოდენობა
       name:
-        title: "Number of '%{name}' With a Given Age"
-        subtitle: "Number of '%{name}': %{count}"
-        xaxis1: Birth Year
-        xaxis2: Age
-        yaxis1: Number of People
-        yaxis2: Name Rank
+        title: "რაოდენობა '%{name}' ასაკი"
+        subtitle: "რაოდენობა '%{name}': %{count}"
+        xaxis1: დაბადების წელი
+        xaxis2: ასაკი
+        yaxis1: რაოდენობა
+        yaxis2: სახელის შეფასება
     name:
         first:
-          title: Top 10 First Names
-          subtitle: "Total First Names: %{count}"
-          yaxis: Number of People with First Name
+          title: 10 ყველაზე პოპულარული სახელი
+          subtitle: "სახელების სრული რაოდენობა: %{count}"
+          yaxis:  სახელის რაოდენობა
         last:
-          title: Top 10 Last Names
-          subtitle: "Total Last Names: %{count}"
-          yaxis: Number of People with Last Name
+          title: 10 ყველაზე პოპულარული გვარი
+          subtitle: "გვარების სრული რაოდენობა: %{count}"
+          yaxis: გვარის რაოდენობა
     map:
-      district: District
-      total: Total
-      rank: Rank
+      district: რაიონი
+      total: სულ
+      rank: შეფასება
       all:
-        legend: Legend
-        title: Population by District
-        subtitle1: "Overall Total: %{count}"
+        legend: ლეგენდა
+        title: რაიონის მოსახლეობა
+        subtitle1: " რაოდენობა: %{count}"
       name:
-        legend: Rank Legend
-        title: "'%{name}' Rank by District"
-        subtitle1: "Overall Rank: %{rank}"
-        subtitle2: "Overall Total: %{count}"
+        legend: შეაფასე ლეგენდა
+        title: "'%{name}' შეფასება რაიონის  მიხედვით"
+        subtitle1: "შეფასება: %{rank}"
+        subtitle2: " რაოდენობა: %{count}"
   tables:
     year:
-      title: Name by Birth Year
-      year: Birth Year
-      age: Age
-      rank: Rank
-      total: Total
+      title: სახელი დაბადების წლის მიხედვით
+      year: დაბადების წელი
+      age: ასაკი
+      rank: შეფასება
+      total: სულ
     district:
-      title: Name by District
-      district: District
-      rank: Rank
-      total: Total
+      title: სახელი რაიონის მიხედვით
+      district: რაიონი
+      rank: შეფასება
+      total: სულ
   layouts:
     application:
-      admin: ადმინისტრატო
+      admin: ადმინისტრატორი
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
@@ -137,22 +137,21 @@ ka:
         title: მომხმარებლის დეტალები
   root:
     index:
-      search_first_name: Search by First Name
-      search_last_name: Search by Last Name
+      search_first_name: სახელის ძებნა
+      search_last_name: გვარის ძებნა
     name:
-      title_first: "First Name:"
-      title_last: "Last Name:"
-      not_exist: "'%{name}' could not be found."      
+      title_first: "სახელი:"
+      title_last: "გვარი:"
+      not_exist: "'%{name}' არ მოიძებნა."
     district:
-      title: "District:"
-      subtitle: "Number of People in '%{district}': %{count}"
-      total_first: "Total Unique First Names: %{count}"
-      total_last: "Total Unique Last Names: %{count}"
-      not_exist: "District '%{district}' could not be found."
+      title: "რაიონი:"
+      subtitle: "რაოდენობა '%{district}': %{count}"
+      total_first: "სახელის რაოდენობა: %{count}"
+      total_last: "გვარის რაოდენობა: %{count}"
+      not_exist: "რაიონი'%{district}' არ მოიძებნა."
     year:
       title: "%{year} (%{age} Years Old)"
-      subtitle: "Number of People Alive from %{year}: %{count}"
-      total_first: "Total Unique First Names: %{count}"
-      total_last: "Total Unique Last Names: %{count}"
-      not_exist: "Year '%{year}' could not be found."
-            
+      subtitle: "ადამიანთა რაოდენობა %{year}: %{count}"
+      total_first: "სახელის რაოდენბა: %{count}"
+      total_last: "გვარის რაოდენობა: %{count}"
+      not_exist: "წელი %{year}' არ მოიძებნა."
