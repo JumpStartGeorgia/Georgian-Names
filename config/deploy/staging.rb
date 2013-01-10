@@ -1,7 +1,7 @@
 ##################################
 ##### SET THESE VARIABLES ########
 ##################################
-server "gamma.jumpstart.ge", :web, :app, :db, primary: true # server where app is located
+server "alpha.jumpstart.ge", :web, :app, :db, primary: true # server where app is located
 set :application, "Georgian-Names-Staging" # unique name of application
 set :user, "geonames-staging" # name of user on server
 set :ngnix_conf_file_loc, "staging/nginx.conf" # location of nginx conf file
