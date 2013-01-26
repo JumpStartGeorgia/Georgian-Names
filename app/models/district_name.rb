@@ -1,5 +1,5 @@
 class DistrictName < ActiveRecord::Base
-	attr_accessible :name, :id
+	attr_accessible :name, :id, :name_en
 
   has_many :districts
 
