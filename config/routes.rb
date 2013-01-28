@@ -1,8 +1,11 @@
 BootstrapStarter::Application.routes.draw do
+  mount WillFilter::Engine => "/will_filter"
+
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
 	scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+  
 =begin
 		match '/admin', :to => 'admin#index', :as => :admin, :via => :get
 		devise_for :users
