@@ -3,13 +3,13 @@ BootstrapStarter::Application.routes.draw do
 	# all resources should be within the scope block below
 	#--------------------------------
 	scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
-
+=begin
 		match '/admin', :to => 'admin#index', :as => :admin, :via => :get
 		devise_for :users
 		namespace :admin do
 			resources :users
 		end
-
+=end
     match '/sakheli/:name', :to => 'root#first_name', :as => :first_name, :via => :get
     match '/gvari/:name', :to => 'root#last_name', :as => :last_name, :via => :get
     match '/district/:id', :to => 'root#district', :as => :district, :via => :get

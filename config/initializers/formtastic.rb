@@ -90,4 +90,4 @@
 # Formtastic::FormBuilder.perform_browser_validations = true
 
 # use bootstrap formtastic
-Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
+#Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
