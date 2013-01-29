@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '1.2.0'
+gem 'bundler', '~> 1.2.0'
 gem "rails", "3.1.3"
 gem "mysql2", "~> 0.3.11" # this gem works better with utf-8
 
@@ -27,6 +27,7 @@ gem "useragent", :git => "https://github.com/jilion/useragent.git" # browser det
 #gem "rails_autolink", "~> 1.0.9" # convert string to link if it is url
 #gem 'acts_as_commentable', '2.0.1' #comments
 #gem "paper_trail", "~> 2.6.3" # keep audit log of all transactions
+gem "subexec", "~> 0.2.2"
 
 # Gems used only for assets and not required
 # in production environments by default.
