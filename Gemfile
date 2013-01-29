@@ -29,6 +29,7 @@ gem "useragent", :git => "https://github.com/jilion/useragent.git" # browser det
 #gem "paper_trail", "~> 2.6.3" # keep audit log of all transactions
 gem "will_filter", "~> 3.1.9" # filter data tables
 gem "kaminari", "~> 0.14.1" # pagination
+gem "subexec", "~> 0.2.2" # to run cmd line statements
 
 # Gems used only for assets and not required
 # in production environments by default.
