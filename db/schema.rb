@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130128193151) do
 
   add_index "names", ["count"], :name => "index_names_on_count"
   add_index "names", ["name_en"], :name => "index_names_on_name_en"
+  add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
   add_index "names", ["name_type", "name"], :name => "idx_names"
 
   create_table "users", :force => true do |t|
