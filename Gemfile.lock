@@ -111,6 +111,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    mini_magick (3.4)
+      subexec (~> 0.2.1)
     multi_json (1.3.6)
     mysql2 (0.3.11)
     net-scp (1.0.4)
@@ -215,6 +217,7 @@ DEPENDENCIES
   i18n-js (~> 2.1.2)
   jquery-rails (= 1.0.19)
   json
+  mini_magick (~> 3.4)
   mysql2 (~> 0.3.11)
   nested_form (~> 0.1.1)!
   paperclip (~> 3.0.4)
