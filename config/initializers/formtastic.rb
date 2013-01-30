@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+=begin
 # --------------------------------------------------------------------------------------------------
 # Please note: If you're subclassing Formtastic::FormBuilder, Formtastic uses
 # class_attribute for these configuration attributes instead of the deprecated
@@ -91,3 +91,4 @@
 
 # use bootstrap formtastic
 Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
+=end

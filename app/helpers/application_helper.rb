@@ -43,7 +43,7 @@ module ApplicationHelper
     end
     return x
   end
-
+=begin
 	# Based on https://gist.github.com/1182136
   class BootstrapLinkRenderer < ::WillPaginate::ActionView::LinkRenderer
     protected
@@ -68,4 +68,5 @@ module ApplicationHelper
   def page_navigation_links(pages)
     will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
   end
+=end
 end
