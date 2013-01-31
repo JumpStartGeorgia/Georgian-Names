@@ -17,6 +17,8 @@ BootstrapStarter::Application.routes.draw do
     match '/search_sakheli', :to => 'root#search_first_name', :as => :search_first_name, :via => :get
     match '/search_gvari', :to => 'root#search_last_name', :as => :search_last_name, :via => :get
 
+    match '/search', :to => 'root#search', :as => :search
+
     match '/png/rank/:rank', :to => 'png#rank', :as => :generate_rank, :via => :get
 
 		root :to => 'root#index'

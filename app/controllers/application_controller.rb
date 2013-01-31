@@ -65,6 +65,12 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		gon.no_data = I18n.t('app.common.no_data')
 		@static_year = 2012
 		gon.static_year = @static_year
+		
+		if I18n.locale == :ka
+		  gon.datatable_i18n_url = "/datatable_ka.txt"
+		else
+		  gon.datatable_i18n_url = ""
+		end
 	end
 
 	# after user logs in, go to admin page

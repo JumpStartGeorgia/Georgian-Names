@@ -3,6 +3,13 @@ class RootController < ApplicationController
   require 'utf8_converter'
   require 'add_data_to_json'
   
+  def search
+    respond_to do |format|
+      format.html
+      format.json { render json: DistrictNameDatatable.new(view_context) }
+    end
+  end
+  
   def index
     @top_first = Name.top_first_names
     @top_last = Name.top_last_names
