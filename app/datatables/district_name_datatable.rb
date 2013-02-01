@@ -48,7 +48,12 @@ private
 
   def sort_column
     columns = %w[name name_en]
-    columns[params[:iSortCol_0].to_i]
+    # name sure the sorting of name is done for the correct language
+    if I18n.locale == :ka
+      columns[params[:iSortCol_0].to_i]
+    else
+      columns[params[:iSortCol_0].to_i+1]
+    end
   end
 
   def sort_direction
