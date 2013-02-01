@@ -7,12 +7,12 @@ class DistrictName < ActiveRecord::Base
 		if I18n.locale == :ka
 			return read_attribute(:name)
 		else
-			return read_attribute(:name_en).titlecase
+			return read_attribute(:name_en)
 		end
 	end
 
 	def permalink
-		read_attribute(:name_en)
+		read_attribute(:name_en).downcase
 	end
 
 end
