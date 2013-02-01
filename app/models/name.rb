@@ -21,28 +21,28 @@ class Name < ActiveRecord::Base
 	def self.by_first_name(first_name)
 		if first_name
 			x = where(:name_type => Name::TYPE[:first_name], :name_en => first_name)
-			return x.first if x && !x.empty?
+			return x.first if !x.blank?
 		end
 	end
 
 	def self.by_last_name(last_name)
 		if last_name
 			x = where(:name_type => Name::TYPE[:last_name], :name_en => last_name)
-			return x.first if x && !x.empty?
+			return x.first if !x.blank?
 		end
 	end
 
 	def self.search_by_first_name(first_name)
 		if first_name
 			x = select("name_en").where(:name_type => Name::TYPE[:first_name], :name_en => first_name)
-			return x.first if x && !x.empty?
+			return x.first if !x.blank?
 		end
 	end
 
 	def self.search_by_last_name(last_name)
 		if last_name
 			x = select("name_en").where(:name_type => Name::TYPE[:last_name], :name_en => last_name)
-			return x.first if x && !x.empty?
+			return x.first if !x.blank?
 		end
 	end
 
