@@ -139,6 +139,24 @@ ka:
     index:
       search_first_name: სახელის ძებნა
       search_last_name: გვარის ძებნა
+      stats:
+        source_header: წყარო
+        source_text: ცესკოს ამომრჩეველთა სია
+        when_header: როდის
+        when_text: აგვისტო 2012
+        where_header: სად
+        where_text: საქართველო
+        population_header: ხალხი (18 წელზე ზემოთ)
+        districts_header: ოლქი
+        precincts_header: საარჩევნო უბანი
+        first_names_header: სახელი
+        last_names_header: გვარი
+        largest_district_header: ყველაზე დიდი ოლქი
+        largest_district_text: ქუთაისი
+        smallest_district_header: ყველაზე პატარა ოლქი
+        smallest_district_text: ყაზბეგი
+        oldest_header: ყველაზე ხანდაზმული ადამიანი
+        popular_age_header: ყველაზე პოპულარული ასაკი
     name:
       title_first: "სახელი:"
       title_last: "გვარი:"
