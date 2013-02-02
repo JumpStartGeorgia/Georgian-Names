@@ -19,8 +19,7 @@ class RootController < ApplicationController
     @top_last = Name.top_last_names
     @total_first = NameTotal.first_name
     @total_last = NameTotal.last_name
-    @population = NameTotal.district_population.map{|x| {:district_id => x.identifier, :district_name => "???", 
-		  :permalink => "#", :count => x.count}}
+
     
     pop = NameTotal.birth_year_population
     pop_sum = pop.map{|x| x.count}.inject(:+)
@@ -55,6 +54,13 @@ class RootController < ApplicationController
 
     # get shape json and add data to json
     json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
+    district_names = DistrictName.all
+    @population = []    
+    NameTotal.district_population.each do |count|
+      index = district_names.index{|x| x.id == count.identifier}
+      @population << {:district_id => count.identifier, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
+    end
+
     AddDataToJson.population(json,@population)
     
     gon.map_population_json = json

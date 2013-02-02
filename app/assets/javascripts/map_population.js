@@ -54,13 +54,15 @@ var map = d3.select("#map")
         return d["properties"]["url"]
       }).attr("count",function(d){
         return d["properties"]["count"]
+      }).attr("count_formatted",function(d){
+        return d["properties"]["count_formatted"]
       });
 
     // show map info box when rollover district
     $('g#district path').hover(
         function(){
           $('#map_info_box #map_district_name').html($(this).attr('district_name') === undefined ? gon.no_data : $(this).attr('district_name'));
-          $('#map_info_box #map_district_count').html($(this).attr('count') === undefined ? gon.no_data : $(this).attr('count'));
+          $('#map_info_box #map_district_count').html($(this).attr('count_formatted') === undefined ? gon.no_data : $(this).attr('count_formatted'));
           $('#map_info_box').show();
         },
         function(){

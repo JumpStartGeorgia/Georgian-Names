@@ -1,5 +1,5 @@
 module AddDataToJson
-  
+ 
   def self.no_data_color
     "#999999"
   end
@@ -13,20 +13,27 @@ module AddDataToJson
       json['features'].each do |value|
         if value['properties']['district_id'] == 0
           value['properties']['rank'] = no_data_text
+          value['properties']['rank_formatted'] = no_data_text
           value['properties']['count'] = no_data_text
+          value['properties']['count_formatted'] = no_data_text
           value['properties']['color'] = no_data_color
           value['properties']['url'] = nil
         else
           data_record = data.select{|x| x[:district_id] == value['properties']['district_id']}
           if data_record && !data_record.empty?
+            value['properties']['district_name'] = data_record.first[:district_name]
             value['properties']['rank'] = data_record.first[:rank]
+            value['properties']['rank_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record.first[:rank])
             value['properties']['count'] = data_record.first[:count]
+            value['properties']['count_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record.first[:count])
             value['properties']['color'] = get_rank_color(data_record.first[:rank])
             value['properties']['url'] = Rails.application.routes.url_helpers.district_path(:id => data_record.first[:permalink], :locale => I18n.locale)
           else
             # no data exists
             value['properties']['rank'] = no_data_text
+            value['properties']['rank_formatted'] = no_data_text
             value['properties']['count'] = no_data_text
+            value['properties']['count_formatted'] = no_data_text
             value['properties']['color'] = no_data_color
             value['properties']['url'] = nil
           end
@@ -85,17 +92,21 @@ module AddDataToJson
       json['features'].each do |value|
         if value['properties']['district_id'] == 0
           value['properties']['count'] = no_data_text
+          value['properties']['count_formatted'] = no_data_text
           value['properties']['color'] = no_data_color
           value['properties']['url'] = nil
         else
           data_record = data.select{|x| x[:district_id] == value['properties']['district_id']}
           if data_record && !data_record.empty?
+            value['properties']['district_name'] = data_record.first[:district_name]
             value['properties']['count'] = data_record.first[:count]
+            value['properties']['count_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record.first[:count])
             value['properties']['color'] = get_population_color(data_record.first[:count])
             value['properties']['url'] = Rails.application.routes.url_helpers.district_path(:id => data_record.first[:permalink], :locale => I18n.locale)
           else
             # no data exists
             value['properties']['count'] = no_data_text
+            value['properties']['count_formatted'] = no_data_text
             value['properties']['color'] = no_data_color
             value['properties']['url'] = nil
           end
