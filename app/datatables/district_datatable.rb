@@ -10,7 +10,7 @@ class DistrictDatatable
   def as_json(options = {})
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: District.where(:name_id => @name_id).count,
+      iTotalRecords: District.by_name(@name_id).count,
       iTotalDisplayRecords: districts.total_entries,
       aaData: data
     }
@@ -22,8 +22,8 @@ private
     districts.map do |district|
       [
         district.district_name.name,
-        number_with_delimiter(district.rank),
-        number_with_delimiter(district.count)
+        number_with_delimiter(district.count),
+        number_with_delimiter(district.rank)
       ]
     end
   end
@@ -41,7 +41,7 @@ private
   end
 
   def fetch_districts
-    districts = District.joins(:district_name).where(:name_id => @name_id).order("#{sort_column} #{sort_direction}")
+    districts = District.by_name(@name_id).order("#{sort_column} #{sort_direction}")
     districts = districts.page(page).per_page(per_page)
     if params[:sSearch].present?
       districts = districts.where("#{district_name_field} like :search", search: "%#{params[:sSearch]}%")
@@ -58,7 +58,7 @@ private
   end
 
   def sort_column
-    columns = %w[name rank count]
+    columns = %w[name districts.count districts.rank]
     # name sure the sorting of name is done for the correct language
     if params[:iSortCol_0].to_i == 0
       district_name_field

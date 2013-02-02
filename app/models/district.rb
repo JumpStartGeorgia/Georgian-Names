@@ -9,6 +9,10 @@ class District < ActiveRecord::Base
     includes(:name).where(:districts => {:district_id => district}, :names => {:name_type => name_type})
   end
 	
+  def self.by_name(name_id)
+    joins(:district_name).where(:name_id => @name_id)
+  end
+	
 =begin
   def self.by_district(district, name_type, limit=10)
     if district && name_type

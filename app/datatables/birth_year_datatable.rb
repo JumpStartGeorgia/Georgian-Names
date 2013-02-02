@@ -10,7 +10,7 @@ class BirthYearDatatable
   def as_json(options = {})
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: BirthYear.where(:name_id => @name_id).count,
+      iTotalRecords: BirthYear.by_name(@name_id).count,
       iTotalDisplayRecords: birth_years.total_entries,
       aaData: data
     }
@@ -23,8 +23,8 @@ private
       [
         birth_year.birth_year,
         (2012 - birth_year.birth_year),
-        number_with_delimiter(birth_year.rank),
-        number_with_delimiter(birth_year.count)
+        number_with_delimiter(birth_year.count),
+        number_with_delimiter(birth_year.rank)
       ]
     end
   end
@@ -34,7 +34,7 @@ private
   end
 
   def fetch_birth_years
-    birth_years = BirthYear.where(:name_id => @name_id).order("#{sort_column} #{sort_direction}")
+    birth_years = BirthYear.by_name(@name_id).order("#{sort_column} #{sort_direction}")
     birth_years = birth_years.page(page).per_page(per_page)
     if params[:sSearch].present?
       birth_years = birth_years.where("birth_year like :search", search: "%#{params[:sSearch]}%")
@@ -51,7 +51,7 @@ private
   end
 
   def sort_column
-    columns = %w[birth_year birth_year rank count]
+    columns = %w[birth_years.birth_year birth_years.birth_year birth_years.count birth_years.rank]
     columns[params[:iSortCol_0].to_i]
   end
 

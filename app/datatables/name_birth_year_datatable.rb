@@ -24,8 +24,8 @@ private
     names.map do |name|
       [
         name.name.name,
-        number_with_delimiter(name.rank),
-        number_with_delimiter(name.count)
+        number_with_delimiter(name.count),
+        number_with_delimiter(name.rank)
       ]
     end
   end
@@ -61,7 +61,7 @@ private
   end
 
   def sort_column
-    columns = %w[name birth_years.rank birth_years.count]
+    columns = %w[name birth_years.count birth_years.rank]
     # name sure the sorting of name is done for the correct language
     if params[:iSortCol_0].to_i == 0
       name_name_field
