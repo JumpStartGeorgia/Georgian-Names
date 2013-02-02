@@ -102,15 +102,15 @@ ka:
       rank: შეფასება
       total: სულ
     first_name:
-      title: First Names
-      name: First Name
-      rank: Rank
-      total: Total
+      title: სახელი
+      name: სახელი
+      rank: შეფასება
+      total: სულ
     last_name:
-      title: Last Names
-      name: Last Name
-      rank: Rank
-      total: Total
+      title: გვარი
+      name: გვარი
+      rank: შეფასება
+      total: სულ
   layouts:
     application:
       admin: ადმინისტრატორი
