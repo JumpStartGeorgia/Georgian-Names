@@ -10,7 +10,7 @@ class DistrictDatatable
   def as_json(options = {})
     {
       sEcho: params[:sEcho].to_i,
-      iTotalRecords: District.joins(:name).where(:names => {:id => @name_id}).count,
+      iTotalRecords: District.where(:name_id => @name_id).count,
       iTotalDisplayRecords: districts.total_entries,
       aaData: data
     }
@@ -41,7 +41,7 @@ private
   end
 
   def fetch_districts
-    districts = District.joins(:district_name, :name).where(:names => {:id => @name_id}).order("#{sort_column} #{sort_direction}")
+    districts = District.joins(:district_name).where(:name_id => @name_id).order("#{sort_column} #{sort_direction}")
     districts = districts.page(page).per_page(per_page)
     if params[:sSearch].present?
       districts = districts.where("#{district_name_field} like :search", search: "%#{params[:sSearch]}%")

@@ -6,7 +6,8 @@ class RootController < ApplicationController
   def search
     respond_to do |format|
       format.html
-      format.json { render json: DistrictDatatable.new(view_context, 29966) }
+      format.json { render json: BirthYearDatatable.new(view_context, 29966) }
+#      format.json { render json: DistrictDatatable.new(view_context, 29966) }
 #      format.json { render json: DistrictNameDatatable.new(view_context) }
     end
   end
