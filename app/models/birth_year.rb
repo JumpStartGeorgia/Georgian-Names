@@ -9,7 +9,7 @@ class BirthYear < ActiveRecord::Base
   end
 
   def self.by_name(name_id)
-    .where(:name_id => name_id)
+    where(:name_id => name_id)
   end
 
 =begin  

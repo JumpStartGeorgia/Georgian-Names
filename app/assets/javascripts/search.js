@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 
   $('#district_names_datatable').dataTable({
-    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
 
   $('#districts_datatable').dataTable({
-    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
@@ -29,7 +29,7 @@ $(document).ready(function(){
   });
 
   $('#birth_years_datatable').dataTable({
-    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
@@ -41,7 +41,7 @@ $(document).ready(function(){
   });
 
   $('#name_birth_years_datatable').dataTable({
-    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
@@ -53,7 +53,7 @@ $(document).ready(function(){
   });
 
   $('#name_districts_datatable').dataTable({
-    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,

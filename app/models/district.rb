@@ -10,7 +10,7 @@ class District < ActiveRecord::Base
   end
 	
   def self.by_name(name_id)
-    joins(:district_name).where(:name_id => @name_id)
+    joins(:district_name).where(:name_id => name_id)
   end
 	
 =begin
