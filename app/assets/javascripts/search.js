@@ -52,5 +52,17 @@ $(document).ready(function(){
     }
   });
 
+  $('#name_districts_datatable').dataTable({
+    "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bJQueryUI": true,
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": $('#name_districts_datatable').data('source'),
+    "oLanguage": {
+      "sUrl": gon.datatable_i18n_url
+    }
+  });
+
 
 });
