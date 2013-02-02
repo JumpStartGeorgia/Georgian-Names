@@ -104,9 +104,9 @@ class RootController < ApplicationController
   end
 
   def year
-    @year_first_names = BirthYear.by_year(params[:id], Name::TYPE[:first_name])
+    @year_first_names = BirthYear.top_names(params[:id], Name::TYPE[:first_name])
     @total_first = NameTotal.first_name_birth_year(params[:id])
-    @year_last_names = BirthYear.by_year(params[:id], Name::TYPE[:last_name])
+    @year_last_names = BirthYear.top_names(params[:id], Name::TYPE[:last_name])
     @total_last = NameTotal.last_name_birth_year(params[:id])
     @population = NameTotal.birth_year_population(params[:id])
 
@@ -136,9 +136,9 @@ class RootController < ApplicationController
   def district
     @district = DistrictName.find_by_name_en(params[:id])
     if @district
-      @district_first_names = District.by_district(@district.id, Name::TYPE[:first_name])
+      @district_first_names = District.top_names(@district.id, Name::TYPE[:first_name])
       @total_first = NameTotal.first_name_district(@district.id)
-      @district_last_names = District.by_district(@district.id, Name::TYPE[:last_name])
+      @district_last_names = District.top_names(@district.id, Name::TYPE[:last_name])
       @total_last = NameTotal.last_name_district(@district.id)
       @population = NameTotal.district_population(@district.id)
 
@@ -169,10 +169,6 @@ class RootController < ApplicationController
       years_array = @name.by_age_array
       @districts = @name.by_districts
 
-      # get shape json and add data to json
-      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
-      AddDataToJson.rank(json,@districts)
-
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
       gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
@@ -185,6 +181,9 @@ class RootController < ApplicationController
       gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
       
+      # get shape json and add data to json
+      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
+      AddDataToJson.rank(json,@districts)
       gon.map_name_json = json
       gon.map_title = I18n.t('charts.map.name.title', :name => @name.name)
       gon.map_sub_title1 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))

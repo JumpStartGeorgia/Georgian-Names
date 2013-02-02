@@ -40,25 +40,49 @@ $(document).ready(function(){
     }
   });
 
-  $('#name_birth_years_datatable').dataTable({
+  $('#first_name_birth_years_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
-    "sAjaxSource": $('#name_birth_years_datatable').data('source'),
+    "sAjaxSource": $('#first_name_birth_years_datatable').data('source'),
     "oLanguage": {
       "sUrl": gon.datatable_i18n_url
     }
   });
 
-  $('#name_districts_datatable').dataTable({
+  $('#last_name_birth_years_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
     "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
-    "sAjaxSource": $('#name_districts_datatable').data('source'),
+    "sAjaxSource": $('#last_name_birth_years_datatable').data('source'),
+    "oLanguage": {
+      "sUrl": gon.datatable_i18n_url
+    }
+  });
+
+  $('#first_name_districts_datatable').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
+    "sPaginationType": "bootstrap",
+    "bJQueryUI": true,
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": $('#first_name_districts_datatable').data('source'),
+    "oLanguage": {
+      "sUrl": gon.datatable_i18n_url
+    }
+  });
+
+  $('#last_name_districts_datatable').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
+    "sPaginationType": "bootstrap",
+    "bJQueryUI": true,
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": $('#last_name_districts_datatable').data('source'),
     "oLanguage": {
       "sUrl": gon.datatable_i18n_url
     }

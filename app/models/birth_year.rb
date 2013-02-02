@@ -8,16 +8,15 @@ class BirthYear < ActiveRecord::Base
     includes(:name).where(:birth_years => {:birth_year => year}, :names => {:name_type => name_type})
   end
 
-  def self.by_name(name_id)
-    where(:name_id => name_id)
-  end
-
-=begin  
-  def self.by_year(year, name_type, limit=10)
+  def self.top_names(year, name_type, limit=10)
     if year && name_type
       includes(:name).where(:birth_years => {:birth_year => year}, :names => {:name_type => name_type})
       .order("birth_years.count desc, names.name asc").limit(limit)
     end
   end
-=end
+
+  def self.by_name(name_id)
+    where(:name_id => name_id)
+  end
+
 end

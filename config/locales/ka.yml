@@ -101,6 +101,16 @@ ka:
       district: რაიონი
       rank: შეფასება
       total: სულ
+    first_name:
+      title: First Names
+      name: First Name
+      rank: Rank
+      total: Total
+    last_name:
+      title: Last Names
+      name: Last Name
+      rank: Rank
+      total: Total
   layouts:
     application:
       admin: ადმინისტრატორი
