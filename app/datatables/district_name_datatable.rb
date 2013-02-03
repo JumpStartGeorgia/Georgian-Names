@@ -1,4 +1,5 @@
 class DistrictNameDatatable
+  include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, to: :@view
 
   def initialize(view)

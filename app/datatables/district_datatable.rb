@@ -1,4 +1,5 @@
 class DistrictDatatable
+  include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, :number_with_delimiter, to: :@view
   delegate :name_id, to: :@name_id
 
@@ -21,7 +22,7 @@ private
   def data
     districts.map do |district|
       [
-        district.district_name.name,
+        link_to(district.district_name.name, district_path(:id => district.district_name.permalink, :locale => I18n.locale)),
         number_with_delimiter(district.count),
         number_with_delimiter(district.rank)
       ]

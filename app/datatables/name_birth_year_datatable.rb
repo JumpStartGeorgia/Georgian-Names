@@ -1,4 +1,5 @@
 class NameBirthYearDatatable
+  include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, :number_with_delimiter, to: :@view
   delegate :birth_year, to: :@birth_year
   delegate :name_type, to: :@name_type
@@ -23,7 +24,7 @@ private
   def data
     names.map do |name|
       [
-        name.name.name,
+        name_link(name),
         number_with_delimiter(name.count),
         number_with_delimiter(name.rank)
       ]
@@ -32,6 +33,16 @@ private
 
   def names
     @names ||= fetch_names
+  end
+
+  def name_link (name)
+    if @name_type.to_s == Name::TYPE[:first_name].to_s
+      link_to name.name.name, first_name_path(:name => name.name.permalink, :locale => I18n.locale)
+    elsif  @name_type.to_s == Name::TYPE[:last_name].to_s
+      link_to name.name.name, last_name_path(:name => name.name.permalink, :locale => I18n.locale)
+    else
+      name.name.name
+    end
   end
 
   def name_name_field

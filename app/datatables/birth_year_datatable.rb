@@ -1,4 +1,5 @@
 class BirthYearDatatable
+  include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, :number_with_delimiter, to: :@view
   delegate :name_id, to: :@name_id
 
@@ -21,7 +22,7 @@ private
   def data
     birth_years.map do |birth_year|
       [
-        birth_year.birth_year,
+        link_to(birth_year.birth_year, year_path(:id => birth_year.birth_year, :locale => I18n.locale)),
         (2012 - birth_year.birth_year),
         number_with_delimiter(birth_year.count),
         number_with_delimiter(birth_year.rank)
