@@ -13,6 +13,12 @@ class SearchController < ApplicationController
     end
   end
 
+  def names_country
+    respond_to do |format|
+      format.json { render json: NameCountryDatatable.new(view_context, params[:name_type]) }
+    end
+  end
+
   def names_birth_year
     respond_to do |format|
       format.json { render json: NameBirthYearDatatable.new(view_context, params[:name_type], params[:birth_year]) }

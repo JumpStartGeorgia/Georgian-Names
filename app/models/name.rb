@@ -18,6 +18,10 @@ class Name < ActiveRecord::Base
 		read_attribute(:name_en)
 	end
 
+	def self.by_name(name_type)
+		where("name_type = ? and name is not null and name != ''", name_type)
+	end
+
 	def self.by_first_name(first_name)
 		if first_name
 			x = where(:name_type => Name::TYPE[:first_name], :name_en => first_name)

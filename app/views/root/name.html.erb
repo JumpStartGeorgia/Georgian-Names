@@ -5,7 +5,6 @@
   <div class="medal_wrapper">
     <%= image_tag generate_rank_path(@name.rank, :format => :png) if @name %>
   </div>
-  <%# generate_medal number_with_delimiter(@name.rank) if @name %>
 
   <% if @type == Name::TYPE[:first_name] %>
     <%= t('.title_first')%>
