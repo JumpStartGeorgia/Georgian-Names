@@ -31,5 +31,11 @@ class SearchController < ApplicationController
     end
   end
 
+  def names
+    respond_to do |format|
+      format.json { render json: NameDatatable.new(view_context, params[:name_type], params[:name_id]) }
+    end
+  end
+
 
 end

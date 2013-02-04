@@ -82,6 +82,14 @@ ka:
           title: 10 ყველაზე პოპულარული გვარი
           subtitle: "გვარების სრული რაოდენობა: %{count}"
           yaxis: გვარის რაოდენობა
+        first_for_last:
+          title: "Top 10 First Names for %{name}"
+          subtitle: "Total First Names: %{count}"
+          yaxis: "Number of People with First Name for %{name}"
+        last_for_first:
+          title: "Top 10 Last Names for %{name}"
+          subtitle: "Total Last Names: %{count}"
+          yaxis: "Number of People with Last Name for %{name}"
     map:
       district: რაიონი
       total: სულ
@@ -120,6 +128,12 @@ ka:
       title: გვარი
       name: გვარი
       rank: შეფასება
+      total: სულ
+    name:
+      title_first: სახელი
+      name_first: სახელი
+      title_last: გვარი
+      name_last: გვარი
       total: სულ
   layouts:
     application:

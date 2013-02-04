@@ -195,7 +195,8 @@ class RootController < ApplicationController
       @birth_years = @name.by_years_hash
       years_array = @name.by_age_array
       @districts = @name.by_districts
-
+      
+      # build age chart
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
       gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
@@ -207,8 +208,8 @@ class RootController < ApplicationController
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
       gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
-      
-      # get shape json and add data to json
+ 
+       # get shape json and add data to json
       json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
       AddDataToJson.rank(json,@districts)
       gon.map_name_json = json
@@ -216,6 +217,29 @@ class RootController < ApplicationController
       gon.map_sub_title1 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       gon.map_sub_title2 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
       @color_legend = AddDataToJson.rank_colors
+
+      # get top 10 related names
+      type = nil
+  		x = "placeholder"
+  		gon.last_name_path = last_name_path(x).gsub(x, "")
+  	  if @name.name_type == Name::TYPE[:first_name]
+        type = 'last_for_first'
+  		  gon.name_path = last_name_path(x).gsub(x, "")
+  	  elsif @name.name_type == Name::TYPE[:last_name]
+        type = 'first_for_last'
+  		  gon.name_path = first_name_path(x).gsub(x, "")
+  	  end
+      top_names = Person.top_names(@name.name_type, @name.id)
+      names_count = Person.by_name(@name.name_type, @name.id).count
+      gon.chart_top_names = true
+      gon.chart_top_names_id = 'chart_top_names'
+      gon.chart_top_names_title = I18n.t("charts.name.#{type}.title", :name => @name.name)
+      gon.chart_top_names_subtitle = I18n.t("charts.name.#{type}.subtitle", :count => view_context.number_with_delimiter(names_count))
+      gon.chart_top_names_yaxis = I18n.t("charts.name.#{type}.yaxis", :name => @name.name)
+      gon.chart_top_names_yaxis_names = top_names.map{|x| x.name}
+      gon.chart_top_names_link_names = top_names.map{|x| x.permalink}
+      gon.chart_top_names_yaxis_data = top_names.map{|x| x.count}
+      
     end
   end
   

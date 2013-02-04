@@ -82,6 +82,14 @@ en:
           title: Top 10 Last Names
           subtitle: "Total Last Names: %{count}"
           yaxis: Number of People with Last Name
+        first_for_last:
+          title: "Top 10 First Names for %{name}"
+          subtitle: "Total First Names: %{count}"
+          yaxis: "Number of People with First Name for %{name}"
+        last_for_first:
+          title: "Top 10 Last Names for %{name}"
+          subtitle: "Total Last Names: %{count}"
+          yaxis: "Number of People with Last Name for %{name}"
     map:
       district: District
       total: Total
@@ -120,6 +128,12 @@ en:
       title: Last Names
       name: Last Name
       rank: Rank
+      total: Total
+    name:
+      title_first: First Names
+      name_first: First Name
+      title_last: Last Names
+      name_last: Last Name
       total: Total
   layouts:
     application:
