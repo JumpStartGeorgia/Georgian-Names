@@ -12,14 +12,16 @@
     <%= t('.subtitle', :district => @district.name, :count => number_with_delimiter(@population.count)) %>
   </h3>
 
-<div class="row-fluid">
-  <div class="span6">
-    <div id="chart_top_fnames"></div>
-  </div> 
-  <div class="span6">
-    <div id="chart_top_lnames"></div>
-  </div>  
-</div>   
+  <div id="chart_age_population"></div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div id="chart_top_fnames"></div>
+    </div> 
+    <div class="span6">
+      <div id="chart_top_lnames"></div>
+    </div>  
+  </div>   
 
   <div class="row-fluid">
     <div class="span6">
@@ -52,6 +54,8 @@
         </tbody>
       </table>
     </div>
+  </div>
+
 <% else %>
   <%= t('.not_exist', :district => params[:id])%>
 <% end %>

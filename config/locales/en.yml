@@ -60,6 +60,12 @@ en:
         xaxis1: Birth Year
         xaxis2: Age
         yaxis: Number of People
+      district:
+        title: Age of the Population for %{district}
+        subtitle: "%{district} Population: %{count}"
+        xaxis1: Birth Year
+        xaxis2: Age
+        yaxis: Number of People
       name:
         title: "Number of '%{name}' With a Given Age"
         subtitle: "Number of '%{name}': %{count}"
@@ -84,6 +90,10 @@ en:
         legend: Legend
         title: Population by District
         subtitle1: "Overall Total: %{count}"
+      year:
+        legend: Legend
+        title: Population by District for People Born in %{year}
+        subtitle1: "Total for %{year}: %{count}"
       name:
         legend: Rank Legend
         title: "'%{name}' Rank by District"

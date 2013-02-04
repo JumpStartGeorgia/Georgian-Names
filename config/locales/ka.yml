@@ -60,6 +60,12 @@ ka:
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
         yaxis: რაოდენობა
+      district:
+        title: Age of the Population for %{district}
+        subtitle: "%{district} Population: %{count}"
+        xaxis1: დაბადების წელი
+        xaxis2: ასაკი
+        yaxis: რაოდენობა
       name:
         title: "რაოდენობა '%{name}' ასაკი"
         subtitle: "რაოდენობა '%{name}': %{count}"
@@ -83,7 +89,11 @@ ka:
       all:
         legend: ლეგენდა
         title: რაიონის მოსახლეობა
-        subtitle1: " რაოდენობა: %{count}"
+        subtitle1: "რაოდენობა: %{count}"
+      year:
+        legend: ლეგენდა
+        title: Population by District for People Born in %{year}
+        subtitle1: "Total for %{year}: %{count}"
       name:
         legend: შეაფასე ლეგენდა
         title: "'%{name}' შეფასება რაიონის  მიხედვით"

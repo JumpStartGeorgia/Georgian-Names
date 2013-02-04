@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
+
 <h1>
   <%= t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) %>
 </h1>
@@ -6,6 +8,31 @@
   <h3>
     <%= t('.subtitle', :year => params[:id], :count => number_with_delimiter(@population.count)) %>
   </h3>
+
+  <div id="map_container">
+    <div id="map"></div>
+    <div id="map_legend">
+      <h3><%= t('charts.map.year.legend')%></h3>
+      <ul>
+        <% @color_legend.each do |color|%>
+          <li>
+            <span style="background-color: <%=color[:color]%>; border: solid 1px #333;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <%= color[:rank] %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div id="map_info_box" style="display: none;">
+      <ul>
+        <li>
+          <%= "#{t('charts.map.district')}:"%> <span id="map_district_name"></span>
+        </li>
+        <li>
+          <%= "#{t('charts.map.total')}:"%> <span id="map_district_count"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div class="row-fluid">
     <div class="span6">

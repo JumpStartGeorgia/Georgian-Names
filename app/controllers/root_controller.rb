@@ -3,17 +3,6 @@ class RootController < ApplicationController
   require 'utf8_converter'
   require 'add_data_to_json'
   
-  def search
-    respond_to do |format|
-      format.html
-      format.json { render json: NameDistrictDatatable.new(view_context, Name::TYPE[:last_name], 999) }
-#      format.json { render json: NameBirthYearDatatable.new(view_context, Name::TYPE[:last_name], 1976) }
-#      format.json { render json: BirthYearDatatable.new(view_context, 29966) }
-#      format.json { render json: DistrictDatatable.new(view_context, 29966) }
-#      format.json { render json: DistrictNameDatatable.new(view_context) }
-    end
-  end
-  
   def index
     @top_first = Name.top_first_names
     @top_last = Name.top_last_names
@@ -115,8 +104,9 @@ class RootController < ApplicationController
     @year_last_names = BirthYear.top_names(params[:id], Name::TYPE[:last_name])
     @total_last = NameTotal.last_name_birth_year(params[:id])
     @population = NameTotal.birth_year_population(params[:id])
+    district_years = DistrictYear.by_birth_year(params[:id])
 
-    if @year_first_names && !@year_first_names.empty?
+    if !@year_first_names.blank?
       gon.chart_top_fnames = true
       gon.chart_top_fnames_id = 'chart_top_fnames'
       gon.chart_top_fnames_title = I18n.t('charts.name.first.title')
@@ -127,7 +117,7 @@ class RootController < ApplicationController
       gon.chart_top_fnames_yaxis_data = @year_first_names.map{|x| x.count}
     end
 
-    if @year_last_names && !@year_last_names.empty?
+    if !@year_last_names.blank?
       gon.chart_top_lnames = true
       gon.chart_top_lnames_id = 'chart_top_lnames'
       gon.chart_top_lnames_title = I18n.t('charts.name.last.title')
@@ -136,6 +126,23 @@ class RootController < ApplicationController
       gon.chart_top_lnames_yaxis_names = @year_last_names.map{|x| x.name.name}
       gon.chart_top_lnames_link_names = @year_last_names.map{|x| x.name.permalink}
       gon.chart_top_lnames_yaxis_data = @year_last_names.map{|x| x.count}
+    end
+
+    if !district_years.blank?
+      # get shape json and add data to json
+      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
+      district_names = DistrictName.all
+      district_population = []    
+      district_years.each do |count|
+        index = district_names.index{|x| x.id == count.district_id}
+        district_population << {:district_id => count.district_id, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
+      end
+
+      AddDataToJson.year_population(json,district_population)
+      gon.map_population_json = json
+      gon.map_title = I18n.t('charts.map.year.title', :year => params[:id])
+      gon.map_sub_title1 = I18n.t('charts.map.year.subtitle1', :year => params[:id], :count => view_context.number_with_delimiter(@population.count))
+      @color_legend = AddDataToJson.year_population_colors
     end
   end
 
@@ -165,6 +172,20 @@ class RootController < ApplicationController
       gon.chart_top_lnames_yaxis_names = @district_last_names.map{|x| x.name.name}
       gon.chart_top_lnames_link_names = @district_last_names.map{|x| x.name.permalink}
       gon.chart_top_lnames_yaxis_data = @district_last_names.map{|x| x.count}
+
+      pop = DistrictYear.by_district(@district.id)
+      pop_sum = pop.map{|x| x.count}.inject(:+)
+      gon.chart_age_population = true
+      gon.chart_age_pop_title = I18n.t('charts.population.district.title', :district => @district.name)
+      gon.chart_age_pop_subtitle = I18n.t('charts.population.district.subtitle', :district => @district.name, :count => view_context.number_with_delimiter(pop_sum))
+      gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.district.xaxis1')}<br />(#{I18n.t('charts.population.district.xaxis2')})"
+      gon.chart_age_pop_yaxis = I18n.t('charts.population.district.yaxis')
+      gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
+      gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
+      gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+      gon.chart_age_pop_data = pop.map{|x| [x.birth_year, x.count]}
+
+
     end
   end
 

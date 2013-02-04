@@ -151,5 +151,73 @@ module AddDataToJson
       population_colors[7][:color]
     end
   end  
+
+
+  #########################################
+  
+  def self.year_population(json, data)
+    if json && data && !data.empty?
+      json['features'].each do |value|
+        if value['properties']['district_id'] == 0
+          value['properties']['count'] = no_data_text
+          value['properties']['count_formatted'] = no_data_text
+          value['properties']['color'] = no_data_color
+          value['properties']['url'] = nil
+        else
+          data_record = data.select{|x| x[:district_id] == value['properties']['district_id']}
+          if data_record && !data_record.empty?
+            value['properties']['district_name'] = data_record.first[:district_name]
+            value['properties']['count'] = data_record.first[:count]
+            value['properties']['count_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record.first[:count])
+            value['properties']['color'] = get_year_population_color(data_record.first[:count])
+            value['properties']['url'] = Rails.application.routes.url_helpers.district_path(:id => data_record.first[:permalink], :locale => I18n.locale)
+          else
+            # no data exists
+            value['properties']['count'] = no_data_text
+            value['properties']['count_formatted'] = no_data_text
+            value['properties']['color'] = no_data_color
+            value['properties']['url'] = nil
+          end
+        end
+      end
+    end
+  end
+  
+  # array of population colors
+  def self.year_population_colors
+    [
+      {:color => '#000000', :rank => '> 3,200'},
+      {:color => '#084594', :rank => '1,600 - 3,200'},
+      {:color => '#2171B5', :rank => '800 - 1,600'},
+      {:color => '#4292C6', :rank => '400 - 800'},
+      {:color => '#6BAED6', :rank => '200 - 400'},
+      {:color => '#9ECAE1', :rank => '100 - 200'},
+      {:color => '#C6DBEF', :rank => '50 - 100'},
+      {:color => '#EFF3FF', :rank => '< 50'},
+      {:color => no_data_color, :rank => no_data_text}
+    ]
+  end
+    
+  # get the color that corresponds to the population value
+  def self.get_year_population_color(count)
+    case 
+    when count > 3200
+      year_population_colors[0][:color]
+    when (1601..3200).include?(count)
+      year_population_colors[1][:color]
+    when (801..1600).include?(count)
+      year_population_colors[2][:color]
+    when (401..800).include?(count)
+      year_population_colors[3][:color]
+    when (201..400).include?(count)
+      year_population_colors[4][:color]
+    when (101..200).include?(count)
+      year_population_colors[5][:color]
+    when (51..100).include?(count)
+      year_population_colors[6][:color]
+    else
+      year_population_colors[7][:color]
+    end
+  end  
   
 end
