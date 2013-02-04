@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130201125304) do
+ActiveRecord::Schema.define(:version => 20130204144037) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20130201125304) do
 
   add_index "district_names", ["name"], :name => "index_district_names_on_name"
   add_index "district_names", ["name_en"], :name => "index_district_names_on_name_en"
+
+  create_table "district_years", :force => true do |t|
+    t.integer  "district_id"
+    t.integer  "birth_year"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "district_years", ["birth_year"], :name => "index_district_years_on_birth_year"
+  add_index "district_years", ["district_id"], :name => "index_district_years_on_district_id"
 
   create_table "districts", :force => true do |t|
     t.integer  "name_id"
@@ -72,7 +83,21 @@ ActiveRecord::Schema.define(:version => 20130201125304) do
 
   add_index "names", ["count"], :name => "index_names_on_count"
   add_index "names", ["name_en"], :name => "index_names_on_name_en"
+  add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
   add_index "names", ["name_type", "name"], :name => "idx_names"
+
+  create_table "people", :force => true do |t|
+    t.integer  "first_name_id"
+    t.integer  "last_name_id"
+    t.integer  "birth_year"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people", ["birth_year"], :name => "index_people_on_birth_year"
+  add_index "people", ["district_id"], :name => "index_people_on_district_id"
+  add_index "people", ["first_name_id", "last_name_id"], :name => "index_people_on_first_name_id_and_last_name_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
