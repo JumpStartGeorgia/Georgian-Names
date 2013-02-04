@@ -52,7 +52,7 @@ class RootController < ApplicationController
 
     AddDataToJson.population(json,@population)
     
-    gon.map_population_json = json
+    gon.map_population_json_svg = json
     gon.map_title = I18n.t('charts.map.all.title')
     gon.map_sub_title1 = I18n.t('charts.map.all.subtitle1', :count => view_context.number_with_delimiter(pop_sum))
     @color_legend = AddDataToJson.population_colors
