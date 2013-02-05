@@ -2,6 +2,7 @@
 class RootController < ApplicationController
   require 'utf8_converter'
   require 'add_data_to_json'
+  require 'generate_json'
   
   def index
     @top_first = Name.top_first_names
@@ -42,7 +43,6 @@ class RootController < ApplicationController
 
 
     # get shape json and add data to json
-    json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
     district_names = DistrictName.all
     @population = []    
     NameTotal.district_population.each do |count|
@@ -50,7 +50,7 @@ class RootController < ApplicationController
       @population << {:district_id => count.identifier, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
     end
 
-    AddDataToJson.population(json,@population)
+    json = GenerateJson.population(district_names,@population)
     
     gon.map_population_json_svg = json
     gon.map_title = I18n.t('charts.map.all.title')

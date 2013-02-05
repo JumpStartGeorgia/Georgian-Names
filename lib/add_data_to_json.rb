@@ -11,6 +11,7 @@ module AddDataToJson
   def self.rank(json, data)
     if json && data && !data.empty?
       json['features'].each do |value|
+value['geometry'] = nil
         if value['properties']['district_id'] == 0
           value['properties']['rank'] = no_data_text
           value['properties']['rank_formatted'] = no_data_text
