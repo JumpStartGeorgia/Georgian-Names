@@ -130,7 +130,6 @@ class RootController < ApplicationController
 
     if !district_years.blank?
       # get shape json and add data to json
-      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
       district_names = DistrictName.all
       district_population = []    
       district_years.each do |count|
@@ -138,8 +137,9 @@ class RootController < ApplicationController
         district_population << {:district_id => count.district_id, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
       end
 
-      AddDataToJson.year_population(json,district_population)
-      gon.map_population_json = json
+      json = GenerateJson.year_population(district_names,district_population)
+
+      gon.map_population_json_svg = json
       gon.map_title = I18n.t('charts.map.year.title', :year => params[:id])
       gon.map_sub_title1 = I18n.t('charts.map.year.subtitle1', :year => params[:id], :count => view_context.number_with_delimiter(@population.count))
       @color_legend = AddDataToJson.year_population_colors
@@ -210,9 +210,9 @@ class RootController < ApplicationController
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
  
        # get shape json and add data to json
-      json = JSON.parse(File.open("#{Rails.root}/public/geo_districts.json", "r") {|f| f.read()})
-      AddDataToJson.rank(json,@districts)
-      gon.map_name_json = json
+      district_names = DistrictName.all
+      json = GenerateJson.rank(district_names,@districts)
+      gon.map_name_json_svg = json
       gon.map_title = I18n.t('charts.map.name.title', :name => @name.name)
       gon.map_sub_title1 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       gon.map_sub_title2 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
