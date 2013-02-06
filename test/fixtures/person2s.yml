@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name_id: 1
+  last_name_id: 1
+  count: 1
+  rank: 1
+
+two:
+  first_name_id: 1
+  last_name_id: 1
+  count: 1
+  rank: 1

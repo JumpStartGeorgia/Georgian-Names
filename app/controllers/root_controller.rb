@@ -221,24 +221,27 @@ class RootController < ApplicationController
       # get top 10 related names
       type = nil
   		x = "placeholder"
+      top_names = Person.top_names(@name.name_type, @name.id)
+      names_count = Person.by_name(@name.name_type, @name.id).count
+
   		gon.last_name_path = last_name_path(x).gsub(x, "")
   	  if @name.name_type == Name::TYPE[:first_name]
         type = 'last_for_first'
   		  gon.name_path = last_name_path(x).gsub(x, "")
+        gon.chart_top_names_yaxis_names = top_names.map{|x| x.last_name.name}
+        gon.chart_top_names_link_names = top_names.map{|x| x.last_name.permalink}
   	  elsif @name.name_type == Name::TYPE[:last_name]
         type = 'first_for_last'
   		  gon.name_path = first_name_path(x).gsub(x, "")
+        gon.chart_top_names_yaxis_names = top_names.map{|x| x.first_name.name}
+        gon.chart_top_names_link_names = top_names.map{|x| x.first_name.permalink}
   	  end
-      top_names = Person.top_names(@name.name_type, @name.id)
-      names_count = Person.by_name(@name.name_type, @name.id).count
+      gon.chart_top_names_yaxis_data = top_names.map{|x| x.count}
       gon.chart_top_names = true
       gon.chart_top_names_id = 'chart_top_names'
       gon.chart_top_names_title = I18n.t("charts.name.#{type}.title", :name => @name.name)
       gon.chart_top_names_subtitle = I18n.t("charts.name.#{type}.subtitle", :count => view_context.number_with_delimiter(names_count))
       gon.chart_top_names_yaxis = I18n.t("charts.name.#{type}.yaxis", :name => @name.name)
-      gon.chart_top_names_yaxis_names = top_names.map{|x| x.name}
-      gon.chart_top_names_link_names = top_names.map{|x| x.permalink}
-      gon.chart_top_names_yaxis_data = top_names.map{|x| x.count}
       
     end
   end

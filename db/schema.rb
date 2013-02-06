@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204151247) do
+ActiveRecord::Schema.define(:version => 20130206173752) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -60,6 +60,19 @@ ActiveRecord::Schema.define(:version => 20130204151247) do
   add_index "districts", ["district_id"], :name => "index_districts_on_district_id"
   add_index "districts", ["name_id"], :name => "index_districts_on_name_id"
 
+  create_table "mappings", :force => true do |t|
+    t.integer  "first_name_id"
+    t.integer  "last_name_id"
+    t.integer  "birth_year"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mappings", ["birth_year"], :name => "index_mappings_on_birth_year"
+  add_index "mappings", ["district_id"], :name => "index_mappings_on_district_id"
+  add_index "mappings", ["first_name_id", "last_name_id"], :name => "index_mappings_on_first_name_id_and_last_name_id"
+
   create_table "name_totals", :force => true do |t|
     t.integer  "identifier"
     t.integer  "count"
@@ -89,15 +102,14 @@ ActiveRecord::Schema.define(:version => 20130204151247) do
   create_table "people", :force => true do |t|
     t.integer  "first_name_id"
     t.integer  "last_name_id"
-    t.integer  "birth_year"
-    t.integer  "district_id"
+    t.integer  "count"
+    t.integer  "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "people", ["birth_year"], :name => "index_people_on_birth_year"
-  add_index "people", ["district_id"], :name => "index_people_on_district_id"
-  add_index "people", ["first_name_id", "last_name_id"], :name => "index_people_on_first_name_id_and_last_name_id"
+  add_index "people", ["first_name_id"], :name => "index_people_on_first_name_id"
+  add_index "people", ["last_name_id"], :name => "index_people_on_last_name_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
