@@ -32,12 +32,8 @@
           </a>
           <%= link_to(t('app.common.app_name'), root_path(:locale => I18n.locale),:class=>"brand font")%>
           <div class="container-fluid nav-collapse">
-            <%= form_tag search_first_name_path, :method => :get, :class => "navbar-search pull-left" do %>
-          		<%= text_field_tag 'name', nil, :class => "search-query", :placeholder => t('app.common.first_name') %>
-            <% end %>
-
-            <%= form_tag search_last_name_path, :method => :get, :class => "navbar-search pull-left" do %>
-          		<%= text_field_tag 'name', nil, :class => "search-query", :placeholder => t('app.common.last_name') %>
+            <%= form_tag search_name_path, :method => :get, :class => "navbar-search pull-left" do %>
+          		<%= text_field_tag 'q', nil, :class => "search-query", :placeholder => t('.search_placeholder') %>
             <% end %>
 
 	          <ul class="nav pull-right">

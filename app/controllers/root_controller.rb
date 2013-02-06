@@ -74,6 +74,25 @@ class RootController < ApplicationController
     render :name
   end
 
+  def search_name
+    en_q = Utf8Converter.convert_ka_to_en(params[:q])
+    
+    # see if there is a perfect match
+    name = Name.search_name(en_q)
+    if name.present? && name.length == 1
+      # found one match, load name page for it
+      if name.first.name_type == Name::TYPE[:first_name]
+        redirect_to first_name_path(name.first.name_en) 
+      elsif name.first.name_type == Name::TYPE[:last_name]
+        redirect_to last_name_path(name.first.name_en) 
+      end
+    end
+
+    # do search across all names
+    # - use name country data tables
+    gon.initial_name_search = params[:q]
+  end
+
   def search_first_name
     @type = Name::TYPE[:first_name]
     en_name = Utf8Converter.convert_ka_to_en(params[:name])

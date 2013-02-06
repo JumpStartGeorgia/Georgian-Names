@@ -141,6 +141,7 @@ ka:
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
+      search_placeholder: first and/or last name
     unsupported_browser:
       title: არასათანადო ბრაუზერი
       p1: სამწუხაროდ თქვენი ინტერნეტ ბრაუზერის მოხმარების ვადა გასულია და ვერ მოხდება ვებ-გვერდთან სრულად დაკავშირება.
@@ -207,3 +208,5 @@ ka:
       total_first: "სახელის რაოდენბა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"
       not_exist: "წელი %{year}' არ მოიძებნა."
+    search_name:
+      title: Search

@@ -141,6 +141,7 @@ en:
       sign_out: Sign Out
       js_link_title: "Visit JumpStart Georgia's website"
       js_link_text: Built by
+      search_placeholder: first and/or last name
     unsupported_browser:
       title: Unsupported Browser
       p1: We are sorry to report that your browser is out of date and will not properly render the content from this website.
@@ -207,4 +208,6 @@ en:
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "Year '%{year}' could not be found."
+    search_name:
+      title: Search
       
