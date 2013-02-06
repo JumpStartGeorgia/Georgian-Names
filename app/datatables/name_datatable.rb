@@ -42,11 +42,19 @@ private
     end
   end
 
+  def name_name_field
+    if I18n.locale == :ka
+      "names.name"
+    else
+      "names.name_en"
+    end
+  end
+
   def fetch_people
     people = Person.by_name(@name_type, @name_id).order("#{sort_column} #{sort_direction}")
     people = people.page(page).per_page(per_page)
     if params[:sSearch].present?
-      people = people.where("names.name like :search", search: "%#{params[:sSearch]}%")
+      people = people.where("#{name_name_field} like :search", search: "%#{params[:sSearch]}%")
     end
     people
   end
@@ -60,8 +68,13 @@ private
   end
 
   def sort_column
-    columns = %w[names.name people.count]
-    columns[params[:iSortCol_0].to_i]
+    columns = %w[name people.count]
+    # name sure the sorting of name is done for the correct language
+    if params[:iSortCol_0].to_i == 0
+      name_name_field
+    else
+      columns[params[:iSortCol_0].to_i]
+    end
   end
 
   def sort_direction
