@@ -191,7 +191,7 @@ en:
         smallest_district_header: Smallest Distrcit
         smallest_district_text: Kazbegi
         oldest_header: Oldest Person
-        popular_age_header: Most Popular Age
+        popular_age_header: Most Common Age
     name:
       title_first: "First Name:"
       title_last: "Last Name:"

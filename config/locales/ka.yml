@@ -75,11 +75,11 @@ ka:
         yaxis2: სახელის შეფასება
     name:
         first:
-          title: 10 ყველაზე პოპულარული სახელი
+          title: ყველაზე გავრცელებული 10 სახელი
           subtitle: "სახელების სრული რაოდენობა: %{count}"
           yaxis:  სახელის რაოდენობა
         last:
-          title: 10 ყველაზე პოპულარული გვარი
+          title: ყველაზე გავრცელებული 10 გვარი
           subtitle: "გვარების სრული რაოდენობა: %{count}"
           yaxis: გვარის რაოდენობა
         first_for_last:
@@ -141,7 +141,7 @@ ka:
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
-      search_placeholder: first and/or last name
+      search_placeholder: სახელი და/ან გვარი 
     unsupported_browser:
       title: არასათანადო ბრაუზერი
       p1: სამწუხაროდ თქვენი ინტერნეტ ბრაუზერის მოხმარების ვადა გასულია და ვერ მოხდება ვებ-გვერდთან სრულად დაკავშირება.
@@ -191,7 +191,7 @@ ka:
         smallest_district_header: ყველაზე პატარა ოლქი
         smallest_district_text: ყაზბეგი
         oldest_header: ყველაზე ხანდაზმული ადამიანი
-        popular_age_header: ყველაზე პოპულარული ასაკი
+        popular_age_header: ყველაზე გავრცელებული ასაკი
     name:
       title_first: "სახელი:"
       title_last: "გვარი:"
