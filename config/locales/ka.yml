@@ -21,7 +21,7 @@ ka:
       list: იხილეთ სრულად
       cancel: გაუქმება
       reset: საწყის კონფიგურაციაზე დაბრუნება
-      search: Search
+      search: ძიება
     titles:
       new: "ახალი %{model}"
       edit: "შეცვლა %{model}"
@@ -61,8 +61,8 @@ ka:
         xaxis2: ასაკი
         yaxis: რაოდენობა
       district:
-        title: Age of the Population for %{district}
-        subtitle: "%{district} Population: %{count}"
+        title: მოსახლეობის ასაკი %{district} მიხედვით
+        subtitle: "%{district} მოსახლეობა: %{count}"
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
         yaxis: რაოდენობა
@@ -83,13 +83,13 @@ ka:
           subtitle: "გვარების სრული რაოდენობა: %{count}"
           yaxis: გვარის რაოდენობა
         first_for_last:
-          title: "Top 10 First Names for %{name}"
-          subtitle: "Total First Names: %{count}"
-          yaxis: "Number of People with First Name for %{name}"
+          title: "პირველი 10 სახელი: %{name}"
+          subtitle: "ყველა სახელი: %{count}"
+          yaxis: "ხალხის, სახელად %{name} რაოდენობა"
         last_for_first:
-          title: "Top 10 Last Names for %{name}"
-          subtitle: "Total Last Names: %{count}"
-          yaxis: "Number of People with Last Name for %{name}"
+          title: "პირველი 10 გვარი %{name}"
+          subtitle: "ყველა გვარი: %{count}"
+          yaxis: "ხალხის, გვარად %{name} რაოდენობა"
     map:
       district: რაიონი
       total: სულ
@@ -100,8 +100,8 @@ ka:
         subtitle1: "რაოდენობა: %{count}"
       year:
         legend: ლეგენდა
-        title: Population by District for People Born in %{year}
-        subtitle1: "Total for %{year}: %{count}"
+        title: მოსახლეობა ოლქების მიხედვით %{year} წელს დაბადებულთათვის
+        subtitle1: "%{year} წლის საერთო რაოდენობა: %{count}"
       name:
         legend: შეაფასე ლეგენდა
         title: "'%{name}' შეფასება რაიონის  მიხედვით"
@@ -209,4 +209,4 @@ ka:
       total_last: "გვარის რაოდენობა: %{count}"
       not_exist: "წელი %{year}' არ მოიძებნა."
     search_name:
-      title: Search
+      title: ძიება
