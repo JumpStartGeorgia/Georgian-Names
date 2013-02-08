@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206173752) do
+ActiveRecord::Schema.define(:version => 20130208085427) do
 
   create_table "birth_years", :force => true do |t|
     t.integer  "name_id"
@@ -92,12 +92,14 @@ ActiveRecord::Schema.define(:version => 20130206173752) do
     t.datetime "updated_at"
     t.integer  "rank"
     t.string   "name_en"
+    t.string   "permalink"
   end
 
   add_index "names", ["count"], :name => "index_names_on_count"
   add_index "names", ["name_en"], :name => "index_names_on_name_en"
   add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
   add_index "names", ["name_type", "name"], :name => "idx_names"
+  add_index "names", ["permalink"], :name => "index_names_on_permalink"
 
   create_table "people", :force => true do |t|
     t.integer  "first_name_id"

@@ -2,7 +2,7 @@ class Name < ActiveRecord::Base
 	has_many :birth_years
 	has_many :districts
 
-	attr_accessible :name_type, :name, :count
+	attr_accessible :name_type, :name, :count, :permalink
 
   TYPE = {:first_name => 1, :last_name => 2}
 
@@ -14,24 +14,20 @@ class Name < ActiveRecord::Base
 		end
 	end
 
-	def permalink
-		read_attribute(:name_en)
-	end
-
 	def self.by_name(name_type)
 		where("name_type = ? and name is not null and name != ''", name_type)
 	end
 
 	def self.by_first_name(first_name)
 		if first_name
-			x = where(:name_type => Name::TYPE[:first_name], :name_en => first_name)
+			x = where(:name_type => Name::TYPE[:first_name], :permalink => first_name)
 			return x.first if x.present?
 		end
 	end
 
 	def self.by_last_name(last_name)
 		if last_name
-			x = where(:name_type => Name::TYPE[:last_name], :name_en => last_name)
+			x = where(:name_type => Name::TYPE[:last_name], :permalink => last_name)
 			return x.first if x.present?
 		end
 	end
