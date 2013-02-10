@@ -79,8 +79,8 @@ class RootController < ApplicationController
     @last_name = Name.by_last_name(params[:last_name])
 
     if @first_name && @last_name
-      birth_years = Mapping.birth_years(@first_name.id, @last_name.id)
-      districts = Mapping.districts(@first_name.id, @last_name.id)
+      birth_years = Mapping.birth_years(@first_name.id, @last_name.id, true)
+      districts = Mapping.districts(@first_name.id, @last_name.id, true)
 
       if birth_years.present?
         # build age chart

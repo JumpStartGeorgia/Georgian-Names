@@ -43,5 +43,17 @@ class SearchController < ApplicationController
     end
   end
 
+  def birth_years_full_name
+    respond_to do |format|
+      format.json { render json: BirthYearFullNameDatatable.new(view_context, params[:first_name_id], params[:last_name_id]) }
+    end
+  end
+
+  def districts_full_name
+    respond_to do |format|
+      format.json { render json: DistrictFullNameDatatable.new(view_context, params[:first_name_id], params[:last_name_id]) }
+    end
+  end
+
 
 end

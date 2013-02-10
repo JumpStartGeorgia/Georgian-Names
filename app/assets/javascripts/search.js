@@ -163,5 +163,29 @@ $(document).ready(function(){
     "oSearch": {"sSearch": gon.initial_name_search}
   });
 
+  $('#districts_full_name_datatable').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
+    "sPaginationType": "bootstrap",
+    "bJQueryUI": true,
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": $('#districts_full_name_datatable').data('source'),
+    "oLanguage": {
+      "sUrl": gon.datatable_i18n_url
+    }
+  });
+
+  $('#birth_years_full_name_datatable').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
+    "sPaginationType": "bootstrap",
+    "bJQueryUI": true,
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": $('#birth_years_full_name_datatable').data('source'),
+    "oLanguage": {
+      "sUrl": gon.datatable_i18n_url
+    }
+  });
+
 
 });
