@@ -75,6 +75,7 @@ class RootController < ApplicationController
   end
 
   def search_name
+=begin
     en_q = Utf8Converter.convert_ka_to_en(params[:q])
     
     # see if there is a perfect match
@@ -87,7 +88,7 @@ class RootController < ApplicationController
         redirect_to last_name_path(name.first.name_en) 
       end
     end
-
+=end
     # do search across all names
     # - use name country data tables
     gon.initial_name_search = params[:q]
