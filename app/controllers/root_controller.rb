@@ -106,8 +106,8 @@ class RootController < ApplicationController
         pop_sum = districts.map{|x| x.count}.inject(:+)
         
         gon.map_population_json_svg = json
-        gon.map_title = I18n.t('charts.map.all.title')
-        gon.map_sub_title1 = I18n.t('charts.map.all.subtitle1', :count => view_context.number_with_delimiter(pop_sum))
+        gon.map_title = I18n.t('charts.map.name.title', :name => "#{@first_name.name} #{@last_name.name}")
+        gon.map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(pop_sum))
         @color_legend = GenerateJson.full_name_population_colors
 
       end
