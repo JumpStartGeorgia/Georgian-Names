@@ -17,5 +17,8 @@ class Person < ActiveRecord::Base
 	def self.top_names(name_type, name_id, limit = 10)
     by_name(name_type, name_id).order("people.count desc").limit(limit)
 	end
-	
+
+  def self.by_full_name
+    includes(:first_name, :last_name)
+  end
 end

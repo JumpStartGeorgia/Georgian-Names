@@ -129,6 +129,11 @@ ka:
       name: გვარი
       rank: შეფასება
       total: სულ
+    full_name:
+      title: Full Name
+      name: სახელი
+      rank: გვარი
+      total: სულ
     name:
       title_first: სახელი
       name_first: სახელი

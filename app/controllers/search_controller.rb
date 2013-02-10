@@ -37,5 +37,11 @@ class SearchController < ApplicationController
     end
   end
 
+  def full_names
+    respond_to do |format|
+      format.json { render json: FullNameDatatable.new(view_context) }
+    end
+  end
+
 
 end

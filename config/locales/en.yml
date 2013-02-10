@@ -129,6 +129,11 @@ en:
       name: Last Name
       rank: Rank
       total: Total
+    full_name:
+      title: Full Name
+      name: First Name
+      rank: Last Name
+      total: Total
     name:
       title_first: First Names
       name_first: First Name

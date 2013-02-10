@@ -9,9 +9,9 @@
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:first_name], :format => :json) %>">
       <thead>
         <tr>
-          <th><%= t('tables.first_names.name')%></th>
-          <th><%= t('tables.first_names.total')%></th>
-          <th><%= t('tables.first_names.rank')%></th>
+          <th><%= t('tables.first_name.name')%></th>
+          <th><%= t('tables.first_name.total')%></th>
+          <th><%= t('tables.first_name.rank')%></th>
         </tr>
       </thead>
       <tbody>
@@ -24,13 +24,31 @@
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:last_name], :format => :json) %>">
       <thead>
         <tr>
-          <th><%= t('tables.last_names.name')%></th>
-          <th><%= t('tables.last_names.total')%></th>
-          <th><%= t('tables.last_names.rank')%></th>
+          <th><%= t('tables.last_name.name')%></th>
+          <th><%= t('tables.last_name.total')%></th>
+          <th><%= t('tables.last_name.rank')%></th>
         </tr>
       </thead>
       <tbody>
       </tbody>
     </table>
   </div>
+</div>   
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3><%= t('tables.full_name.title')%></h3>
+    <table id="full_name_search_datatable" class="display table table-striped table-bordered" 
+          data-source="<%= search_full_names_url(:format => :json) %>">
+      <thead>
+        <tr>
+          <th><%= t('tables.full_name.first_name')%></th>
+          <th><%= t('tables.full_name.last_name')%></th>
+          <th><%= t('tables.full_name.total')%></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div> 
 </div>   

@@ -26,6 +26,7 @@ BootstrapStarter::Application.routes.draw do
     match '/search/names_district/:name_type/:district_id', :to => 'search#names_district', :as => :search_names_district, :via => :get, :defaults => {:format => 'json'}
     match '/search/names_country/:name_type', :to => 'search#names_country', :as => :search_names_country, :via => :get, :defaults => {:format => 'json'}
     match '/search/name/:name_type/:name_id', :to => 'search#names', :as => :search_names, :via => :get, :defaults => {:format => 'json'}
+    match '/search/full_name', :to => 'search#full_names', :as => :search_full_names, :via => :get, :defaults => {:format => 'json'}
 
     # generate image
     match '/png/rank/:rank', :to => 'png#rank', :as => :generate_rank, :via => :get
