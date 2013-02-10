@@ -55,7 +55,7 @@ class RootController < ApplicationController
     gon.map_population_json_svg = json
     gon.map_title = I18n.t('charts.map.all.title')
     gon.map_sub_title1 = I18n.t('charts.map.all.subtitle1', :count => view_context.number_with_delimiter(pop_sum))
-    @color_legend = AddDataToJson.population_colors
+    @color_legend = GenerateJson.population_colors
 
   end
 
@@ -79,13 +79,13 @@ class RootController < ApplicationController
     @last_name = Name.by_last_name(params[:last_name])
 
     if @first_name && @last_name
-      mappings = Mapping.by_full_name(@first_name.id, @last_name.id)
+      birth_years = Mapping.birth_years(@first_name.id, @last_name.id)
+      districts = Mapping.districts(@first_name.id, @last_name.id)
 
-      if mappings.present?
-
+      if birth_years.present?
         # build age chart
-        years_array = mappings.map{|x| [x.birth_year, x.count]}.sort{|a,b| a[0] <=> b[0]}
-        pop_sum = mappings.map{|x| x.count}.inject(:+)
+        years_array = birth_years.map{|x| [x.birth_year, x.count]}
+        pop_sum = birth_years.map{|x| x.count}.inject(:+)
         gon.chart_age_population = true
         gon.chart_age_pop_title = I18n.t('charts.population.all.title')
         gon.chart_age_pop_subtitle = I18n.t('charts.population.all.subtitle', :count => view_context.number_with_delimiter(pop_sum))
@@ -95,18 +95,20 @@ class RootController < ApplicationController
         gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
         gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
         gon.chart_age_pop_data = years_array
-
+      end
    
+      if districts.present?
         # get shape json and add data to json
         district_names = DistrictName.all
-        @districts = mappings.map{|x| {:district_id => x.district_id, :district_name => x.district_name,
+        d = districts.map{|x| {:district_id => x.district_id, :district_name => x.district_name,
                 		  :permalink => x.district_permalink, :count => x.count}}
-        json = GenerateJson.population(district_names,@districts)
+        json = GenerateJson.full_name_population(district_names,d)
+        pop_sum = districts.map{|x| x.count}.inject(:+)
         
         gon.map_population_json_svg = json
         gon.map_title = I18n.t('charts.map.all.title')
         gon.map_sub_title1 = I18n.t('charts.map.all.subtitle1', :count => view_context.number_with_delimiter(pop_sum))
-        @color_legend = AddDataToJson.population_colors
+        @color_legend = GenerateJson.full_name_population_colors
 
       end
     end
@@ -176,7 +178,7 @@ class RootController < ApplicationController
       gon.map_population_json_svg = json
       gon.map_title = I18n.t('charts.map.year.title', :year => params[:id])
       gon.map_sub_title1 = I18n.t('charts.map.year.subtitle1', :year => params[:id], :count => view_context.number_with_delimiter(@population.count))
-      @color_legend = AddDataToJson.year_population_colors
+      @color_legend = GenerateJson.year_population_colors
     end
   end
 
@@ -250,7 +252,7 @@ class RootController < ApplicationController
       gon.map_title = I18n.t('charts.map.name.title', :name => @name.name)
       gon.map_sub_title1 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       gon.map_sub_title2 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
-      @color_legend = AddDataToJson.rank_colors
+      @color_legend = GenerateJson.rank_colors
 
       # get top 10 related names
       type = nil

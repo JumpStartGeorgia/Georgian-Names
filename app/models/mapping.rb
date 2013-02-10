@@ -22,9 +22,17 @@ class Mapping < ActiveRecord::Base
     read_attribute(:count)
   end
 
-  def self.by_full_name(first_name_id, last_name_id)
-    select('mappings.birth_year, mappings.district_id, district_names.name as district_name, district_names.name_en as district_permalink, count(*) as count')
+  def self.birth_years(first_name_id, last_name_id)
+    select('mappings.birth_year, count(*) as count')
+      .where(:first_name_id => first_name_id, :last_name_id => last_name_id)    
+      .group('mappings.birth_year')
+      .order('mappings.birth_year asc')
+  end  
+
+  def self.districts(first_name_id, last_name_id)
+    select('mappings.district_id, district_names.name as district_name, district_names.name_en as district_permalink, count(*) as count')
       .joins(:district_name).where(:first_name_id => first_name_id, :last_name_id => last_name_id)    
-      .group('mappings.birth_year, mappings.district_id, district_names.name')
+      .group('mappings.district_id, district_names.name')
+      .order('mappings.district_id asc')
   end  
 end
