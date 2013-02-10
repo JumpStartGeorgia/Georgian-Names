@@ -247,12 +247,12 @@ class RootController < ApplicationController
  
        # get shape json and add data to json
       district_names = DistrictName.all
-      json = GenerateJson.rank(district_names,@districts)
+      json = GenerateJson.district_population(district_names,@districts)
       gon.map_name_json_svg = json
       gon.map_title = I18n.t('charts.map.name.title', :name => @name.name)
       gon.map_sub_title1 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       gon.map_sub_title2 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
-      @color_legend = GenerateJson.rank_colors
+      @color_legend = GenerateJson.district_population_colors
 
       # get top 10 related names
       type = nil

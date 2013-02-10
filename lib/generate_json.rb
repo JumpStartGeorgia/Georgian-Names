@@ -8,6 +8,8 @@ module GenerateJson
     I18n.t('app.common.no_data')
   end
   
+  #########################################
+
   def self.rank(districts, data)
     json = []
     
@@ -223,6 +225,79 @@ module GenerateJson
       year_population_colors[7][:color]
     end
   end  
+  
+  #########################################
+  
+  def self.district_population(districts, data)
+    json = []
+    
+    if !districts.blank? && !data.blank?
+      districts.each do |district|
+        item = Hash.new
+        json << item
+
+        item['district_id'] = district.id
+        item['district_name'] = district.name
+
+        data_record = data.select{|x| x[:district_id] == district.id}.first
+        if data_record
+          item['rank'] = data_record[:rank]
+          item['rank_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record[:rank])
+          item['count'] = data_record[:count]
+          item['count_formatted'] = ActionController::Base.helpers.number_with_delimiter(data_record[:count])
+          item['color'] = get_district_population_color(data_record[:count])
+          item['url'] = Rails.application.routes.url_helpers.district_path(:id => data_record[:permalink], :locale => I18n.locale)
+        else
+          # no data exists
+          item['rank'] = no_data_text
+          item['rank_formatted'] = no_data_text
+          item['count'] = no_data_text
+          item['count_formatted'] = no_data_text
+          item['color'] = no_data_color
+          item['url'] = nil
+        end
+      end
+    end
+
+    return json
+  end
+  
+  # array of population colors
+  def self.district_population_colors
+    [
+      {:color => '#000000', :rank => '> 1,600'},
+      {:color => '#084594', :rank => '800 - 1,600'},
+      {:color => '#2171B5', :rank => '400 - 800'},
+      {:color => '#4292C6', :rank => '200 - 400'},
+      {:color => '#6BAED6', :rank => '100 - 200'},
+      {:color => '#9ECAE1', :rank => '500 - 100'},
+      {:color => '#C6DBEF', :rank => '25 - 50'},
+      {:color => '#EFF3FF', :rank => '< 25'},
+      {:color => no_data_color, :rank => no_data_text}
+    ]
+  end
+    
+  # get the color that corresponds to the population value
+  def self.get_district_population_color(count)
+    case 
+    when count > 1600
+      district_population_colors[0][:color]
+    when (801..1600).include?(count)
+      district_population_colors[1][:color]
+    when (401..800).include?(count)
+      district_population_colors[2][:color]
+    when (201..400).include?(count)
+      district_population_colors[3][:color]
+    when (101..200).include?(count)
+      district_population_colors[4][:color]
+    when (51..100).include?(count)
+      district_population_colors[5][:color]
+    when (26..50).include?(count)
+      district_population_colors[6][:color]
+    else
+      district_population_colors[7][:color]
+    end
+  end    
 
   #########################################
   
