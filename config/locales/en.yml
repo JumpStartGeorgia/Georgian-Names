@@ -201,6 +201,9 @@ en:
       title_first: "First Name:"
       title_last: "Last Name:"
       not_exist: "'%{name}' could not be found."
+    full_name:
+      title: "Full Name: %{first} %{last}"
+      not_exist: "'%{first} %{last}' could not be found."
     district:
       title: "District:"
       subtitle: "Number of People in '%{district}': %{count}"

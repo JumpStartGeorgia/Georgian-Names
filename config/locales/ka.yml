@@ -201,6 +201,9 @@ ka:
       title_first: "სახელი:"
       title_last: "გვარი:"
       not_exist: "'%{name}' არ მოიძებნა."
+    full_name:
+      title: "Full Name: %{first} %{last}"
+      not_exist: "'%{first} %{last}' არ მოიძებნა."
     district:
       title: "რაიონი:"
       subtitle: "რაოდენობა '%{district}': %{count}"

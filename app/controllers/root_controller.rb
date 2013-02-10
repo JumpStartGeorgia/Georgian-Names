@@ -74,6 +74,44 @@ class RootController < ApplicationController
     render :name
   end
 
+  def full_name
+    @first_name = Name.by_first_name(params[:first_name])
+    @last_name = Name.by_last_name(params[:last_name])
+
+    if @first_name && @last_name
+      mappings = Mapping.by_full_name(@first_name.id, @last_name.id)
+
+      if mappings.present?
+
+        # build age chart
+        years_array = mappings.map{|x| [x.birth_year, x.count]}.sort{|a,b| a[0] <=> b[0]}
+        pop_sum = mappings.map{|x| x.count}.inject(:+)
+        gon.chart_age_population = true
+        gon.chart_age_pop_title = I18n.t('charts.population.all.title')
+        gon.chart_age_pop_subtitle = I18n.t('charts.population.all.subtitle', :count => view_context.number_with_delimiter(pop_sum))
+        gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.all.xaxis1')}<br />(#{I18n.t('charts.population.all.xaxis2')})"
+        gon.chart_age_pop_yaxis = I18n.t('charts.population.all.yaxis')
+        gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
+        gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
+        gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+        gon.chart_age_pop_data = years_array
+
+   
+        # get shape json and add data to json
+        district_names = DistrictName.all
+        @districts = mappings.map{|x| {:district_id => x.district_id, :district_name => x.district_name,
+                		  :permalink => x.district_permalink, :count => x.count}}
+        json = GenerateJson.population(district_names,@districts)
+        
+        gon.map_population_json_svg = json
+        gon.map_title = I18n.t('charts.map.all.title')
+        gon.map_sub_title1 = I18n.t('charts.map.all.subtitle1', :count => view_context.number_with_delimiter(pop_sum))
+        @color_legend = AddDataToJson.population_colors
+
+      end
+    end
+  end
+
   def search_name
 =begin
     en_q = Utf8Converter.convert_ka_to_en(params[:q])
@@ -92,30 +130,6 @@ class RootController < ApplicationController
     # do search across all names
     # - use name country data tables
     gon.initial_name_search = params[:q]
-  end
-
-  def search_first_name
-    @type = Name::TYPE[:first_name]
-    en_name = Utf8Converter.convert_ka_to_en(params[:name])
-    @name = Name.search_by_first_name(en_name)
-
-    if @name
-      redirect_to first_name_path(@name.permalink) 
-    else
-      render :name
-    end
-  end
-
-  def search_last_name
-    @type = Name::TYPE[:last_name]
-    en_name = Utf8Converter.convert_ka_to_en(params[:name])
-    @name = Name.search_by_last_name(en_name)
-
-    if @name
-      redirect_to last_name_path(@name.permalink) 
-    else
-      render :name
-    end
   end
 
   def year

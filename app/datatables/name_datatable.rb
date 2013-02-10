@@ -35,10 +35,19 @@ private
   end
 
   def name_link (person)
-    if @name_type.to_s == Name::TYPE[:first_name].to_s
-      link_to person.last_name.name, last_name_path(:name => person.last_name.permalink, :locale => I18n.locale)
-    elsif  @name_type.to_s == Name::TYPE[:last_name].to_s
-      link_to person.first_name.name, first_name_path(:name => person.first_name.permalink, :locale => I18n.locale)
+    x = Name.find_by_id(@name_id)
+    if x
+      if @name_type.to_s == Name::TYPE[:first_name].to_s
+        link_to person.last_name.name, full_name_path(:first_name => x.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)
+      elsif  @name_type.to_s == Name::TYPE[:last_name].to_s
+        link_to person.first_name.name, full_name_path(:first_name => person.first_name.permalink, :last_name => x.permalink, :locale => I18n.locale)
+      end
+    else
+      if @name_type.to_s == Name::TYPE[:first_name].to_s
+        link_to person.last_name.name, last_name_path(:name => person.last_name.permalink, :locale => I18n.locale)
+      elsif  @name_type.to_s == Name::TYPE[:last_name].to_s
+        link_to person.first_name.name, first_name_path(:name => person.first_name.permalink, :locale => I18n.locale)
+      end
     end
   end
 
