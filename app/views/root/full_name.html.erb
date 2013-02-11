@@ -13,7 +13,7 @@
   <div id="map_container">
     <div id="map"></div>
     <div id="map_legend">
-      <h3><%= t('charts.map.name.legend')%></h3>
+      <h3><%= t('charts.map.all.legend')%></h3>
       <ul>
         <% @color_legend.each do |color|%>
           <li>
@@ -40,14 +40,13 @@
   <div class="row-fluid">
     <div class="span6">
       <h3><%= t('tables.year.title')%></h3>
-      <table id="birth_years_datatable" class="display table table-striped table-bordered" 
-            data-source="<%= search_birth_years_url(:name_id => @first_name.id, :format => :json) %>">
+      <table id="birth_years_full_name_datatable" class="display table table-striped table-bordered" 
+            data-source="<%= search_birth_years_full_name_url(:first_name_id => @first_name.id, :last_name_id => @last_name.id,:format => :json) %>">
         <thead>
           <tr>
             <th><%= t('tables.year.year')%></th>
             <th><%= t('tables.year.age')%></th>
             <th><%= t('tables.year.total')%></th>
-            <th><%= t('tables.year.rank')%></th>
           </tr>
         </thead>
         <tbody>
@@ -56,13 +55,12 @@
     </div>
     <div class="span6">
       <h3><%= t('tables.district.title')%></h3>
-      <table id="districts_datatable" class="display table table-striped table-bordered" 
-            data-source="<%= search_districts_url(:name_id => @first_name.id, :format => :json) %>">
+      <table id="districts_full_name_datatable" class="display table table-striped table-bordered" 
+            data-source="<%= search_districts_full_name_url(:first_name_id => @first_name.id, :last_name_id => @last_name.id,:format => :json) %>">
         <thead>
           <tr>
             <th><%= t('tables.district.district')%></th>
             <th><%= t('tables.district.total')%></th>
-            <th><%= t('tables.district.rank')%></th>
           </tr>
         </thead>
         <tbody>

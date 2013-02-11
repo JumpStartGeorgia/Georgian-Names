@@ -103,8 +103,8 @@ ka:
         title: მოსახლეობა ოლქების მიხედვით %{year} წელს დაბადებულთათვის
         subtitle1: "%{year} წლის საერთო რაოდენობა: %{count}"
       name:
-        legend: შეაფასე ლეგენდა
-        title: "'%{name}' შეფასება რაიონის  მიხედვით"
+        legend: ლეგენდა
+        title: "'%{name}' by District"
         subtitle1: "შეფასება: %{rank}"
         subtitle2: " რაოდენობა: %{count}"
   tables:

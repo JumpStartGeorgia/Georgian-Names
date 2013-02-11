@@ -20,8 +20,8 @@ private
   def data
     people.map do |person|
       [
-        person.first_name.name,
-        person.last_name.name,
+        link_to(person.first_name.name, full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)),
+        link_to(person.last_name.name, full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)),
         number_with_delimiter(person.count)
       ]
     end
@@ -54,7 +54,6 @@ private
     if names.length > 1
       name = names[0]
     end
-    Rails.logger.debug "////////////////// first name value = #{name}"
     return name
   end
 
@@ -65,7 +64,6 @@ private
     if names.length > 1
       name = names[1..names.length-1].join(' ')
     end
-    Rails.logger.debug "////////////////// last name value = #{name}"
     return name
   end
 

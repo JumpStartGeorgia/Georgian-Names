@@ -103,8 +103,8 @@ en:
         title: Population by District for People Born in %{year}
         subtitle1: "Total for %{year}: %{count}"
       name:
-        legend: Rank Legend
-        title: "'%{name}' Rank by District"
+        legend: Legend
+        title: "'%{name}' by District"
         subtitle1: "Overall Rank: %{rank}"
         subtitle2: "Overall Total: %{count}"
   tables:
