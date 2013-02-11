@@ -130,7 +130,7 @@ ka:
       rank: შეფასება
       total: სულ
     full_name:
-      title: Full Name
+      title: სახელი და გვარი
       name: სახელი
       rank: გვარი
       total: სულ
@@ -202,7 +202,7 @@ ka:
       title_last: "გვარი:"
       not_exist: "'%{name}' არ მოიძებნა."
     full_name:
-      title: "Full Name: %{first} %{last}"
+      title: "სრული სახელი: %{first} %{last}"
       not_exist: "'%{first} %{last}' არ მოიძებნა."
     district:
       title: "რაიონი:"
