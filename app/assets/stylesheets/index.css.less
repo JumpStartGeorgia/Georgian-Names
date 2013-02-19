@@ -29,3 +29,101 @@
   } 
 
 }
+
+#top_first_last_names {
+  background-color: #bfb35a;
+}
+
+rect[fill="#FFFFFF"] {
+  fill: none;
+}
+
+#stats_container {
+  background-color: #ecd078;
+}
+
+#datatables {
+  background-color: #88a65e;
+  color: #fff;
+  h3 {
+    font-weight: normal;
+    color: #fff;
+  }
+  .table-striped {
+    border: 1px solid #819b57;
+    -webkit-border-radius: 0px;
+       -mob-border-radius: 0px;
+            border-radius: 0px;
+    tbody {
+      tr:nth-child(even) td {
+        background: #f7f7f7;
+      }
+      tr:nth-child(odd) td {
+        background: #fff;
+      }
+    }
+    th {
+      background: #83a83b;
+      color: #fff;
+    }
+    th, td {
+      border: none;
+    }
+  }
+  .pagination {
+    li {
+      a {
+        color: #fff;
+        background: #6b8442;
+        text-decoration: none;
+        border: none;
+        margin: 0px 2px 0px 3px;
+        padding: 0px 7px;
+        line-height: 20px;
+        font-size: 11px;
+        &:hover {
+          color: #6b8442;
+          background: #fff;
+        }
+      }
+      &.disabled {
+        a {
+          color: #d6d6d6;
+          &:hover {
+            color: #d6d6d6;
+            background: #bfb35a;
+          }
+        }
+      }
+      &.active a {
+        background-color: #ed8435;
+      }
+      &.next a, &.prev a {
+        background: #bfb35a;
+        -webkit-border-radius: 0px;
+           -mob-border-radius: 0px;
+                border-radius: 0px;
+        &:hover {
+        }
+      }
+    }
+    
+    
+  }
+}
+
+
+#chart_age_population {
+  background: #5e8c6a;
+  color: #fff;
+}
+
+#map_container {
+  background: #ffecbd;
+}
+
+
+
+
+
+

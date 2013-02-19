@@ -39,6 +39,28 @@ html, body {
 	font-size: 13px;
 }
 
+.navbar-fixed-top .navbar-inner {
+  background: #1e1e1e;
+  -webkit-box-shadow: none;
+      moz-box-shadow: none;
+          box-shadow: none;
+}
+.navbar {
+  .nav > li > a, .brand {
+    text-shadow: none;
+  }
+  .nav > li > a {
+    color: #999;
+  }
+  .brand {
+    color: #fff;
+  }
+}
+
+.navbar-search {
+  margin: 0px;
+}
+
 #wrapper {
 	min-height: 100%;
 	height: auto !important;
@@ -47,9 +69,17 @@ html, body {
 }
 
 #wrapper > .container-fluid {
-	padding-top: 60px;
-	padding-bottom: 60px;
-	overflow: auto;
+	padding: 0px;
+	overflow: visible;
+	& > .content > .row-fluid > .span12 > div {
+	  padding: 30px 67px;
+    -webkit-box-sizing: border-box;
+       -mob-box-sizing: border-box;
+            box-sizing: border-box;
+	}
+  #stats_container {
+    padding-top: 70px;
+  }
 }
 
 .push { height: 155px; } /* Just some arbitrary space to add between footer and rest of the content, when they are close */

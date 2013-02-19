@@ -1,6 +1,6 @@
 <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
 
-<div class="row-fluid">
+<div class="row-fluid" id="stats_container">
   <div class="span8" id="stats">
     <div class="row-fluid">
       <div class="span4">
@@ -86,7 +86,7 @@
   </div>
 </div>
 
-<div class="row-fluid">
+<div class="row-fluid" id="top_first_last_names">
   <div class="span6">
     <div id="chart_top_fnames"></div>
   </div>
@@ -95,7 +95,7 @@
   </div>
 </div>
 
-<div class="row-fluid">
+<div class="row-fluid" id="datatables">
   <div class="span6">
     <h3><%= t('tables.first_name.title')%></h3>
     <table id="first_name_country_datatable" class="display table table-striped table-bordered" 

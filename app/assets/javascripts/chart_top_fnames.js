@@ -35,14 +35,7 @@ $(function () {
                 }
             },
             plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true,
-                        formatter: function() {
-                            return Highcharts.numberFormat(this.y,0,',');
-                        }
-                    }
-                }
+                bar: chartconfig.barPlotOptions
             },
             legend: {
                 layout: 'vertical',
