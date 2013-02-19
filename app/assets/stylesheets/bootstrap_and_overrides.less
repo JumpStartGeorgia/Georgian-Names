@@ -1,8 +1,8 @@
 @import "twitter/bootstrap/bootstrap";
+
 body {
 	padding-top: 60px;
 }
-
 @import "twitter/bootstrap/responsive";
 
 // Set the correct sprite paths
@@ -41,9 +41,7 @@ html, body {
 
 .navbar-fixed-top .navbar-inner {
   background: #1e1e1e;
-  -webkit-box-shadow: none;
-      moz-box-shadow: none;
-          box-shadow: none;
+  .box-shadow(none);
 }
 .navbar {
   .nav > li > a, .brand {
@@ -73,9 +71,7 @@ html, body {
 	overflow: visible;
 	& > .content > .row-fluid > .span12 > div {
 	  padding: 30px 67px;
-    -webkit-box-sizing: border-box;
-       -mob-box-sizing: border-box;
-            box-sizing: border-box;
+    .box-sizing(border-box);
 	}
   #stats_container {
     padding-top: 70px;

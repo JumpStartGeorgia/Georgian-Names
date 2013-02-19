@@ -1,3 +1,6 @@
+
+@import "twitter/bootstrap/mixins";
+
 #stats{
   div.row-fluid{
     text-align: center;
@@ -51,9 +54,7 @@ rect[fill="#FFFFFF"] {
   }
   .table-striped {
     border: 1px solid #819b57;
-    -webkit-border-radius: 0px;
-       -mob-border-radius: 0px;
-            border-radius: 0px;
+    .border-radius(0px);
     tbody {
       tr:nth-child(even) td {
         background: #f7f7f7;
@@ -100,9 +101,7 @@ rect[fill="#FFFFFF"] {
       }
       &.next a, &.prev a {
         background: #bfb35a;
-        -webkit-border-radius: 0px;
-           -mob-border-radius: 0px;
-                border-radius: 0px;
+        .border-radius(0px);
         &:hover {
         }
       }

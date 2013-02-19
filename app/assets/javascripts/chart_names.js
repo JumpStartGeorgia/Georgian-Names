@@ -8,25 +8,32 @@ $(function () {
                 type: 'bar'
             },
             title: {
-                text: gon.chart_top_names_title
+                text: gon.chart_top_names_title,
+                style: chartconfig.bar.titleStyle
             },
             subtitle: {
-                text: gon.chart_top_names_subtitle
+                text: gon.chart_top_names_subtitle,
+                style: chartconfig.bar.subtitleStyle
             },
             xAxis: {
                 categories: gon.chart_top_names_yaxis_names,
                 title: {
                     text: null
+                },
+                labels: {
+                  style: chartconfig.bar.xAxis.labelStyle
                 }
             },
             yAxis: {
                 min: 0,
                 title: {
                     text: gon.chart_top_names_yaxis,
-                    align: 'middle'
+                    align: 'middle',
+                    style: chartconfig.bar.yAxis.titleStyle
                 },
                 labels: {
-                    overflow: 'justify'
+                    overflow: 'justify',
+                    style: chartconfig.bar.yAxis.labelStyle
                 }
             },
             tooltip: {
