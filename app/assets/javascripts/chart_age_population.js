@@ -8,18 +8,30 @@ $(function () {
                 type: 'spline'
             },
             title: {
-                text: gon.chart_age_pop_title
+                text: gon.chart_age_pop_title,
+                style: {
+                  color: '#fff'
+                }
             },
             subtitle: {
-                text: gon.chart_age_pop_subtitle
+                text: gon.chart_age_pop_subtitle,
+                style: {
+                  color: '#ffeaad'
+                }
             },
             xAxis: {
                 title: {
-                    text: gon.chart_age_pop_xaxis
+                    text: gon.chart_age_pop_xaxis,
+                    style: {
+                      color: '#ffeaad'
+                    }
                 },
                 labels: {
                   formatter: function() {
                         return this.value + '<br/> (' + (gon.static_year-this.value) + ')';
+                  },
+                  style: {
+                    color: 'rgba(255, 255, 255, .75)'
                   }
                 }
             },
@@ -40,7 +52,20 @@ $(function () {
                       }
                     }
                     return x;
+                },
+                backgroundColor: '#fff',
+                borderWidth: 0,
+                borderRadius: 0,
+                shadow: false,
+                style: {
+                  color: 'rgba(0, 0, 0, .6)',
+                  padding: 8
                 }
+            },
+            plotOptions: {
+              series: {
+                color: '#fff'
+              }
             }
         };
         
@@ -50,13 +75,14 @@ $(function () {
           options.yAxis = [{ // Primary yAxis
                 labels: {
                     style: {
-                        color: '#4572A7'
+	                    color: 'rgba(255, 255, 255, .75)'
                     }
                 },
                 title: {
                     text: gon.chart_age_pop_yaxis,
                     style: {
-                        color: '#4572A7'
+	                    color: '#ffeaad',
+	                    fontWeight: 'normal'
                     }
                 },
                 min: 0
@@ -112,6 +138,15 @@ $(function () {
           options.yAxis = {
                 title: {
                     text: gon.chart_age_pop_yaxis,
+                    style: {
+	                    color: '#ffeaad',
+	                    fontWeight: 'normal'
+                    }
+                },
+                labels: {
+                    style: {
+	                    color: 'rgba(255, 255, 255, .75)'
+                    }
                 },
                 min: 0
             };
