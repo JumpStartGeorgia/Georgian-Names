@@ -34,7 +34,8 @@ var w = 960,
             if (feature.district_id.toString() == $(this).attr('district_id')){
               found = true;
               $(this).attr('district_name', feature.district_name);
-              $(this).attr('fill', feature.color);
+              //$(this).attr('fill', feature.color);
+              $(this).attr('class', feature.classname);
               $(this).attr('url', feature.url);
               $(this).attr('count', feature.count);
               $(this).attr('count_formatted', feature.count_formatted);

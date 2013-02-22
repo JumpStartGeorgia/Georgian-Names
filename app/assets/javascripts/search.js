@@ -7,7 +7,6 @@ $(document).ready(function(){
   $('#district_names_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#district_names_datatable').data('source'),
@@ -19,7 +18,6 @@ $(document).ready(function(){
   $('#districts_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#districts_datatable').data('source'),
@@ -31,7 +29,6 @@ $(document).ready(function(){
   $('#birth_years_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#birth_years_datatable').data('source'),
@@ -43,7 +40,6 @@ $(document).ready(function(){
   $('#first_name_birth_years_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#first_name_birth_years_datatable').data('source'),
@@ -55,7 +51,6 @@ $(document).ready(function(){
   $('#last_name_birth_years_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#last_name_birth_years_datatable').data('source'),
@@ -67,7 +62,6 @@ $(document).ready(function(){
   $('#first_name_districts_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#first_name_districts_datatable').data('source'),
@@ -79,7 +73,6 @@ $(document).ready(function(){
   $('#last_name_districts_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#last_name_districts_datatable').data('source'),
@@ -91,7 +84,6 @@ $(document).ready(function(){
   $('#first_name_country_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#first_name_country_datatable').data('source'),
@@ -103,7 +95,6 @@ $(document).ready(function(){
   $('#last_name_country_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#last_name_country_datatable').data('source'),
@@ -115,7 +106,6 @@ $(document).ready(function(){
   $('#names_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#names_datatable').data('source'),
@@ -127,7 +117,6 @@ $(document).ready(function(){
   $('#first_name_search_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#first_name_search_datatable').data('source'),
@@ -140,7 +129,6 @@ $(document).ready(function(){
   $('#last_name_search_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#last_name_search_datatable').data('source'),
@@ -153,7 +141,6 @@ $(document).ready(function(){
   $('#full_name_search_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#full_name_search_datatable').data('source'),
@@ -166,7 +153,6 @@ $(document).ready(function(){
   $('#districts_full_name_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#districts_full_name_datatable').data('source'),
@@ -178,7 +164,6 @@ $(document).ready(function(){
   $('#birth_years_full_name_datatable').dataTable({
     "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",    
     "sPaginationType": "bootstrap",
-    "bJQueryUI": true,
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": $('#birth_years_full_name_datatable').data('source'),

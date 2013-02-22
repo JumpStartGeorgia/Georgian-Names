@@ -137,7 +137,7 @@
       <ul>
         <% @color_legend.each do |color|%>
           <li>
-            <span style="background-color: <%=color[:color]%>; border: solid 1px #333;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span class="<%=color[:classname]%>" style="border: solid 1px #333;">&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <%= color[:rank] %>
           </li>
         <% end %>

@@ -53,6 +53,9 @@ rect[fill="#FFFFFF"] {
     color: #fff;
   }
   .table-striped {
+    thead {
+      background: #83a83b;
+    }
     border: 1px solid #819b57;
     .border-radius(0px);
     tbody {
@@ -64,8 +67,10 @@ rect[fill="#FFFFFF"] {
       }
     }
     th {
-      background: #83a83b;
       color: #fff;
+      &.sorting_asc, &.sorting_desc {
+        background-color: #ed8435;
+      }
     }
     th, td {
       border: none;
@@ -73,6 +78,12 @@ rect[fill="#FFFFFF"] {
     td {
       &, a {
         color: #494949;
+      }
+      a {
+        text-decoration: none;
+        &:hover {
+          color: #ed8435;
+        }
       }
     }
   }
@@ -113,6 +124,32 @@ rect[fill="#FFFFFF"] {
     }
     
     
+  }
+}
+
+.dataTables_filter {
+  input {
+    .border-radius(0px);
+    .box-shadow(none);
+    border: none;
+    background: #faffe6;
+    color: rgba(0, 0, 0, .4);
+    font-style: italic;
+    padding-left: 10px;
+    padding-right: 10px;
+    &:focus {
+      font-style: normal;
+    }
+  }
+}
+
+.dataTables_length {
+  select {
+    .border-radius(0px);
+    .box-shadow(none);
+    border: none;
+    background: #faffe6;
+    color: rgba(0, 0, 0, .4);
   }
 }
 
