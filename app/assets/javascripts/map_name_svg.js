@@ -54,6 +54,7 @@ $(function () {
           }
         }
       });
+/*
       map.append("svg:text")
       .attr("x", function(d, i) { return w / 2; })
       .attr("y", 40)
@@ -79,7 +80,7 @@ $(function () {
       .attr("dy", "-.5em")
       .attr("text-anchor", "middle")
       .text(gon.map_sub_title2);
-
+*/
       // show map info box when rollover district
       $('g#district path').hover(
           function(){
