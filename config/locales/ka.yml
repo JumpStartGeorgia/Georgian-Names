@@ -45,7 +45,7 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: "შენი სახელი?"
+      app_name: "სადა თქვენი სახელი?"
       first_name: სახელი
       last_name: გვარი
       no_data: მონაცემები არ მოიძებნა
