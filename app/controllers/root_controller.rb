@@ -1,7 +1,6 @@
 # encoding: utf-8
 class RootController < ApplicationController
   require 'utf8_converter'
-  require 'add_data_to_json'
   require 'generate_json'
   
   def index
@@ -222,6 +221,14 @@ class RootController < ApplicationController
       gon.chart_age_pop_data = pop.map{|x| [x.birth_year, x.count]}
 
 
+    end
+  end
+
+  def download
+    if params[:type] == 'csv'
+      send_file "#{Rails.root}/public/system/georgian_names_csv.zip", :type => "application/zip", :disposition => 'inline'
+    elsif params[:type] == 'excel'
+      send_file "#{Rails.root}/public/system/georgian_names_excel.zip", :type => "application/zip", :disposition => 'inline'
     end
   end
 

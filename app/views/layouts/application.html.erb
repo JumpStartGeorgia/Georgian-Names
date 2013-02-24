@@ -37,6 +37,7 @@
             <% end %>
 
 	          <ul class="nav pull-right">
+              <li><%= link_to t('.menu_download'), download_path %></li>
 							<% I18n.available_locales.each do |locale| %>
 								<% if locale != I18n.locale %>
 									<li><%= link_to t("app.language.#{locale}"), params.merge(:locale => locale) %></li>

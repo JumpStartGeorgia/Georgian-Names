@@ -1,0 +1,25 @@
+<div id="page_title">
+  <h1>
+    <% title t('.title') %>
+    <%= t('.title') %>
+  </h1>
+</div>
+
+<div id="download_container">
+  <p>
+    <%= t('.p_1') %>
+  </p>
+  <p>
+    <%= t('.p_2') %>
+  </p>
+  <p>
+    <%= t('.p_3') %>
+  </p>
+  <p>
+    <%= link_to t('.csv', :size => number_to_human_size(42757225)), url_for(params.merge(:type => 'csv')) %>
+    <%= link_to t('.excel', :size => number_to_human_size(85921102)), url_for(params.merge(:type => 'excel')) %>
+  </p>    
+</div>
+
+
+

@@ -148,6 +148,7 @@ en:
       js_link_text: Built by
       search_placeholder: "first and/or last name*"
       ka_to_en_note: "* Some Georgian characters can map to the same English character (e.g., 'ტ' and 'თ' both map to 't') which can lead to duplicate search results"
+      menu_download: Download Data
     unsupported_browser:
       title: Unsupported Browser
       p1: We are sorry to report that your browser is out of date and will not properly render the content from this website.
@@ -219,4 +220,10 @@ en:
       not_exist: "Year '%{year}' could not be found."
     search_name:
       title: Search
-      
+    download:
+      title: Download the Data Set      
+      p_1: "The source of this data is the August 2012 Voters List that was obtained from the Central Election Commission. There are a total of 3,613,745 records and each record includes the first name, last name, birth year and district they are registered in. The first name, last name and district are provided in both Georgian and English languages."
+      p_2: "If you are using Excel on Windows, download the Excel file for Excel does not automatically read the Georgian characters from the CSV file."
+      p_3: "Due to spreadsheet application row size limits, the data was split into 8 files with 500,000 rows each."
+      csv: "CSV (%{size})"
+      excel: "Excel (%{size})"
