@@ -199,14 +199,14 @@ ka:
         oldest_header: ყველაზე ხანდაზმული ადამიანი
         popular_age_header: ყველაზე გავრცელებული ასაკი
     name:
-      title_first: "სახელი:"
-      title_last: "გვარი:"
+      title_first: "სახელი: '%{name}'"
+      title_last: "გვარი: '%{name}'"
       not_exist: "'%{name}' არ მოიძებნა."
     full_name:
-      title: "სრული სახელი: %{first} %{last}"
+      title: "სრული სახელი: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' არ მოიძებნა."
     district:
-      title: "რაიონი:"
+      title: "რაიონი: '%{district}'"
       subtitle: "რაოდენობა '%{district}': %{count}"
       total_first: "სახელის რაოდენობა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"

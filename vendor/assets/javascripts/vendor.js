@@ -1,4 +1,4 @@
 //= require highcharts
 //= require exporting
-// require d3
-// require d3.geo
+//= require d3.v3.min
+

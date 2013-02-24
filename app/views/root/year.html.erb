@@ -1,8 +1,11 @@
-<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
-
-<h1>
-  <%= t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) %>
-</h1>
+<div id="page_title">
+  <h1>
+    <% page_title = t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) 
+      title page_title.html_safe
+    %>
+    <%= page_title %>
+  </h1>
+</div>
 
 <% if @population %>
   <h3>

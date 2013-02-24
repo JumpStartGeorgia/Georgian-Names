@@ -1,13 +1,16 @@
-<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
+<div id="page_title">
+  <h1 class="clear">
+    <% if @first_name && @last_name 
+      page_title = t('.title', :first => @first_name.name, :last => @last_name.name)
+    else 
+      page_title = "#{params[:first_name]} #{params[:last_name]}" 
+     end 
+      title page_title.html_safe
+    %>
 
-<h1 class="clear">
-  <% if @first_name && @last_name %>
-    <%= t('.title', :first => @first_name.name, :last => @last_name.name)%>
-  <% else %>
-    <%= "#{params[:first_name]} #{params[:last_name]}" %>
-  <% end %>
-</h1>
-
+    <%= page_title %>
+  </h1>
+</div>
 <% if @first_name && @last_name %>
 
   <div id="map_container">

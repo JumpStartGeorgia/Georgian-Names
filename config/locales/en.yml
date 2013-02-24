@@ -199,14 +199,14 @@ en:
         oldest_header: Oldest Person
         popular_age_header: Most Common Age
     name:
-      title_first: "First Name:"
-      title_last: "Last Name:"
+      title_first: "First Name: '%{name}'"
+      title_last: "Last Name: '%{name}'"
       not_exist: "'%{name}' could not be found."
     full_name:
-      title: "Full Name: %{first} %{last}"
+      title: "Full Name: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' could not be found."
     district:
-      title: "District:"
+      title: "District: '%{district}'"
       subtitle: "Number of People in '%{district}': %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"

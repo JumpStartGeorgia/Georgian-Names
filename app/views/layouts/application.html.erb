@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? "#{yield(:title)} > #{t('app.common.app_name')}" :
-				t('app.common.app_name') %> mariami</title>
+				t('app.common.app_name') %></title>
     <%= csrf_meta_tags %>
 	  <%= include_gon %>
 
@@ -57,17 +57,6 @@
 								<div class="alert <%= flash_translation(key) %> fade in">
 									<a href="#" data-dismiss="alert" class="close">×</a>
 									<%= msg %>
-								</div>
-							<% end %>
-
-
-							<% if content_for?(:title) %>
-								<div class="page-header">
-								  <div class="block">
-			              <h1>
-										  <%= yield(:title) %>
-									  </h1>
-									</div>
 								</div>
 							<% end %>
 

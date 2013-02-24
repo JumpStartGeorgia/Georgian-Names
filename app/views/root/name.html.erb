@@ -1,22 +1,24 @@
-<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.6.0"></script>
 
-<h1 class="clear">
+<div id="page_title">
+  <h1 class="clear">
 
-  <div class="medal_wrapper">
-    <%= image_tag generate_rank_path(@name.rank, :format => :png) if @name %>
-  </div>
+    <div class="medal_wrapper">
+      <%= image_tag generate_rank_path(@name.rank, :format => :png) if @name %>
+    </div>
 
-  <% if @type == Name::TYPE[:first_name] %>
-    <%= t('.title_first')%>
-  <% elsif @type == Name::TYPE[:last_name] %>
-    <%= t('.title_last')%>
-  <% end %>
-  <% if @name %>
-   <%= @name.name %>
-  <% else %>
-    <%= params[:name] %>
-  <% end %>
-</h1>
+    <% page_title = '' 
+     if @type == Name::TYPE[:first_name] 
+       page_title << t('.title_first', :name => @name ? @name.name : params[:name])
+    elsif @type == Name::TYPE[:last_name] 
+       page_title << t('.title_last', :name => @name ? @name.name : params[:name])
+    end 
+    
+    title page_title.html_safe
+    %>
+
+    <%= page_title %>
+  </h1>
+</div>
 
 <% if @name %>
 
