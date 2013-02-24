@@ -19,6 +19,12 @@ $(function () {
                   color: '#ffeaad'
                 }
             },
+            legend: {
+                borderColor: '#fff',
+                itemStyle: {
+                    color: '#fff',
+                }
+            },
             xAxis: {
                 title: {
                     text: gon.chart_age_pop_xaxis,
@@ -75,13 +81,13 @@ $(function () {
           options.yAxis = [{ // Primary yAxis
                 labels: {
                     style: {
-	                    color: 'rgba(255, 255, 255, .75)'
+	                    color: '#fff'
                     }
                 },
                 title: {
                     text: gon.chart_age_pop_yaxis,
                     style: {
-	                    color: '#ffeaad',
+	                    color: '#fff',
 	                    fontWeight: 'normal'
                     }
                 },
@@ -89,13 +95,13 @@ $(function () {
             }, { // Secondary yAxis
                 labels: {
                     style: {
-                        color: '#AA4643'
+                        color: '#ffeaad'
                     }
                 },
                 title: {
                     text: gon.chart_age_pop_yaxis2,
                     style: {
-                        color: '#AA4643'
+                        color: '#ffeaad'
                     }                    
                 },
                 min: 0,
@@ -108,7 +114,7 @@ $(function () {
                 //showInLegend: false,
                 name: gon.chart_age_pop_yaxis,
                 cursor: 'pointer',
-                color: '#4572A7',
+                color: '#fff',
                 point: {
                         events: {
                             click: function() {
@@ -121,7 +127,7 @@ $(function () {
                 //showInLegend: false,
                 name: gon.chart_age_pop_yaxis2,
                 yAxis: 1,
-                color: '#AA4643',
+                color: '#ffeaad',
                 cursor: 'pointer',
                 point: {
                         events: {
