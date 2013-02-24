@@ -146,7 +146,8 @@ en:
       sign_out: Sign Out
       js_link_title: "Visit JumpStart Georgia's website"
       js_link_text: Built by
-      search_placeholder: first and/or last name
+      search_placeholder: "first and/or last name*"
+      ka_to_en_note: "* Some Georgian characters can map to the same English character (e.g., 'ტ' and 'თ' both map to 't') which can lead to duplicate search results"
     unsupported_browser:
       title: Unsupported Browser
       p1: We are sorry to report that your browser is out of date and will not properly render the content from this website.

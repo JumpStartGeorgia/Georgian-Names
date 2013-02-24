@@ -83,7 +83,11 @@
     <footer class="clear">
 			<div id="left">&copy; 2013</div>
 		  <div id="middle">
-				&nbsp;
+        <% if I18n.locale == :ka %>
+  				&nbsp;
+        <% else %>
+          <%= t('.ka_to_en_note') %>
+        <% end %>
 			</div>
 			<div id="right" class="clear">
 				<ul>
