@@ -19,15 +19,15 @@ class PngController < ApplicationController
 
           file_path = "#{Rails.root}/tmp/rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
 
-          x = Subexec.run "convert \"#{Rails.root}/app/assets/images/gold-medal-th.png\" \\
-                      -size 68x \\
+          x = Subexec.run "convert \"#{Rails.root}/app/assets/images/ribbon.png\" \\
+                      -size 54x \\
                       -background transparent \\
-                      -fill black \\
+                      -fill \"#FFECBD\" \\
                       -pointsize #{size} \\
                       -gravity center \\
                       caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
                       -gravity center \\
-                      -geometry +0-14 \\
+                      -geometry +3-10 \\
                       -composite \"#{file_path}\""
 
           send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "rank_#{params[:rank]}"
