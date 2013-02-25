@@ -3,7 +3,7 @@
 #stats{
   & > div {
     text-align: center;
-    padding: 0px 145px 20px;
+    padding: 0px 0px 20px;
     margin: 0 auto;
     width: 1440px;
     .clearfix();
@@ -41,7 +41,12 @@
       }
     }
   } 
+}
 
+@media (max-width: 1440px) {
+  #stats > div {
+    width: auto;
+  }
 }
 
 #top_first_last_names {
