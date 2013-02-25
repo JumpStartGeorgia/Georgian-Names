@@ -1,31 +1,42 @@
-
 @import "twitter/bootstrap/mixins";
 
 #stats{
-  div.row-fluid{
+  & > div {
     text-align: center;
-    div.span4{
-      margin-bottom: 8px;
+    padding: 0px 145px 20px;
+    margin: 0 auto;
+    width: 1440px;
+    .clearfix();
+    & > div {
+      float: left;
+      width: 170px;
+      height: 170px;
+      margin: 8px 35px 23px;
+      padding: 15px 9px;
       font-size: 14px;
+      background-color: #d95b43;
+      color: #fff;
+      .border-radius(50%);
+      .box-sizing(border-box);
+      font-style: italic;
       h4 {
+        font-style: normal;
         padding: 4px 0;
         font-size: 14px;
         font-weight: bold;
-        background-color: #4572A7;
-        color: #fff;
         letter-spacing: 2.5px;
         margin-bottom: 3px;
       }
       & > div{
         margin-bottom: 5px;
       }
-      &#names h4 {
+      &#names {
         background-color: #469E72;
       }
-      &#districts h4 {
+      &#districts {
         background-color: #DE4355;
       }
-      &#ages h4 {
+      &#ages {
         background-color: #FF665A;
       }
     }
@@ -158,10 +169,5 @@ rect[fill="#FFFFFF"] {
   background: #5e8c6a;
   color: #fff;
 }
-
-
-
-
-
 
 
