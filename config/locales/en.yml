@@ -94,6 +94,11 @@ en:
       district: District
       total: Total
       rank: Rank
+      tbilisi: Tbilisi
+      rustavi: Rustavi
+      kutaisi: Kutaisi
+      batumi: Batumi
+      poti: Poti
       all:
         legend: Legend
         title: Population by District

@@ -17,10 +17,87 @@
     #map_districts{
       float: left;
       width: 960px;
+      svg#svg_map {
+        width: 960px;
+        height: 500px;
+
+        text {
+          font-size: 26px;
+        }
+        text.sub_title {
+          font-size: 20px;
+        }
+
+        #district path {
+          stroke: #ffecbd;
+          stroke-width: 1px;
+          &:hover {
+            fill: #ffecbd;
+            stroke: #bf352b;
+            stroke-width: 1px;
+            cursor: pointer;
+          }
+        }
+      }
     }
     #map_district_popouts{
       float: left;
       width: 370px;
+      position: relative;
+
+      & > div{
+        font-size: 20px;
+        font-weight: bold;
+        position:absolute; 
+      }
+
+      #popout_tbilisi{
+        top: 109px;
+        margin-left: 280px;
+      }
+
+      #popout_rustavi{
+        top: 256px;
+        margin-left: 115px;
+      }
+
+      #popout_kutaisi{
+        top: 256px;
+        margin-left: 325px;
+      }
+
+      #popout_batumi{
+        top: 400px;
+        margin-left: 110px;
+      }
+
+      #popout_poti{
+        top: 400px;
+        margin-left: 330px;
+      }
+
+      svg#svg_map_popouts {
+        width: 500px;
+        height: 500px;
+
+        text {
+          font-size: 26px;
+        }
+        text.sub_title {
+          font-size: 20px;
+        }
+
+        #district_popouts path {
+          stroke: #ffecbd;
+          stroke-width: 1px;
+          &:hover {
+            fill: #ffecbd;
+            stroke: #bf352b;
+            stroke-width: 1px;
+            cursor: pointer;
+          }
+        }
+      }
     }
   }
 
@@ -29,6 +106,10 @@
     top: 225px; 
     left: 100px; 
     width: 140px;
+    h3{
+      font-size: 20px;
+      font-weight: bold;
+    }
     li{
       line-height: 1.5;
       span {
@@ -49,52 +130,6 @@
     background-color: #d8c49c;
     li {
       line-height: 1.5;
-    }
-  }
-
-  svg#svg_map {
-    width: 960px;
-    height: 500px;
-
-    text {
-      font-size: 26px;
-    }
-    text.sub_title {
-      font-size: 20px;
-    }
-
-    #district path {
-      stroke: #ffecbd;
-      stroke-width: 1px;
-      &:hover {
-        fill: #ffecbd;
-        stroke: #bf352b;
-        stroke-width: 1px;
-        cursor: pointer;
-      }
-    }
-  }
-
-  svg#svg_map_popouts {
-    width: 500px;
-    height: 500px;
-
-    text {
-      font-size: 26px;
-    }
-    text.sub_title {
-      font-size: 20px;
-    }
-
-    #district_popouts path {
-      stroke: #ffecbd;
-      stroke-width: 1px;
-      &:hover {
-        fill: #ffecbd;
-        stroke: #bf352b;
-        stroke-width: 1px;
-        cursor: pointer;
-      }
     }
   }
 }

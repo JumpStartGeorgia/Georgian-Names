@@ -1,0 +1,49 @@
+<%
+  show_subtitle2 ||= false
+  show_rank ||= false
+%>
+<div id="map_container">
+  <div id="map_title">
+    <h3><%= @map_title %></h3>
+    <h4><%= @map_sub_title1 %></h4>
+    <% if show_subtitle2 %>
+      <h4><%= @map_sub_title2 %></h4>
+    <% end %>
+  </div>
+  <div id="map_svg_container" class="clear">
+    <div id="map_districts"></div>
+    <div id="map_district_popouts">
+      <div id="popout_tbilisi"><%= t('charts.map.tbilisi') %></div>
+      <div id="popout_rustavi"><%= t('charts.map.rustavi') %></div>
+      <div id="popout_kutaisi"><%= t('charts.map.kutaisi') %></div>
+      <div id="popout_batumi"><%= t('charts.map.batumi') %></div>
+      <div id="popout_poti"><%= t('charts.map.poti') %></div>
+    </div>
+  </div>
+  <div id="map_legend">
+    <h3><%= t('charts.map.all.legend')%></h3>
+    <ul>
+      <% @color_legend.each do |color|%>
+        <li>
+          <span class="<%=color[:classname]%>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <%= color[:rank] %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="map_info_box" style="display: none;">
+    <ul>
+      <li>
+        <%= "#{t('charts.map.district')}:"%> <span id="map_district_name"></span>
+      </li>
+      <li>
+        <%= "#{t('charts.map.total')}:"%> <span id="map_district_count"></span>
+      </li>
+      <% if show_rank %>
+        <li>
+          <%= "#{t('charts.map.rank')}:"%> <span id="map_district_rank"></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -94,6 +94,11 @@ ka:
       district: რაიონი
       total: სულ
       rank: შეფასება
+      tbilisi: თბილისი
+      rustavi: რუსთავი
+      kutaisi: ქუთაისი
+      batumi: ბათუმი
+      poti: ფოთი
       all:
         legend: ლეგენდა
         title: რაიონის მოსახლეობა

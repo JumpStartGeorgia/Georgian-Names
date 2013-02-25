@@ -22,6 +22,8 @@
 
 <% if @name %>
 
+  <%= render "root/map", :show_subtitle2 => true, :show_rank => true %>
+
   <div id="map_container">
     <div id="map_title">
       <h3><%= @map_title %></h3>
