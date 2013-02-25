@@ -13,6 +13,17 @@
     }
   }
 
+  #map_svg_container{
+    #map_districts{
+      float: left;
+      width: 960px;
+    }
+    #map_district_popouts{
+      float: left;
+      width: 370px;
+    }
+  }
+
   #map_legend {
     position:absolute; 
     top: 225px; 
@@ -51,18 +62,41 @@
     text.sub_title {
       font-size: 20px;
     }
-  }
 
-  #district path {
-    stroke: #ffecbd;
-    stroke-width: 1px;
-    &:hover {
-      fill: #ffecbd;
+    #district path {
+      stroke: #ffecbd;
       stroke-width: 1px;
-      cursor: pointer;
+      &:hover {
+        fill: #ffecbd;
+        stroke: #bf352b;
+        stroke-width: 1px;
+        cursor: pointer;
+      }
     }
   }
 
+  svg#svg_map_popouts {
+    width: 500px;
+    height: 500px;
+
+    text {
+      font-size: 26px;
+    }
+    text.sub_title {
+      font-size: 20px;
+    }
+
+    #district_popouts path {
+      stroke: #ffecbd;
+      stroke-width: 1px;
+      &:hover {
+        fill: #ffecbd;
+        stroke: #bf352b;
+        stroke-width: 1px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 

@@ -28,7 +28,10 @@
       <h4><%= @map_sub_title1 %></h4>
       <h4><%= @map_sub_title2 %></h4>
     </div>
-    <div id="map"></div>
+    <div id="map_svg_container" class="clear">
+      <div id="map_districts"></div>
+      <div id="map_district_popouts"></div>
+    </div>
     <div id="map_legend">
       <h3><%= t('charts.map.name.legend')%></h3>
       <ul>
