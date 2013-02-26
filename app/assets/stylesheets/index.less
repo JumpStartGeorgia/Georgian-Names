@@ -6,6 +6,7 @@
     padding: 0px 0px 20px;
     margin: 0 auto;
     width: 1440px;
+    .transition(margin 1s);
     .clearfix();
     & > div {
       float: left;
@@ -27,7 +28,7 @@
         letter-spacing: 2.5px;
         margin-bottom: 3px;
       }
-      & > div{
+      & > div {
         margin-bottom: 5px;
       }
       &#names {
@@ -45,9 +46,22 @@
 
 @media (max-width: 1440px) {
   #stats > div {
+    width: 960px;
+  }
+}
+
+@media (max-width: 960px) {
+  #stats > div {
+    width: 720px;
+  }
+}
+
+@media (max-width: 720px) {
+  #stats > div {
     width: auto;
   }
 }
+
 
 #top_first_last_names {
   background-color: #bfb35a;
@@ -73,7 +87,9 @@ rect[fill="#FFFFFF"] {
       background: #83a83b;
     }
     border: 1px solid #819b57;
-    .border-radius(0px);
+    &, tr:last-child td, th {
+      .border-radius(0px);
+    }
     tbody {
       tr:nth-child(even) td {
         background: #f7f7f7;

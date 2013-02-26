@@ -14,12 +14,20 @@ $(function () {
         .attr("width", w + 40)
         .attr("height", h + 20);
 
+
       map.node().appendChild(district);
 
       // add values for each path from json
       $('#map_districts svg#svg_map g path').each(function(){
         assign_data_to_svg(this, gon.map_population_json_svg)
       });
+
+    /*
+      (function (g) {
+        var scale = (+g.data('translate-w') - 200) / $(window).width();
+        g.attr('transform', 'translate(' + (+g.data('translate-w') * scale) + ', ' + (+g.data('translate-h') * scale) + ') scale(' + scale + ')');
+      })($('#map_districts svg g'));
+    */
 
       // show map info box when rollover district
       $('g#district path').hover(function(){

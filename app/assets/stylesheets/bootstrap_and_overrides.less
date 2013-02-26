@@ -91,7 +91,7 @@ html, body {
   	margin-top: 0;
   }
   #wrapper > .container-fluid {
-  	padding: 1em;
+  	padding: 0em;
   }
 	.navbar-fixed-top  {
 		margin: 0;
@@ -104,3 +104,39 @@ html, body {
 .navbar-fixed-top .navbar-inner .container-fluid .brand {
   font-size: 19px;
 }
+
+
+
+
+
+
+#datatables > .span6 {
+  .transition(width 1s);
+}
+
+
+/* forcing barcharts and tables down */
+@media(max-width: 979px) {
+  #top_first_last_names > .span6 {
+    float: none;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+@media(max-width: 1240px) {
+  #datatables > .span6 {
+    float: none;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    &:last-child {
+      margin-top: 25px;
+    }
+  }
+}
+
+
+
+
