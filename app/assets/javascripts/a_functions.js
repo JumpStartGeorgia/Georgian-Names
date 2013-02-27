@@ -35,3 +35,36 @@ function assign_data_to_svg(ths, json){
   }
 }
 
+
+// compute the scale for the map based on the window width
+function map_scale(){
+  var scale = 0.33;
+  if ($(window).width() > 1465) {
+    scale = 0.67;
+  } else if ($(window).width() > 960) {
+    scale = 0.5;
+  } 
+  return scale;
+}
+function map_popout_scale(){
+  var scale = 0.5;
+  if ($(window).width() > 1465) {
+    scale = 1;
+  } else if ($(window).width() > 960) {
+    scale = 0.67;
+  } 
+  return scale;
+}
+
+function adjust_map_scales(){
+  (function (g) {
+    var scale = map_scale();
+    g.attr('transform', 'translate(' + (+g.data('translate-x') * scale) + ', ' + (+g.data('translate-y') * scale) + ') scale(' + scale + ')');
+  })($('#map_districts svg g'));
+
+
+  (function (g) {
+    var scale = map_popout_scale();
+    g.attr('transform', 'translate(' + (+g.data('translate-x') * scale) + ', ' + (+g.data('translate-y') * scale) + ') scale(' + scale + ')');
+  })($('#map_district_popouts svg g'));
+}

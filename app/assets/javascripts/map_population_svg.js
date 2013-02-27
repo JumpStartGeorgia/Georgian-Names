@@ -1,3 +1,7 @@
+
+
+$(window).bind('load resize', adjust_map_scales);
+
 $(function () {
   if (gon.map_population_json_svg) {
     var proj = d3.geo.mercator().translate([-4000,5050]).scale(37000);
@@ -7,12 +11,13 @@ $(function () {
     d3.xml("/districts.svg", "image/svg+xml", function(xml) {
       var w = 960, h = 500;
       var district = document.importNode(xml.getElementById('district'), true);
+      var scale = map_scale();
 
       var map = d3.select("#map_districts")
         .append("svg:svg")
         .attr("id", "svg_map")
-        .attr("width", w + 40)
-        .attr("height", h + 20);
+        .attr("width", w*scale + 40)
+        .attr("height", h*scale + 20);
 
 
       map.node().appendChild(district);
@@ -21,13 +26,6 @@ $(function () {
       $('#map_districts svg#svg_map g path').each(function(){
         assign_data_to_svg(this, gon.map_population_json_svg)
       });
-
-    /*
-      (function (g) {
-        var scale = (+g.data('translate-w') - 200) / $(window).width();
-        g.attr('transform', 'translate(' + (+g.data('translate-w') * scale) + ', ' + (+g.data('translate-h') * scale) + ') scale(' + scale + ')');
-      })($('#map_districts svg g'));
-    */
 
       // show map info box when rollover district
       $('g#district path').hover(function(){
@@ -45,6 +43,8 @@ $(function () {
         if ($(this).attr('url') !== undefined)
         window.location.href = $(this).attr('url');
       });
+
+      adjust_map_scales();
     });
 
 
@@ -52,12 +52,13 @@ $(function () {
     d3.xml("/district_popouts.svg", "image/svg+xml", function(xml) {
       var w = 370, h = 500;
       var district = document.importNode(xml.getElementById('district_popouts'), true);
+      var scale = map_popout_scale();
 
       var map = d3.select("#map_district_popouts")
         .append("svg:svg")
         .attr("id", "svg_map_popouts")
-        .attr("width", w + 40)
-        .attr("height", h + 20);
+        .attr("width", w*scale + 40)
+        .attr("height", h*scale + 20);
 
       map.node().appendChild(district);
 
@@ -82,8 +83,9 @@ $(function () {
       if ($(this).attr('url') !== undefined)
       window.location.href = $(this).attr('url');
     });
-   });
 
+    adjust_map_scales();
+  });
 
 
   }

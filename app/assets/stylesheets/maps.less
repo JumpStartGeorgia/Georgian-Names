@@ -206,3 +206,119 @@
 }
 
 
+/* map districts full size = 1433 x 746 */
+/* map district popouts full size = 369.5 x 485.5 */
+@media (max-width: 1465px) {
+  #map_container {
+    #map_svg_container{
+      #map_districts{
+        width: 716.5px;
+        svg#svg_map {
+          width: 716.5px;
+          height: 373px;
+        }
+      }
+      #map_district_popouts{
+        width: 247.5px;
+        svg#svg_map {
+          width: 247.5px;
+          height: 325px;
+        }
+        #popout_tbilisi{
+          top: 73px;
+          margin-left: 188px;
+        }
+
+        #popout_rustavi{
+          top: 172px;
+          margin-left: 77px;
+        }
+
+        #popout_kutaisi{
+          top: 172px;
+          margin-left: 218px;
+        }
+
+        #popout_batumi{
+          top: 268px;
+          margin-left: 74px;
+        }
+
+        #popout_poti{
+          top: 268px;
+          margin-left: 221px;
+        }
+      }
+    }
+    #map_legend {
+      top: 155px; 
+      left: 60px; 
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  #map_container {
+    #map_svg_container{
+      #map_districts{
+        width: 473px;
+        svg#svg_map {
+          width: 473px;
+          height: 246px;
+        }
+      }
+      #map_district_popouts{
+        width: 185px;
+        svg#svg_map {
+          width: 185px;
+          height: 243px;
+        }
+        & > div{
+          font-size: 18px;
+        }
+        #popout_tbilisi{
+          top: 55px;
+          margin-left: 140px;
+        }
+
+        #popout_rustavi{
+          top: 128px;
+          margin-left: 58px;
+        }
+
+        #popout_kutaisi{
+          top: 128px;
+          margin-left: 163px;
+        }
+
+        #popout_batumi{
+          top: 200px;
+          margin-left: 55px;
+        }
+
+        #popout_poti{
+          top: 200px;
+          margin-left: 165px;
+        }
+      }
+    }
+    #map_legend {
+      top: 110px; 
+      left: 33px; 
+      h3{
+        font-size: 18px;
+        font-weight: bold;
+      }
+      li{
+        font-size: 11px;
+        span {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+    }
+  }
+}
+
+

@@ -6,12 +6,13 @@ $(function () {
     d3.xml("/districts.svg", "image/svg+xml", function(xml) {
       var w = 960, h = 500;
       var district = document.importNode(xml.getElementById('district'), true);
+      var scale = map_scale();
 
       var map = d3.select("#map_districts")
-      .append("svg:svg")
-      .attr("id", "svg_map")
-      .attr("width", w + 40)
-      .attr("height", h + 20);
+        .append("svg:svg")
+        .attr("id", "svg_map")
+        .attr("width", w*scale + 40)
+        .attr("height", h*scale + 20);
 
       map.node().appendChild(district);
 
@@ -39,18 +40,21 @@ $(function () {
           if ($(this).attr('url') !== undefined)
           window.location.href = $(this).attr('url');
       });  
+
+      adjust_map_scales();
     });
 
     // district pop out map
     d3.xml("/district_popouts.svg", "image/svg+xml", function(xml) {
       var w = 370, h = 500;
       var district = document.importNode(xml.getElementById('district_popouts'), true);
+      var scale = map_popout_scale();
 
       var map = d3.select("#map_district_popouts")
         .append("svg:svg")
         .attr("id", "svg_map_popouts")
-        .attr("width", w + 40)
-        .attr("height", h + 20);
+        .attr("width", w*scale + 40)
+        .attr("height", h*scale + 20);
 
       map.node().appendChild(district);
 
@@ -76,6 +80,9 @@ $(function () {
       if ($(this).attr('url') !== undefined)
       window.location.href = $(this).attr('url');
     });
+
+    adjust_map_scales();
+
    });
   }
 });
