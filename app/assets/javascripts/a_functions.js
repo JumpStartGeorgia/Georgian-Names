@@ -38,21 +38,25 @@ function assign_data_to_svg(ths, json){
 
 // compute the scale for the map based on the window width
 function map_scale(){
-  var scale = 0.33;
-  if ($(window).width() > 1465) {
+  var w = $(window).width();
+  if (w > 1530) {
     scale = 0.67;
-  } else if ($(window).width() > 960) {
+  } else if (w > 1115) {
     scale = 0.5;
-  } 
+  } else {
+    scale = 0.33;
+  }
   return scale;
 }
 function map_popout_scale(){
-  var scale = 0.5;
-  if ($(window).width() > 1465) {
+  var w = $(window).width();
+  if (w > 1530) {
     scale = 1;
-  } else if ($(window).width() > 960) {
+  } else if (w > 1115) {
     scale = 0.67;
-  } 
+  } else {
+    scale = 0.5;
+  }
   return scale;
 }
 
