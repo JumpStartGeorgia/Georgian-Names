@@ -3,6 +3,10 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
+  def og_description(description)
+    content_for(:og_description) { description }
+  end
+
 	def flash_translation(level)
     case level
     when :notice then "alert-info"
@@ -24,49 +28,12 @@ module ApplicationHelper
 		text.html_safe
 	end
 
-  def generate_medal(rank)
-    x = nil
-    if rank
-      img_path = 'medal-th.png'
-      case rank.to_i
-        when 1
-          img_path = 'gold-medal-th.png'
-        when 2
-          img_path = 'silver-medal-th.png'
-        when 3
-          img_path = 'bronze-medal-th.png'
-      end
-      x = content_tag :div, :class => 'medal_wrapper' do
-        image_tag(img_path) +
-        content_tag(:div, content_tag(:p, "##{rank}"), :class => 'medal_text')
-      end
-    end
-    return x
-  end
-=begin
-	# Based on https://gist.github.com/1182136
-  class BootstrapLinkRenderer < ::WillPaginate::ActionView::LinkRenderer
-    protected
+	def current_url
+		return "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+	end
 
-    def html_container(html)
-      tag :div, tag(:ul, html), container_attributes
-    end
+	def full_url(path)
+		"#{request.protocol}#{request.host_with_port}#{path}"
+	end
 
-    def page_number(page)
-      tag :li, link(page, page, :rel => rel_value(page)), :class => ('active' if page == current_page)
-    end
-
-    def gap
-      tag :li, link(super, '#'), :class => 'disabled'
-    end
-
-    def previous_or_next_page(page, text, classname)
-      tag :li, link(text, page || '#'), :class => [classname[0..3], classname, ('disabled' unless page)].join(' ')
-    end
-  end
-
-  def page_navigation_links(pages)
-    will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
-  end
-=end
 end

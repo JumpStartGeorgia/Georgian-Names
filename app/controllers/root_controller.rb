@@ -80,14 +80,14 @@ class RootController < ApplicationController
     if @first_name && @last_name
       birth_years = Mapping.birth_years(@first_name.id, @last_name.id, true)
       districts = Mapping.districts(@first_name.id, @last_name.id, true)
+      @full_name_count = birth_years.map{|x| x.count}.inject(:+)
 
       if birth_years.present?
         # build age chart
         years_array = birth_years.map{|x| [x.birth_year, x.count]}
-        pop_sum = birth_years.map{|x| x.count}.inject(:+)
         gon.chart_age_population = true
         gon.chart_age_pop_title = I18n.t('charts.population.all.title')
-        gon.chart_age_pop_subtitle = I18n.t('charts.population.all.subtitle', :count => view_context.number_with_delimiter(pop_sum))
+        gon.chart_age_pop_subtitle = I18n.t('charts.population.all.subtitle', :count => view_context.number_with_delimiter(@full_name_count))
         gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.all.xaxis1')}<br />(#{I18n.t('charts.population.all.xaxis2')})"
         gon.chart_age_pop_yaxis = I18n.t('charts.population.all.yaxis')
         gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
@@ -102,11 +102,10 @@ class RootController < ApplicationController
         d = districts.map{|x| {:district_id => x.district_id, :district_name => x.district_name,
                 		  :permalink => x.district_permalink, :count => x.count}}
         json = GenerateJson.full_name_population(district_names,d)
-        pop_sum = districts.map{|x| x.count}.inject(:+)
         
         gon.map_population_json_svg = json
         @map_title = I18n.t('charts.map.name.title', :name => "#{@first_name.name} #{@last_name.name}")
-        @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(pop_sum))
+        @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@full_name_count))
         @color_legend = GenerateJson.full_name_population_colors
 
       end
@@ -114,20 +113,6 @@ class RootController < ApplicationController
   end
 
   def search_name
-=begin
-    en_q = Utf8Converter.convert_ka_to_en(params[:q])
-    
-    # see if there is a perfect match
-    name = Name.search_name(en_q)
-    if name.present? && name.length == 1
-      # found one match, load name page for it
-      if name.first.name_type == Name::TYPE[:first_name]
-        redirect_to first_name_path(name.first.name_en) 
-      elsif name.first.name_type == Name::TYPE[:last_name]
-        redirect_to last_name_path(name.first.name_en) 
-      end
-    end
-=end
     # do search across all names
     # - use name country data tables
     gon.initial_name_search = params[:q]
@@ -209,10 +194,10 @@ class RootController < ApplicationController
       gon.chart_top_lnames_yaxis_data = @district_last_names.map{|x| x.count}
 
       pop = DistrictYear.by_district(@district.id)
-      pop_sum = pop.map{|x| x.count}.inject(:+)
+      @district_count = pop.map{|x| x.count}.inject(:+)
       gon.chart_age_population = true
       gon.chart_age_pop_title = I18n.t('charts.population.district.title', :district => @district.name)
-      gon.chart_age_pop_subtitle = I18n.t('charts.population.district.subtitle', :district => @district.name, :count => view_context.number_with_delimiter(pop_sum))
+      gon.chart_age_pop_subtitle = I18n.t('charts.population.district.subtitle', :district => @district.name, :count => view_context.number_with_delimiter(@district_count))
       gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.district.xaxis1')}<br />(#{I18n.t('charts.population.district.xaxis2')})"
       gon.chart_age_pop_yaxis = I18n.t('charts.population.district.yaxis')
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')

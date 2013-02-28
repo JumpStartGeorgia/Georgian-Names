@@ -45,7 +45,7 @@ en:
       confirm: Are you sure?
       new: New
     common:
-      app_name: "Where's Your Name?"
+      app_name: mashasada.me
       first_name: First Name
       last_name: Last Name
       no_data: No Data
@@ -184,11 +184,10 @@ en:
         title: User Details
   root:
     index:
-      search_first_name: Search by First Name
-      search_last_name: Search by Last Name
+      description: This is the text to describer what the site is about.
       stats:
         source_header: Source
-        source_text: Central Election Commission Voters List
+        source_text: "Voters' List Verification Commission"
         when_header: When
         when_text: August 2012
         where_header: Where
@@ -208,26 +207,32 @@ en:
       title_first: "First Name: '%{name}'"
       title_last: "Last Name: '%{name}'"
       not_exist: "'%{name}' could not be found."
+      description_first: "In Georgia, there were %{count} people with the first name '%{name}', which has a rank of %{rank} in the country."
+      description_last: "In Georgia, there were %{count} people with the last name '%{name}', which has a rank of %{rank} in the country."
     full_name:
       title: "Full Name: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' could not be found."
+      description: "In Georgia, there were %{count} people with the full name '%{first_name} %{last_name}'."
     district:
       title: "District: '%{district}'"
       subtitle: "Number of People in '%{district}': %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "District '%{district}' could not be found."
+      description: "In Georgia, there were %{count} people registered to vote in '%{name}'."
     year:
       title: "%{year} (%{age} Years Old)"
       subtitle: "Number of People Alive from %{year}: %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "Year '%{year}' could not be found."
+      description: "In Georgia, there were %{count} people registered to vote that were born in the year %{year} (%{age} years old)."
     search_name:
       title: Search
+      description: "Search results for '%{q}'."
     download:
       title: Download the Data Set      
-      p_1: "The source of this data is the August 2012 Voters List that was obtained from the Central Election Commission. There are a total of 3,613,745 records and each record includes the first name, last name, birth year and district in which the person is registered. The first name, last name and district are provided in both Georgian and English languages."
+      p_1: "The source of this data is the August 2012 Voters List that was obtained from the Voters' List Verification Commission. There are a total of 3,613,745 records and each record includes the first name, last name, birth year and district in which the person is registered. The first name, last name and district are provided in both Georgian and English languages."
       p_2: "If you are using Excel on Windows, download the Excel file for Excel does not automatically read the Georgian characters from the CSV file."
       p_3: "Due to spreadsheet application row size limits, the data was split into 8 files with 500,000 rows each."
       csv: "CSV (%{size})"

@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:title" content="<%= content_for?(:title) ? "#{yield(:title)} > #{t('app.common.app_name')}" :
+				t('app.common.app_name') %>" />
+		<meta property="og:description" content="<%= content_for?(:og_description) ? yield(:og_description) : t('root.index.description') %>" />
+		<meta property="og:type" content="non_profit" />
+		<meta property="og:url" content="<%= current_url %>" />
+		<% if @name && (params[:action] == 'first_name' || params[:action] == 'last_name') %>
+			<meta property="og:image" content="<%= full_url(generate_rank_path(@name.rank, :format => :png)) %>" />
+    <% else %>
+			<meta property="og:image" content="<%= full_url(image_path('logo.png')) %>" />
+		<% end %>
+		<meta property="og:site_name" content="<%= t('app.common.app_name') %>" />
+
     <title><%= content_for?(:title) ? "#{yield(:title)} > #{t('app.common.app_name')}" :
 				t('app.common.app_name') %></title>
     <%= csrf_meta_tags %>
