@@ -289,5 +289,55 @@ div.medal_wrapper{
 }
 
 
+#site_description {
+  background: url(/assets/bar_pattern.png) repeat;
+  & > div {
+    .box-sizing(border-box);
+    height: 42px;
+    padding: 10px 0px 0px 67px;
+    color: #ffecbd;
+    font-size: 14px;
+    p {
+      margin: 0px;
+    }
+  }
+}
+
+
+
+#page_title {
+  background: url(/assets/bar_pattern.png) repeat;
+  & > div {
+    .box-sizing(border-box);
+    height: 42px;
+    &, h1 {
+      color: #ffecbd;
+    }
+    font-size: 14px;
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin-left: 67px;
+    }
+    .medal_wrapper {
+      &, & + h1 {
+        float: left;
+      }
+      & + h1 {
+        margin-left: 10px;
+      }
+      width: 154px;
+      height: 10px;
+      margin-left: 18px;
+      img {
+        position: absolute;
+        z-index: 999;
+      }
+    }
+  }
+}
+
+
 
 

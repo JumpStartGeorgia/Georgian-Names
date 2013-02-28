@@ -1,11 +1,13 @@
 <div id="page_title">
-  <h1>
-    <% page_title = t('.title', :district => @district ? @district.name : params[:id])
-       title page_title.html_safe
-       og_description t('.description', :name => @district ? @district.name : params[:id], :count => number_with_delimiter(@district_count)).html_safe 
-    %>
-    <%= page_title %>
-  </h1>
+  <div>
+    <h1>
+      <% page_title = t('.title', :district => @district ? @district.name : params[:id])
+         title page_title.html_safe
+         og_description t('.description', :name => @district ? @district.name : params[:id], :count => number_with_delimiter(@district_count)).html_safe 
+      %>
+      <%= page_title %>
+    </h1>
+  </div>
 </div>
 
 <% if @district %>

@@ -1,11 +1,13 @@
 <div id="page_title">
-  <h1>
-    <% page_title = t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) 
-      title page_title.html_safe
-       og_description t('.description', :year => params[:id], :age => @static_year-params[:id].to_i, :count => number_with_delimiter(@population.count)).html_safe 
-    %>
-    <%= page_title %>
-  </h1>
+  <div>
+    <h1>
+      <% page_title = t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) 
+        title page_title.html_safe
+         og_description t('.description', :year => params[:id], :age => @static_year-params[:id].to_i, :count => number_with_delimiter(@population.count)).html_safe 
+      %>
+      <%= page_title %>
+    </h1>
+  </div>
 </div>
 
 <% if @population %>

@@ -5,15 +5,14 @@
     text-align: center;
     padding: 0px 0px 20px;
     margin: 0 auto;
-    width: 1440px;
-    .transition(margin 1s);
+    width: 1140px;
     .clearfix();
     & > div {
       float: left;
-      width: 170px;
-      height: 170px;
-      margin: 8px 35px 23px;
-      padding: 15px 9px;
+      width: 120px;
+      height: 120px;
+      margin: 0px 35px 23px;
+      padding: 18px 10px;
       font-size: 14px;
       background-color: #d95b43;
       color: #fff;
@@ -27,6 +26,18 @@
         font-weight: bold;
         letter-spacing: 2.5px;
         margin-bottom: 3px;
+      }
+      img {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+      div.img {
+        text-align: center;
+        img {
+          display: inline-block;
+          margin: 0px;
+          vertical-align: baseline;
+        }
       }
       & > div {
         margin-bottom: 5px;
@@ -46,13 +57,13 @@
 
 @media (max-width: 1440px) {
   #stats > div {
-    width: 960px;
+    width: 760px;
   }
 }
 
 @media (max-width: 960px) {
   #stats > div {
-    width: 720px;
+    width: 570px;
   }
 }
 
@@ -81,6 +92,9 @@ rect[fill="#FFFFFF"] {
   h3 {
     font-weight: normal;
     color: #fff;
+  }
+  .dataTables_wrapper {
+    margin-top: 10px;
   }
   .table-striped {
     thead {

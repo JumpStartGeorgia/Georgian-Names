@@ -1,17 +1,19 @@
 <div id="page_title">
-  <h1 class="clear">
-    <% if @first_name && @last_name 
-      page_title = t('.title', :first => @first_name.name, :last => @last_name.name)
-      og_description t('.description', :first_name => @first_name.name, :last_name => @last_name.name, :count => number_with_delimiter(@full_name_count)).html_safe 
-    else 
-      page_title = "#{params[:first_name]} #{params[:last_name]}" 
-     end 
+  <div>
+    <h1 class="clear">
+      <% if @first_name && @last_name 
+        page_title = t('.title', :first => @first_name.name, :last => @last_name.name)
+        og_description t('.description', :first_name => @first_name.name, :last_name => @last_name.name, :count => number_with_delimiter(@full_name_count)).html_safe 
+      else 
+        page_title = "#{params[:first_name]} #{params[:last_name]}" 
+       end 
 
-      title page_title.html_safe
-    %>
+        title page_title.html_safe
+      %>
 
-    <%= page_title %>
-  </h1>
+      <%= page_title %>
+    </h1>
+  </div>
 </div>
 <% if @first_name && @last_name %>
 

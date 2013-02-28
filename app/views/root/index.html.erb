@@ -1,32 +1,40 @@
 <div id="site_description">
-  <p><%= t('.description') %></p>
+  <div>
+    <p><%= t('.description') %></p>
+  </div>
 </div>
 
 <div class="row-fluid" id="stats_container">
   <div class="span12" id="stats">
     <div class="">
       <div class="">
-        <h4><%= image_tag 'stats_icons/source.png' %><%= t('.stats.source_header') %></h4>
+        <h4><%= t('.stats.source_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/source.png' %></div>
         <%= t('.stats.source_text') %>
       </div>
       <div class="">
-        <h4><%= image_tag 'stats_icons/when.png' %><%= t('.stats.when_header') %></h4>
+        <h4><%= t('.stats.when_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/when.png' %></div>
         <%= t('.stats.when_text') %>
       </div>
       <div class="">
-        <h4><%= image_tag 'stats_icons/where.png' %><%= t('.stats.where_header') %></h4>
+        <h4><%= t('.stats.where_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/where.png' %></div>
         <%= t('.stats.where_text') %>
       </div>
       <div class="">
-        <h4><%= image_tag 'stats_icons/people.png' %><%= t('.stats.population_header') %></h4>
+        <h4><%= t('.stats.population_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/people.png' %></div>
         <%= number_with_delimiter 3613745 %>
       </div>
       <div class="">
-        <h4><%= image_tag 'stats_icons/districts.png' %><%= t('.stats.districts_header') %></h4>
+        <h4><%= t('.stats.districts_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
         <%= number_with_delimiter 75 %>
       </div>
       <div class="">
-        <h4><%= image_tag 'stats_icons/precincts.png' %><%= t('.stats.precincts_header') %></h4>
+        <h4><%= t('.stats.precincts_header') %></h4>
+        <div class="img"><%= image_tag 'stats_icons/precincts.png' %></div>
         <%= number_with_delimiter 3648 %>
       </div>
       <div class="">

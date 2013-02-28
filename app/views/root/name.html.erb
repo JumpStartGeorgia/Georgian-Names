@@ -1,27 +1,30 @@
 
 <div id="page_title">
-  <h1 class="clear">
+  <div class="clear">
 
     <div class="medal_wrapper">
       <%= image_tag generate_rank_path(@name.rank, :format => :png) if @name %>
     </div>
 
-    <% page_title = '' 
-        description = ''
-     if @type == Name::TYPE[:first_name] 
-       page_title << t('.title_first', :name => @name ? @name.name : params[:name])
-       description << t('.description_first', :name => @name.name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
-    elsif @type == Name::TYPE[:last_name] 
-       page_title << t('.title_last', :name => @name ? @name.name : params[:name])
-       description << t('.description_last', :name => @name.name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
-    end 
-    
-    title page_title.html_safe
-    og_description description.html_safe if description.present?
-    %>
+    <h1>
 
-    <%= page_title %>
-  </h1>
+      <% page_title = ''
+          description = ''
+       if @type == Name::TYPE[:first_name]
+         page_title << t('.title_first', :name => @name ? @name.name : params[:name])
+         description << t('.description_first', :name => @name.name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
+      elsif @type == Name::TYPE[:last_name]
+         page_title << t('.title_last', :name => @name ? @name.name : params[:name])
+         description << t('.description_last', :name => @name.name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
+      end
+      
+      title page_title.html_safe
+      og_description description.html_safe if description.present?
+      %>
+
+      <%= page_title %>
+    </h1>
+  </div>
 </div>
 
 <% if @name %>
