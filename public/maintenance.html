@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mashasada.me</title>
+
+    <style type="text/css">
+      body {
+        color: black;
+        background-color: #ecd078; 
+      }
+      div#container{
+        margin: 40px auto;
+        width: 850px;
+      }
+      div#header{
+        position: relative;
+      }
+      div#header h1 {
+        padding: 0;
+        margin-bottom: 23px;
+      }
+      div#header img#lang_switcher_img{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      div#container > div {
+        clear: both;
+      }
+      div#container > div > div {
+        background-color: #ecd078; 
+        margin-bottom: 23px;
+        width: 268px;
+        height: 151px;
+      }
+      div#row1 > div, div#row2 > div {
+        float: left;
+        margin-right: 23px;
+      }
+      div#row1 > div:last-of-type, div#row2 > div:last-of-type {
+        margin-right: 0;
+      }
+      div#row3 > div {
+        float: right;
+        width: 268px;
+        height: 151px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1><img src="/campaign/header_logo_geo.jpg" alt="მაშასადა.მე" /></h1>
+        <a href="?lang=en" id="lang_switcher_link"><img src="/campaign/en.png" alt="EN" id="lang_switcher_img" title="English"/></a>
+      </div>
+      <div id="row1">
+        <div id="day1">
+          <img src="/campaign/1_geo.jpg" alt="1 მარტი" />
+        </div>
+        <div id="day2">
+          <img src="/campaign/2_geo.jpg" alt="2 მარტი" />
+        </div>
+        <div id="day3">
+          <img src="/campaign/3_geo.jpg" alt="3 მარტი" />
+        </div>
+      </div>
+      <div id="row2">
+        <div id="day4">
+          <img src="/campaign/4_geo.jpg" alt="4 მარტი" />
+        </div>
+        <div id="day5">
+          <img src="/campaign/5_geo.jpg" alt="5 მარტი" />
+        </div>
+        <div id="day6">
+          <img src="/campaign/6_geo.jpg" alt="6 მარტი" />
+        </div>
+      </div>
+      <div id="row3">
+        <div id="day7">
+          <img src="/campaign/7_geo.jpg" alt="7 მარტი" />
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/campaign/jquery.flippy.min.js"></script>
+
+    <script type="text/javascript">
+      var lang = 'ka';
+      var flippy_div = 'div#day1';
+      var flippy_img_geo = '<img src="/campaign/1_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ">';
+      var flippy_img_eng = '<img src="/campaign/1_eng_2nd_side.jpg" alt="I think, Mashasada.me I am">';
+      var flippy_img = flippy_img_geo;
+      function GetQueryStringParams(sParam)
+      {
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        for (var i = 0; i < sURLVariables.length; i++)
+        {
+          var sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] == sParam)
+          {
+            return sParameterName[1];
+          }
+        }
+      }
+
+      function set_language_switcher(){
+        var link = $('a#lang_switcher_link');
+        if (lang !== undefined && lang == 'en'){
+            $('div#header h1 img').attr('src', '/campaign/header_logo_eng.jpg');
+            $('div#header h1 img').attr('alt', 'mashasada.me');
+            $('a#lang_switcher_link').attr('href', '?lang=ka');
+            $('#lang_switcher_img').attr('src', '/campaign/ka.png');
+            $('#lang_switcher_img').attr('title', 'ქართული');
+            $('#lang_switcher_img').attr('alt', 'KA');
+            $('div#day1 img').attr('src', '/campaign/1_eng.jpg');
+            $('div#day1 img').attr('alt', '1 March');
+            $('div#day2 img').attr('src', '/campaign/2_eng.jpg');
+            $('div#day2 img').attr('alt', '2 March');
+            $('div#day3 img').attr('src', '/campaign/3_eng.jpg');
+            $('div#day3 img').attr('alt', '3 March');
+            $('div#day4 img').attr('src', '/campaign/4_eng.jpg');
+            $('div#day4 img').attr('alt', '4 March');
+            $('div#day5 img').attr('src', '/campaign/5_eng.jpg');
+            $('div#day5 img').attr('alt', '5 March');
+            $('div#day6 img').attr('src', '/campaign/6_eng.jpg');
+            $('div#day6 img').attr('alt', '6 March');
+            $('div#day7 img').attr('src', '/campaign/7_eng.jpg');
+            $('div#day7 img').attr('alt', '7 March');
+
+            flippy_img = flippy_img_eng;
+        }
+      }
+
+
+      $(function(){
+        setTimeout(function (){
+	        $(flippy_div).flippy({
+		        color_target:"#d95b44",
+            content: flippy_img,
+		        direction:"LEFT",
+		        duration:"750"
+	        });
+        }, 1500);
+      });
+
+
+      $(document).ready(function() {
+        lang = GetQueryStringParams('lang');
+        if (lang === undefined){
+          lang = 'ka';
+        }
+        set_language_switcher();
+      });
+
+
+    </script>
+    
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-12801815-16']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+  </body>
+</html>
