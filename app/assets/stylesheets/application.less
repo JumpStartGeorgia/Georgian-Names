@@ -310,22 +310,32 @@ div.medal_wrapper{
   & > div {
     .box-sizing(border-box);
     height: 42px;
-    &, h1 {
+    &, h1, h3 {
       color: #ffecbd;
     }
     font-size: 14px;
     p {
       margin: 0px;
     }
-    h1 {
+    h1, h3 {
       margin-left: 67px;
     }
+    h1 {
+      font-size: 18px;
+    }
+    h3 {
+      font-size: 14px;
+      margin-top: 5px;
+    }
     .medal_wrapper {
-      &, & + h1 {
+      &, & + #medal_with_titles {
         float: left;
       }
-      & + h1 {
-        margin-left: 10px;
+      & + #medal_with_titles {
+        margin-left: -40px;
+        h1, h3{
+          margin-left: 0;
+        }
       }
       width: 154px;
       height: 10px;

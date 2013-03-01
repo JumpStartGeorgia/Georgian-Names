@@ -206,6 +206,8 @@ en:
     name:
       title_first: "First Name: '%{name}'"
       title_last: "Last Name: '%{name}'"
+      subtitle_first: "Number of People with first name '%{name}': %{count}"
+      subtitle_last: "Number of People with last name '%{name}': %{count}"
       not_exist: "'%{name}' could not be found."
       description_first: "In Georgia, there were %{count} people with the first name '%{name}', which has a rank of %{rank} in the country."
       description_last: "In Georgia, there were %{count} people with the last name '%{name}', which has a rank of %{rank} in the country."

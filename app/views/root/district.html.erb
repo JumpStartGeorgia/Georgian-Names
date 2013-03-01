@@ -7,13 +7,15 @@
       %>
       <%= page_title %>
     </h1>
+    <% if @district && @population %>
+      <h3>
+        <%= t('.subtitle', :district => @district.name, :count => number_with_delimiter(@population.count)) %>
+      </h3>
+    <% end %>
   </div>
 </div>
 
 <% if @district %>
-  <h3>
-    <%= t('.subtitle', :district => @district.name, :count => number_with_delimiter(@population.count)) %>
-  </h3>
 
   <div id="chart_age_population"></div>
 
