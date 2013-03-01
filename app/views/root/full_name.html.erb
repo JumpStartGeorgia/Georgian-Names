@@ -23,7 +23,7 @@
 
   <div class="row-fluid" id="datatables">
     <div class="span6">
-      <h3><%= t('tables.year.title')%></h3>
+      <h3><%= t('tables.year.title', :name => "#{@first_name.name} #{@last_name.name}")%></h3>
       <table id="birth_years_full_name_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_birth_years_full_name_url(:first_name_id => @first_name.id, :last_name_id => @last_name.id,:format => :json) %>">
         <thead>
@@ -38,7 +38,7 @@
       </table>
     </div>
     <div class="span6">
-      <h3><%= t('tables.district.title')%></h3>
+      <h3><%= t('tables.district.title', :name => "#{@first_name.name} #{@last_name.name}")%></h3>
       <table id="districts_full_name_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_districts_full_name_url(:first_name_id => @first_name.id, :last_name_id => @last_name.id,:format => :json) %>">
         <thead>

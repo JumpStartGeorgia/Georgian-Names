@@ -20,22 +20,23 @@ class RootController < ApplicationController
     gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
     gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
     gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+    gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
     gon.chart_age_pop_data = pop.map{|x| [x.identifier, x.count]}
 
     gon.chart_top_fnames = true
     gon.chart_top_fnames_id = 'chart_top_fnames'
-    gon.chart_top_fnames_title = I18n.t('charts.name.first.title')
-    gon.chart_top_fnames_subtitle = I18n.t('charts.name.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
-    gon.chart_top_fnames_yaxis = I18n.t('charts.name.first.yaxis')
+    gon.chart_top_fnames_title = I18n.t('charts.name.all.first.title')
+    gon.chart_top_fnames_subtitle = I18n.t('charts.name.all.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
+    gon.chart_top_fnames_yaxis = I18n.t('charts.name.all.first.yaxis')
     gon.chart_top_fnames_yaxis_names = @top_first.map{|x| x.name}
     gon.chart_top_fnames_yaxis_data = @top_first.map{|x| x.count}
     gon.chart_top_fnames_link_names = @top_first.map{|x| x.permalink}
 
     gon.chart_top_lnames = true
     gon.chart_top_lnames_id = 'chart_top_lnames'
-    gon.chart_top_lnames_title = I18n.t('charts.name.last.title')
-    gon.chart_top_lnames_subtitle = I18n.t('charts.name.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
-    gon.chart_top_lnames_yaxis = I18n.t('charts.name.last.yaxis')
+    gon.chart_top_lnames_title = I18n.t('charts.name.all.last.title')
+    gon.chart_top_lnames_subtitle = I18n.t('charts.name.all.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
+    gon.chart_top_lnames_yaxis = I18n.t('charts.name.all.last.yaxis')
     gon.chart_top_lnames_yaxis_names = @top_last.map{|x| x.name}
     gon.chart_top_lnames_yaxis_data = @top_last.map{|x| x.count}
     gon.chart_top_lnames_link_names = @top_last.map{|x| x.permalink}
@@ -86,13 +87,14 @@ class RootController < ApplicationController
         # build age chart
         years_array = birth_years.map{|x| [x.birth_year, x.count]}
         gon.chart_age_population = true
-        gon.chart_age_pop_title = I18n.t('charts.population.all.title')
-        gon.chart_age_pop_subtitle = I18n.t('charts.population.all.subtitle', :count => view_context.number_with_delimiter(@full_name_count))
-        gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.all.xaxis1')}<br />(#{I18n.t('charts.population.all.xaxis2')})"
-        gon.chart_age_pop_yaxis = I18n.t('charts.population.all.yaxis')
+        gon.chart_age_pop_title = I18n.t('charts.population.full_name.title', :first_name => @first_name.name, :last_name => @last_name.name)
+        gon.chart_age_pop_subtitle = I18n.t('charts.population.full_name.subtitle', :first_name => @first_name.name, :last_name => @last_name.name, :count => view_context.number_with_delimiter(@full_name_count))
+        gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.full_name.xaxis1')}<br />(#{I18n.t('charts.population.full_name.xaxis2')})"
+        gon.chart_age_pop_yaxis = I18n.t('charts.population.full_name.yaxis')
         gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
         gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
         gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+        gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
         gon.chart_age_pop_data = years_array
       end
    
@@ -129,9 +131,9 @@ class RootController < ApplicationController
     if !@year_first_names.blank?
       gon.chart_top_fnames = true
       gon.chart_top_fnames_id = 'chart_top_fnames'
-      gon.chart_top_fnames_title = I18n.t('charts.name.first.title')
-      gon.chart_top_fnames_subtitle = I18n.t('charts.name.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
-      gon.chart_top_fnames_yaxis = I18n.t('charts.name.first.yaxis')
+      gon.chart_top_fnames_title = I18n.t('charts.name.birth_year.first.title', :year => params[:id])
+      gon.chart_top_fnames_subtitle = I18n.t('charts.name.birth_year.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
+      gon.chart_top_fnames_yaxis = I18n.t('charts.name.birth_year.first.yaxis')
       gon.chart_top_fnames_yaxis_names = @year_first_names.map{|x| x.name.name}
       gon.chart_top_fnames_link_names = @year_first_names.map{|x| x.name.permalink}
       gon.chart_top_fnames_yaxis_data = @year_first_names.map{|x| x.count}
@@ -140,9 +142,9 @@ class RootController < ApplicationController
     if !@year_last_names.blank?
       gon.chart_top_lnames = true
       gon.chart_top_lnames_id = 'chart_top_lnames'
-      gon.chart_top_lnames_title = I18n.t('charts.name.last.title')
-      gon.chart_top_lnames_subtitle = I18n.t('charts.name.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
-      gon.chart_top_lnames_yaxis = I18n.t('charts.name.last.yaxis')
+      gon.chart_top_lnames_title = I18n.t('charts.name.birth_year.last.title', :year => params[:id])
+      gon.chart_top_lnames_subtitle = I18n.t('charts.name.birth_year.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
+      gon.chart_top_lnames_yaxis = I18n.t('charts.name.birth_year.last.yaxis')
       gon.chart_top_lnames_yaxis_names = @year_last_names.map{|x| x.name.name}
       gon.chart_top_lnames_link_names = @year_last_names.map{|x| x.name.permalink}
       gon.chart_top_lnames_yaxis_data = @year_last_names.map{|x| x.count}
@@ -177,18 +179,18 @@ class RootController < ApplicationController
 
       gon.chart_top_fnames = true
       gon.chart_top_fnames_id = 'chart_top_fnames'
-      gon.chart_top_fnames_title = I18n.t('charts.name.first.title')
-      gon.chart_top_fnames_subtitle = I18n.t('charts.name.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
-      gon.chart_top_fnames_yaxis = I18n.t('charts.name.first.yaxis')
+      gon.chart_top_fnames_title = I18n.t('charts.name.district.first.title', :name => @district.name)
+      gon.chart_top_fnames_subtitle = I18n.t('charts.name.district.first.subtitle', :count => view_context.number_with_delimiter(@total_first.count))
+      gon.chart_top_fnames_yaxis = I18n.t('charts.name.district.first.yaxis')
       gon.chart_top_fnames_yaxis_names = @district_first_names.map{|x| x.name.name}
       gon.chart_top_fnames_link_names = @district_first_names.map{|x| x.name.permalink}
       gon.chart_top_fnames_yaxis_data = @district_first_names.map{|x| x.count}
 
       gon.chart_top_lnames = true
       gon.chart_top_lnames_id = 'chart_top_lnames'
-      gon.chart_top_lnames_title = I18n.t('charts.name.last.title')
-      gon.chart_top_lnames_subtitle = I18n.t('charts.name.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
-      gon.chart_top_lnames_yaxis = I18n.t('charts.name.last.yaxis')
+      gon.chart_top_lnames_title = I18n.t('charts.name.district.last.title', :name => @district.name)
+      gon.chart_top_lnames_subtitle = I18n.t('charts.name.district.last.subtitle', :count => view_context.number_with_delimiter(@total_last.count))
+      gon.chart_top_lnames_yaxis = I18n.t('charts.name.district.last.yaxis')
       gon.chart_top_lnames_yaxis_names = @district_last_names.map{|x| x.name.name}
       gon.chart_top_lnames_link_names = @district_last_names.map{|x| x.name.permalink}
       gon.chart_top_lnames_yaxis_data = @district_last_names.map{|x| x.count}
@@ -203,6 +205,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
       gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+      gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
       gon.chart_age_pop_data = pop.map{|x| [x.birth_year, x.count]}
 
 
@@ -236,6 +239,7 @@ class RootController < ApplicationController
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
       gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
+      gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
  
        # get shape json and add data to json
       district_names = DistrictName.all

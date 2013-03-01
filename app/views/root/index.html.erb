@@ -94,14 +94,14 @@
 
 <div class="row-fluid" id="datatables">
   <div class="span6">
-    <h3><%= t('tables.first_name.title')%></h3>
+    <h3><%= t('tables.first_name.all.title')%></h3>
     <table id="first_name_country_datatable" class="display table table-striped table-bordered" 
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:first_name], :format => :json) %>">
       <thead>
         <tr>
-          <th><%= t('tables.first_names.name')%></th>
-          <th><%= t('tables.first_names.total')%></th>
-          <th><%= t('tables.first_names.rank')%></th>
+          <th><%= t('tables.first_name.alls.name')%></th>
+          <th><%= t('tables.first_name.alls.total')%></th>
+          <th><%= t('tables.first_name.alls.rank')%></th>
         </tr>
       </thead>
       <tbody>
@@ -109,14 +109,14 @@
     </table>
   </div> 
   <div class="span6">
-    <h3><%= t('tables.last_name.title')%></h3>
+    <h3><%= t('tables.last_name.all.title')%></h3>
     <table id="last_name_country_datatable" class="display table table-striped table-bordered" 
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:last_name], :format => :json) %>">
       <thead>
         <tr>
-          <th><%= t('tables.last_names.name')%></th>
-          <th><%= t('tables.last_names.total')%></th>
-          <th><%= t('tables.last_names.rank')%></th>
+          <th><%= t('tables.last_name.alls.name')%></th>
+          <th><%= t('tables.last_name.alls.total')%></th>
+          <th><%= t('tables.last_name.alls.rank')%></th>
         </tr>
       </thead>
       <tbody>

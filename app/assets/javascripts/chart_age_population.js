@@ -47,11 +47,13 @@ $(function () {
                     var x;
                     if (this.series.index == 1) {
                       // the values for count and rank have switched places
-                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + gon.chart_age_pop_popup_years_old + ')</strong>'+ 
+                      x = '<strong>' + gon.chart_age_pop_popup_birth_year + this.x + '</strong>'+ 
+                          '<br />' + gon.chart_age_pop_popup_years_old + (gon.static_year-this.x) + 
                           '<br/>' + gon.chart_age_pop_popup_total + Highcharts.numberFormat(this.point.config[2],0,',') +
                           '<br />' + gon.chart_age_pop_popup_rank + this.y;
                     } else {
-                      x = '<strong>' + this.x +' (' + (gon.static_year-this.x) + gon.chart_age_pop_popup_years_old + ')</strong>'+ 
+                      x = '<strong>' + gon.chart_age_pop_popup_birth_year + this.x + '</strong>'+ 
+                          '<br />' + gon.chart_age_pop_popup_years_old + (gon.static_year-this.x) + 
                           '<br/>' + gon.chart_age_pop_popup_total + Highcharts.numberFormat(this.y,0,',');
                       if (this.point.config.length > 2){
                         x += '<br />' + gon.chart_age_pop_popup_rank + this.point.config[2];
