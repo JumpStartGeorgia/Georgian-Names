@@ -7,6 +7,10 @@ module ApplicationHelper
     content_for(:og_description) { description }
   end
 
+  def body_id(id)
+    content_for(:body_id) { id }
+  end
+
 	def flash_translation(level)
     case level
     when :notice then "alert-info"

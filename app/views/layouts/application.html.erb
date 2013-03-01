@@ -33,7 +33,7 @@
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag '/favicon.ico', :rel => 'shortcut icon' %>
   </head>
-  <body>
+  <body id="<%= content_for?(:body_id) ? yield(:body_id) : '' %>">
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
