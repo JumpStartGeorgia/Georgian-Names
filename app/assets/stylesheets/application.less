@@ -263,7 +263,11 @@ div.medal_wrapper{
 
 /* download page*/
 #download_container{
+  background-color: #FFECBD;
   font-size: 17px;
+  h1{
+    color: #92AB66;
+  }
   p{
     padding: 10px 0;
   }
@@ -273,9 +277,21 @@ div.medal_wrapper{
     color: #ffecbd;
     background-color: #bf352b;
     text-decoration: none;
-    &:hover{
-      color: #ffecbd;
-      background-color: #d95b43;
+    font-style: italic;
+    font-weight: bold;
+    &#csv{
+      background-color: #BFB35A;
+      &:hover{
+        color: #ffecbd;
+        background-color: #d95b43;
+      }
+    }
+    &#excel{
+      background-color: #bf352b;
+      &:hover{
+        color: #ffecbd;
+        background-color: #d95b43;
+      }
     }
   }
 }
