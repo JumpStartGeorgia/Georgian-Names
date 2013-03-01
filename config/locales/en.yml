@@ -184,7 +184,7 @@ en:
         title: User Details
   root:
     index:
-      description: This is the text to describer what the site is about.
+      description: "Mashasada.me visualizes the official list of voters for the Georgian parliamentary elections in October 2012."
       stats:
         source_header: Source
         source_text: "Voters' List Verification Commission"
@@ -192,7 +192,7 @@ en:
         when_text: August 2012
         where_header: Where
         where_text: Georgia
-        population_header: People (18 and older)
+        population_header: "People (18 and older)"
         districts_header: Districts
         precincts_header: Voting Precincts
         first_names_header: First Names

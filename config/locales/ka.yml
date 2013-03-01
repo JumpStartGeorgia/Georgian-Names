@@ -184,7 +184,7 @@ ka:
         title: მომხმარებლის დეტალები
   root:
     index:
-      description: This is the text to describer what the site is about.
+      description: "Mashasada.me visualizes the official list of voters for the Georgian parliamentary elections in October 2012."
       stats:
         source_header: წყარო
         source_text: "Voters' List Verification Commission"
@@ -192,7 +192,7 @@ ka:
         when_text: აგვისტო 2012
         where_header: სად
         where_text: საქართველო
-        population_header: ხალხი (18 წელს ზემოთ)
+        population_header: "ხალხი (18 წელს ზემოთ)"
         districts_header: ოლქი
         precincts_header: საარჩევნო უბანი
         first_names_header: სახელი
