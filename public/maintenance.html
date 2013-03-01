@@ -4,6 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:title" id="og_title" content="მაშასადა.მე" />
+		<meta property="og:description" id="og_description" content="მაშასადა.მე" />
+		<meta property="og:type" content="non_profit" />
+		<meta property="og:url" id="og_url" content="http://mashasada.me" />
+		<!--meta property="og:image" id="og_image" content="http://mashasada.me" /-->
+		<meta property="og:site_name" id="og_site_name" content="მაშასადა.მე" />
+
     <title>mashasada.me</title>
 
     <style type="text/css">
@@ -52,6 +60,10 @@
 
   </head>
   <body>
+    <div id="flippy_content" style="display: none">
+      <div id="flippy_geo"><img src="/campaign/1_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ"></div>
+      <div id="flippy_eng"><img src="/campaign/1_eng_2nd_side.jpg" alt="I think, Mashasada.me I am"></div>
+    </div>
     <div id="container">
       <div id="header">
         <h1><img src="/campaign/header_logo_geo.jpg" alt="მაშასადა.მე" /></h1>
@@ -92,8 +104,8 @@
     <script type="text/javascript">
       var lang = 'ka';
       var flippy_div = 'div#day1';
-      var flippy_img_geo = '<img src="/campaign/1_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ">';
-      var flippy_img_eng = '<img src="/campaign/1_eng_2nd_side.jpg" alt="I think, Mashasada.me I am">';
+      var flippy_img_geo = $('#flippy_geo').html();
+      var flippy_img_eng = $('#flippy_eng').html();
       var flippy_img = flippy_img_geo;
       function GetQueryStringParams(sParam)
       {
@@ -112,6 +124,11 @@
       function set_language_switcher(){
         var link = $('a#lang_switcher_link');
         if (lang !== undefined && lang == 'en'){
+            $('#og_title').attr('content', 'mashasada.me');
+            $('#og_description').attr('content', 'what is mashasada.me?');
+            $('#og_url').attr('content', 'http://mashasada.me?lang=en');
+//            $('#og_image').attr('content', '');
+            $('#og_site_name').attr('content', 'mashasada.me');
             $('div#header h1 img').attr('src', '/campaign/header_logo_eng.jpg');
             $('div#header h1 img').attr('alt', 'mashasada.me');
             $('a#lang_switcher_link').attr('href', '?lang=ka');
