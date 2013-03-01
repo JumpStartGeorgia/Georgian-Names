@@ -5,14 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta property="og:title" id="og_title" content="მაშასადა.მე" />
-		<meta property="og:description" id="og_description" content="მაშასადა.მე" />
-		<meta property="og:type" content="non_profit" />
-		<meta property="og:url" id="og_url" content="http://mashasada.me" />
-		<!--meta property="og:image" id="og_image" content="http://mashasada.me" /-->
-		<meta property="og:site_name" id="og_site_name" content="მაშასადა.მე" />
-
-    <title>mashasada.me</title>
+    <title>მაშასადა.მე</title>
 
     <style type="text/css">
       body {
@@ -124,11 +117,7 @@
       function set_language_switcher(){
         var link = $('a#lang_switcher_link');
         if (lang !== undefined && lang == 'en'){
-            $('#og_title').attr('content', 'mashasada.me');
-            $('#og_description').attr('content', 'what is mashasada.me?');
-            $('#og_url').attr('content', 'http://mashasada.me?lang=en');
-//            $('#og_image').attr('content', '');
-            $('#og_site_name').attr('content', 'mashasada.me');
+            $('title').html('mashasada.me');
             $('div#header h1 img').attr('src', '/campaign/header_logo_eng.jpg');
             $('div#header h1 img').attr('alt', 'mashasada.me');
             $('a#lang_switcher_link').attr('href', '?lang=ka');
