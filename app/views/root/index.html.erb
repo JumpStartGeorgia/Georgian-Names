@@ -39,19 +39,22 @@
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/names.png' %><%= t('.stats.first_names_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/names.png' %></div>
+          <h4><%= t('.stats.first_names_header') %></h4>
           <%= number_with_delimiter 47180 %>
         </div>
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/names.png' %><%= t('.stats.last_names_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/names.png' %></div>
+          <h4><%= t('.stats.last_names_header') %></h4>
           <%= number_with_delimiter 74481 %>
         </div>
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/districts.png' %><%= t('.stats.largest_district_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
+          <h4><%= t('.stats.largest_district_header') %></h4>
           <%= t('.stats.largest_district_text') %>
           - 
           <%= number_with_delimiter 163083 %>
@@ -59,7 +62,8 @@
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/districts.png' %><%= t('.stats.smallest_district_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
+          <h4><%= t('.stats.smallest_district_header') %></h4>
           <%= t('.stats.smallest_district_text') %>
           -
           <%= number_with_delimiter 5788 %>
@@ -67,13 +71,15 @@
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/oldest.png' %><%= t('.stats.oldest_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/oldest.png' %></div>
+          <h4><%= t('.stats.oldest_header') %></h4>
           <%= number_with_delimiter 132 %>
         </div>
       </div>
       <div class="">
         <div>
-          <h4><%= image_tag 'stats_icons/common.png' %><%= t('.stats.popular_age_header') %></h4>
+          <div class="img"><%= image_tag 'stats_icons/common.png' %></div>
+          <h4><%= t('.stats.popular_age_header') %></h4>
           <%= number_with_delimiter 22 %>
           -
           <%= number_with_delimiter 75672 %>

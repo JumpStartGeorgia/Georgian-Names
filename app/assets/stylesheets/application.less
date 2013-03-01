@@ -51,9 +51,8 @@ a.brand:hover{
 }
 
 h1, h2, h3 {
-   font-family: Arial;
-   color: #555;
-  font-weight: bold;
+  font-family: din;
+  color: #555;
 }
 h1 {
    font-size: 18pt;
@@ -176,7 +175,6 @@ footer #middle ul {
 
 footer #middle ul li {
 	display: inline;
-	font-family: Arial;
 }
 footer #middle ul li.spacer {
   display: inline;
@@ -224,12 +222,6 @@ footer, footer ul li, footer div#right ul li {
   padding: 0.5em 1em;
 }
 
-/* rank medal */
-div.medal_wrapper{
-	float:left; 
-	position:relative; 
-  margin-top: -5px;
-}
 
 /* charts */
 #chart_age_population {
@@ -243,11 +235,11 @@ div.medal_wrapper{
 
 
 #q {
-  font-style: italic;
+  font-family: street;
   background: #4b4b4b;
   color: #cfcfcf;
   border: none;
-  height: 40px;
+  height: 42px;
   .box-sizing(border-box);
   .box-shadow(none);
   .border-radius(0px);
@@ -257,7 +249,6 @@ div.medal_wrapper{
 #q:focus {
   font-style: normal;
   outline: none;
-  font-weight: bold;
 }
 
 
@@ -277,8 +268,7 @@ div.medal_wrapper{
     color: #ffecbd;
     background-color: #bf352b;
     text-decoration: none;
-    font-style: italic;
-    font-weight: bold;
+    font-family: street;
     &#csv{
       background-color: #BFB35A;
       &:hover{
@@ -314,6 +304,7 @@ div.medal_wrapper{
     height: 42px;
     &, h1, h3 {
       color: #ffecbd;
+      font-weight: normal;
     }
     font-size: 14px;
     p {
@@ -324,22 +315,23 @@ div.medal_wrapper{
     }
     h1 {
       font-size: 18px;
+      margin-top: 4px;
     }
     h3 {
       font-size: 14px;
-      margin-top: 5px;
+      margin-top: 2px;
+      font-family: skia;
     }
     .medal_wrapper {
       &, & + #medal_with_titles {
         float: left;
       }
       & + #medal_with_titles {
-        margin-left: -40px;
         h1, h3{
           margin-left: 0;
         }
       }
-      width: 154px;
+      width: 114px;
       height: 10px;
       margin-left: 18px;
       img {
