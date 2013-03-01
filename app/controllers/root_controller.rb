@@ -245,7 +245,7 @@ class RootController < ApplicationController
       @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
       @map_sub_title2 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       @color_legend = GenerateJson.district_population_colors
-
+=begin
       # get top 10 related names
       type = nil
   		x = "placeholder"
@@ -270,7 +270,7 @@ class RootController < ApplicationController
       gon.chart_top_names_title = I18n.t("charts.name.#{type}.title", :name => @name.name)
       gon.chart_top_names_subtitle = I18n.t("charts.name.#{type}.subtitle", :count => view_context.number_with_delimiter(names_count))
       gon.chart_top_names_yaxis = I18n.t("charts.name.#{type}.yaxis", :name => @name.name)
-      
+=end
     end
   end
   
