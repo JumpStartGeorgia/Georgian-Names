@@ -45,15 +45,16 @@ ka:
       confirm: დარწმუნებული ხართ?
       new: ახალი
     common:
-      app_name: mashasada.me
+      app_name: მაშასადა.მე
       first_name: სახელი
       last_name: გვარი
-      no_data: არ არის მონაცემი
+      no_data: არ არის მონაცემები
   charts:
     population:
-      total: "სულ: "
-      rank: "შეფასება: "
-      years_old: " წლოვანება"
+      total: "ხალხის რაოდენობა: "
+      rank: "სახელის რეიტინგი: "
+      years_old: "ასაკი: "
+      birth_year: "დაბადების წელი: "
       all:
         title: მოსახლეობის ასაკი
         subtitle: "მოსახლეობა: %{count}"
@@ -61,39 +62,56 @@ ka:
         xaxis2: ასაკი
         yaxis: რაოდენობა
       district:
-        title: მოსახლეობის ასაკი %{district} მიხედვით
-        subtitle: "%{district} მოსახლეობა: %{count}"
+        title: "%{district}: მოსახლეობა დაბადების წლის მიხედვით"
+        subtitle: "მოსახლეობა: %{count}"
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
         yaxis: რაოდენობა
       name:
-        title: "რაოდენობა '%{name}' ასაკი"
-        subtitle: "რაოდენობა '%{name}': %{count}"
+        title: "'%{name}' დაბადების წლის მიხედვით"
+        subtitle: "რაოდენობა ხალხისა, სახელად '%{name}': %{count}"
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
-        yaxis1: რაოდენობა
-        yaxis2: სახელის შეფასება
+        yaxis1: ხალხის რაოდენობა
+        yaxis2: სახელის რეიტინგი
+      full_name:
+        title: "'%{first_name} %{last_name}' by Birth Year"
+        subtitle: "Number of People Named '%{first_name} %{last_name}': %{count}"
+        xaxis1: დაბადების წელი
+        xaxis2: ასაკი
+        yaxis: რაოდენობა
     name:
+      all:
         first:
           title: ყველაზე გავრცელებული 10 სახელი
-          subtitle: "სახელების სრული რაოდენობა: %{count}"
-          yaxis:  სახელის რაოდენობა
+          subtitle: "სახელების რაოდენობა: %{count}"
+          yaxis:  ''
         last:
           title: ყველაზე გავრცელებული 10 გვარი
-          subtitle: "გვარების სრული რაოდენობა: %{count}"
-          yaxis: გვარის რაოდენობა
-        first_for_last:
-          title: "პირველი 10 სახელი: %{name}"
-          subtitle: "ყველა სახელი: %{count}"
-          yaxis: "ხალხის, სახელად %{name} რაოდენობა"
-        last_for_first:
-          title: "პირველი 10 გვარი %{name}"
-          subtitle: "ყველა გვარი: %{count}"
-          yaxis: "ხალხის, გვარად %{name} რაოდენობა"
+          subtitle: "გვარების რაოდენობა: %{count}"
+          yaxis: ''
+      district:
+        first:
+          title: Top 10 First Names in %{name}
+          subtitle: "სახელების რაოდენობა: %{count}"
+          yaxis:  ''
+        last:
+          title: Top 10 Last Names in %{name}
+          subtitle: "გვარების რაოდენობა: %{count}"
+          yaxis: ''
+      birth_year:
+        first:
+          title: Top 10 First Names for People Born in %{year}
+          subtitle: "სახელების რაოდენობა: %{count}"
+          yaxis:  ''
+        last:
+          title: Top 10 Last Names for People Born in %{year}
+          subtitle: "გვარების რაოდენობა: %{count}"
+          yaxis: ''
     map:
       district: რაიონი
-      total: სულ
-      rank: შეფასება
+      rank: სახელის რეიტინგი
+      total: ხალხის რაოდენობა
       tbilisi: თბილისი
       rustavi: რუსთავი
       kutaisi: ქუთაისი
@@ -101,50 +119,72 @@ ka:
       poti: ფოთი
       all:
         legend: ლეგენდა
-        title: რაიონის მოსახლეობა
-        subtitle1: "რაოდენობა: %{count}"
+        title: მოსახლეობა რაიონების მიხედვით
+        subtitle1: "სულ: %{count}"
       year:
         legend: ლეგენდა
         title: მოსახლეობა ოლქების მიხედვით %{year} წელს დაბადებულთათვის
         subtitle1: "%{year} წლის საერთო რაოდენობა: %{count}"
       name:
         legend: ლეგენდა
-        title: "'%{name}' by District"
-        subtitle1: "შეფასება: %{rank}"
+        title: "'%{name}' რაიონების მიხედვით"
+        subtitle1: "რეიტინგი: %{rank}"
         subtitle2: " რაოდენობა: %{count}"
   tables:
     year:
-      title: სახელი დაბადების წლის მიხედვით
+      title: "'%{name}' დაბადების წლის მიხედვით"
       year: დაბადების წელი
       age: ასაკი
-      rank: შეფასება
-      total: სულ
+      rank: სახელის რეიტინგი
+      total: ხალხის რაოდენობა
     district:
-      title: სახელი რაიონის მიხედვით
+      title: "'%{name}' რაიონის მიხედვით"
       district: რაიონი
-      rank: შეფასება
-      total: სულ
+      rank: სახელის რეიტინგი
+      total: ხალხის რაოდენობა
     first_name:
-      title: სახელი
-      name: სახელი
-      rank: შეფასება
-      total: სულ
+      all:
+        title: სახელი
+        name: სახელი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
+      district:
+        title: First Names in %{name}
+        name: სახელი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
+      birth_year:
+        title: First Names for People Born in %{year}
+        name: სახელი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
     last_name:
-      title: გვარი
-      name: გვარი
-      rank: შეფასება
-      total: სულ
+      all:
+        title: გვარი
+        name: გვარი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
+      district:
+        title: Last Names in %{name}
+        name: გვარი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
+      birth_year:
+        title: Last Names for People Born in %{year}
+        name: გვარი
+        rank: სახელის რეიტინგი
+        total: ხალხის რაოდენობა
     full_name:
       title: სახელი და გვარი
       name: სახელი
-      rank: გვარი
-      total: სულ
+      rank: სახელის რეიტინგი
+      total: ხალხის რაოდენობა
     name:
-      title_first: სახელი
+      title_first: "სახელები ხალხისა, გვარად '%{name}'"
       name_first: სახელი
-      title_last: გვარი
+      title_last: "გვარები ხალხისა, სახელად '%{name}'"
       name_last: გვარი
-      total: სულ
+      total: ხალხის რაოდენობა
   layouts:
     application:
       admin: ადმინისტრატორი
@@ -192,7 +232,7 @@ ka:
         when_text: აგვისტო 2012
         where_header: სად
         where_text: საქართველო
-        population_header: "ხალხი (18 წელს ზემოთ)"
+        population_header: "მოსახლეობა (18 წელს ზემოთ)"
         districts_header: ოლქი
         precincts_header: საარჩევნო უბანი
         first_names_header: სახელი
@@ -202,33 +242,33 @@ ka:
         smallest_district_header: ყველაზე პატარა ოლქი
         smallest_district_text: ყაზბეგი
         oldest_header: ყველაზე ხანდაზმული ადამიანი
-        popular_age_header: ყველაზე გავრცელებული ასაკი
+        popular_age_header: ყველაზე ხშირი ასაკი
     name:
       title_first: "სახელი: '%{name}'"
       title_last: "გვარი: '%{name}'"
-      subtitle_first: "Number of People with first name '%{name}': %{count}"
-      subtitle_last: "Number of People with last name '%{name}': %{count}"
+      subtitle_first: "რაოდენობა ხალხისა, სახელად '%{name}': %{count}"
+      subtitle_last: "რაოდენობა ხალხისა, გვარად '%{name}': %{count}"
       not_exist: "'%{name}' არ მოიძებნა."
-      description_first: "In Georgia, there were %{count} people with the first name '%{name}', which has a rank of %{rank} in the country."
-      description_last: "In Georgia, there were %{count} people with the last name '%{name}', which has a rank of %{rank} in the country."
+      description_first: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, სახელად '%{name}', რომლის რეიტინგიც ქვეყნის მასშტაბით არის '%{rank}'."
+      description_last: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, გვარად '%{name}', რომლის რეიტინგიც ქვეყნის მასშტაბით არის '%{rank}'."
     full_name:
       title: "სრული სახელი: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' არ მოიძებნა."
-      description: "In Georgia, there were %{count} people with the full name '%{first_name} %{last_name}'."
+      description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:
       title: "რაიონი: '%{district}'"
       subtitle: "რაოდენობა '%{district}': %{count}"
       total_first: "სახელის რაოდენობა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"
       not_exist: "რაიონი'%{district}' არ მოიძებნა."
-      description: "In Georgia, there were %{count} people registered to vote in '%{name}'."
+      description: "In August 2012, there were %{count} people registered to vote in '%{name}'."
     year:
       title: "%{year} (%{age} Years Old)"
       subtitle: "ადამიანთა რაოდენობა %{year}: %{count}"
       total_first: "სახელის რაოდენბა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"
       not_exist: "წელი %{year}' არ მოიძებნა."
-      description: "In Georgia, there were %{count} people registered to vote that were born in the year %{year} (%{age} years old)."
+      description: "In August 2012, there were %{count} people in Georgia registered to vote that were born in the year %{year} (%{age} years old)."
     search_name:
       title: ძიება
       description: "Search results for '%{q}'."

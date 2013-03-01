@@ -42,7 +42,7 @@
 
   <div class="row-fluid" id="datatables">
     <div class="span6">
-      <h3><%= t('tables.year.title')%></h3>
+      <h3><%= t('tables.year.title', :name => @name.name)%></h3>
       <table id="birth_years_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_birth_years_url(:name_id => @name.id, :format => :json) %>">
         <thead>
@@ -58,7 +58,7 @@
       </table>
     </div>
     <div class="span6">
-      <h3><%= t('tables.district.title')%></h3>
+      <h3><%= t('tables.district.title', :name => @name.name)%></h3>
       <table id="districts_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_districts_url(:name_id => @name.id, :format => :json) %>">
         <thead>
@@ -77,7 +77,7 @@
   <div class="row-fluid" id="datatables">
     <div class="span6">
       <% name_type = @name.name_type == Name::TYPE[:first_name] ? 'last' : @name.name_type == Name::TYPE[:last_name] ? 'first' : '' %>
-      <h3><%= t("tables.name.title_#{name_type}")%></h3>
+      <h3><%= t("tables.name.title_#{name_type}", :name => @name.name)%></h3>
       <table id="names_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_names_url(:name_type => @name.name_type, :name_id => @name.id, :format => :json) %>">
         <thead>

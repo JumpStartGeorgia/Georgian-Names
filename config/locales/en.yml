@@ -51,9 +51,10 @@ en:
       no_data: No Data
   charts:
     population:
-      total: "Total: "
-      rank: "Rank: "
-      years_old: " years old"
+      total: "Number of People: "
+      rank: "Name Rank: "
+      years_old: "Age: "
+      birth_year: "Birth Year: "
       all:
         title: Age of the Population
         subtitle: "Total Population: %{count}"
@@ -61,39 +62,56 @@ en:
         xaxis2: Age
         yaxis: Number of People
       district:
-        title: Age of the Population for %{district}
+        title: "%{district} Population by Birth Year"
         subtitle: "%{district} Population: %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis: Number of People
       name:
-        title: "Number of '%{name}' With a Given Age"
-        subtitle: "Number of '%{name}': %{count}"
+        title: "'%{name}' by Birth Year"
+        subtitle: "Number of People Named '%{name}': %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis1: Number of People
         yaxis2: Name Rank
+      full_name:
+        title: "'%{first_name} %{last_name}' by Birth Year"
+        subtitle: "Number of People Named '%{first_name} %{last_name}': %{count}"
+        xaxis1: Birth Year
+        xaxis2: Age
+        yaxis: Number of People
     name:
+      all:
         first:
           title: Top 10 First Names
           subtitle: "Total First Names: %{count}"
-          yaxis: Number of People with First Name
+          yaxis: ''
         last:
           title: Top 10 Last Names
           subtitle: "Total Last Names: %{count}"
-          yaxis: Number of People with Last Name
-        first_for_last:
-          title: "Top 10 First Names for %{name}"
+          yaxis: ''
+      district:
+        first:
+          title: Top 10 First Names in %{name}
           subtitle: "Total First Names: %{count}"
-          yaxis: "Number of People with First Name for %{name}"
-        last_for_first:
-          title: "Top 10 Last Names for %{name}"
+          yaxis: ''
+        last:
+          title: Top 10 Last Names in %{name}
           subtitle: "Total Last Names: %{count}"
-          yaxis: "Number of People with Last Name for %{name}"
+          yaxis: ''
+      birth_year:
+        first:
+          title: Top 10 First Names for People Born in %{year}
+          subtitle: "Total First Names: %{count}"
+          yaxis: ''
+        last:
+          title: Top 10 Last Names for People Born in %{year}
+          subtitle: "Total Last Names: %{count}"
+          yaxis: ''
     map:
       district: District
-      total: Total
-      rank: Rank
+      total: Number of People
+      rank: Name Rank
       tbilisi: Tbilisi
       rustavi: Rustavi
       kutaisi: Kutaisi
@@ -102,7 +120,7 @@ en:
       all:
         legend: Legend
         title: Population by District
-        subtitle1: "Overall Total: %{count}"
+        subtitle1: "Total Population: %{count}"
       year:
         legend: Legend
         title: Population by District for People Born in %{year}
@@ -110,41 +128,63 @@ en:
       name:
         legend: Legend
         title: "'%{name}' by District"
-        subtitle1: "Overall Rank: %{rank}"
-        subtitle2: "Overall Total: %{count}"
+        subtitle1: "Country Rank: %{rank}"
+        subtitle2: "Country Total: %{count}"
   tables:
     year:
-      title: Name by Birth Year
+      title: "'%{name}' by Birth Year"
       year: Birth Year
       age: Age
-      rank: Rank
-      total: Total
+      rank: Name Rank
+      total: Number of People
     district:
-      title: Name by District
+      title: "'%{name}' by District"
       district: District
-      rank: Rank
-      total: Total
+      rank: Name Rank
+      total: Number of People
     first_name:
-      title: First Names
-      name: First Name
-      rank: Rank
-      total: Total
+      all:
+        title: First Names
+        name: First Name
+        rank: Name Rank
+        total: Number of People
+      district:
+        title: First Names in %{name}
+        name: First Name
+        rank: Name Rank
+        total: Number of People
+      birth_year:
+        title: First Names for People Born in %{year}
+        name: First Name
+        rank: Name Rank
+        total: Number of People
     last_name:
-      title: Last Names
-      name: Last Name
-      rank: Rank
-      total: Total
+      all:
+        title: Last Names
+        name: Last Name
+        rank: Name Rank
+        total: Number of People
+      district:
+        title: Last Names in %{name}
+        name: Last Name
+        rank: Name Rank
+        total: Number of People
+      birth_year:
+        title: Last Names for People Born in %{year}
+        name: Last Name
+        rank: Name Rank
+        total: Number of People
     full_name:
       title: Full Name
       name: First Name
       rank: Last Name
-      total: Total
+      total: Number of People
     name:
-      title_first: First Names
+      title_first: "First Names for '%{name}'"
       name_first: First Name
-      title_last: Last Names
+      title_last: "Last Names for '%{name}'"
       name_last: Last Name
-      total: Total
+      total: Number of People
   layouts:
     application:
       admin: Admin
@@ -209,26 +249,26 @@ en:
       subtitle_first: "Number of People with first name '%{name}': %{count}"
       subtitle_last: "Number of People with last name '%{name}': %{count}"
       not_exist: "'%{name}' could not be found."
-      description_first: "In Georgia, there were %{count} people with the first name '%{name}', which has a rank of %{rank} in the country."
-      description_last: "In Georgia, there were %{count} people with the last name '%{name}', which has a rank of %{rank} in the country."
+      description_first: "In August 2012, there were %{count} people in Georgia with the first name '%{name}', which has a rank of %{rank} in the country."
+      description_last: "In August 2012, there were %{count} people in Georgia with the last name '%{name}', which has a rank of %{rank} in the country."
     full_name:
       title: "Full Name: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' could not be found."
-      description: "In Georgia, there were %{count} people with the full name '%{first_name} %{last_name}'."
+      description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:
       title: "District: '%{district}'"
       subtitle: "Number of People in '%{district}': %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "District '%{district}' could not be found."
-      description: "In Georgia, there were %{count} people registered to vote in '%{name}'."
+      description: "In August 2012, there were %{count} people registered to vote in '%{name}'."
     year:
       title: "%{year} (%{age} Years Old)"
       subtitle: "Number of People Alive from %{year}: %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "Year '%{year}' could not be found."
-      description: "In Georgia, there were %{count} people registered to vote that were born in the year %{year} (%{age} years old)."
+      description: "In August 2012, there were %{count} people in Georgia registered to vote that were born in the year %{year} (%{age} years old)."
     search_name:
       title: Search
       description: "Search results for '%{q}'."
