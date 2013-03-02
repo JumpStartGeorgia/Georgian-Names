@@ -70,6 +70,9 @@ $(function () {
                   padding: 8
                 }
             },
+            credits: {
+                enabled: false
+            },
             plotOptions: {
               series: {
                 color: '#fff'
