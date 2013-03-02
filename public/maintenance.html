@@ -53,10 +53,6 @@
 
   </head>
   <body>
-    <div id="flippy_content" style="display: none">
-      <div id="flippy_geo"><img src="/campaign/1_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ"></div>
-      <div id="flippy_eng"><img src="/campaign/1_eng_2nd_side.jpg" alt="I think, Mashasada.me I am"></div>
-    </div>
     <div id="container">
       <div id="header">
         <h1><img src="/campaign/header_logo_geo.jpg" alt="მაშასადა.მე" /></h1>
@@ -96,10 +92,29 @@
 
     <script type="text/javascript">
       var lang = 'ka';
-      var flippy_div = 'div#day1';
-      var flippy_img_geo = $('#flippy_geo').html();
-      var flippy_img_eng = $('#flippy_eng').html();
-      var flippy_img = flippy_img_geo;
+      var day1_img, day2_img, day3_img, day4_img, day5_img, day6_img;
+
+      var second_images = {
+        day1: {id: 'div#day1',
+                geo: '<img src="/campaign/1_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ">',
+                eng: '<img src="/campaign/1_eng_2nd_side.jpg" alt="I think, Mashasada.me I am">'},
+        day2: {id: 'div#day2',
+                geo: '<img src="/campaign/2_geo_2nd_side.jpg" alt="ჩამოიარა იმან, ერთ დროს საცოლემ, ეჰ, საიდუმლონარევი, შორეული სილამაზით აღსავსემ, როგორიცაა სიტყვა… „მოიისფრო“, გვერდით კი მოჰყვებოდა კაცი, ისეთი უსიამო გამომეტყველებით სახეზე, როგორიცაა სიტყვა… „გავძეხი“, და მე კი განზე ვიდექ, ზედმეტი, როგორც სიტყვა „მაშასადა.მე”…">',
+                eng: '<img src="/campaign/2_eng_2nd_side.jpg" alt="She was passing by, my ex-fiancée, full of mystery and beauty like the word purple. Beside her a man was walking with a grimace that bespoke the word engorgement. I was standing aloof, feeling as superfluous as the word mashasada.me.">'},
+        day3: {id: 'div#day3',
+                geo: '<img src="/campaign/3_geo_2nd_side.jpg" alt="სად არის მაშა? ვინ არის მაშა?">',
+                eng: '<img src="/campaign/3_eng_2nd_side.jpg" alt="Where is Masha? Who is Masha?">'},
+        day4: {id: 'div#day4',
+                geo: '<img src="/campaign/4_geo_2nd_side.jpg" alt="ჩვენ ვქნით, მაშასადა.მე შენ იგებ">',
+                eng: '<img src="/campaign/4_eng_2nd_side.jpg" alt="We visualize, Mashasada.me you understand">'},
+        day5: {id: 'div#day5',
+                geo: '<img src="/campaign/5_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ">',
+                eng: '<img src="/campaign/5_eng_2nd_side.jpg" alt="I think, Mashasada.me I am">'},
+        day6: {id: 'div#day6',
+                geo: '<img src="/campaign/6_geo_2nd_side.jpg" alt="მე ვაზროვნებ, მაშასადა.მე ვარსებობ">',
+                eng: '<img src="/campaign/6_eng_2nd_side.jpg" alt="I think, Mashasada.me I am">'},
+      };
+
       function GetQueryStringParams(sParam)
       {
         var sPageURL = window.location.search.substring(1);
@@ -138,30 +153,65 @@
             $('div#day6 img').attr('alt', '6 March');
             $('div#day7 img').attr('src', '/campaign/7_eng.jpg');
             $('div#day7 img').attr('alt', 'Launch - 7 March');
-
-            flippy_img = flippy_img_eng;
         }
       }
 
-
-      $(function(){
-        setTimeout(function (){
-	        $(flippy_div).flippy({
-		        color_target:"#d95b44",
-            content: flippy_img,
-		        direction:"LEFT",
-		        duration:"750"
-	        });
-        }, 1500);
-      });
-
+      function flip_image(id, img_content){
+        $(id).flippy({
+          color_target:"#d95b44",
+          content: img_content,
+          direction:"LEFT",
+          duration:"750"
+        });
+      }
 
       $(document).ready(function() {
         lang = GetQueryStringParams('lang');
         if (lang === undefined){
           lang = 'ka';
         }
+
         set_language_switcher();
+
+        if (lang == 'ka'){
+          day1_img = second_images.day1.geo;
+          day2_img = second_images.day2.geo;
+          day3_img = second_images.day3.geo;
+          day4_img = second_images.day4.geo;
+          day5_img = second_images.day5.geo;
+          day6_img = second_images.day6.geo;
+        }else{
+          day1_img = second_images.day1.eng;
+          day2_img = second_images.day2.eng;
+          day3_img = second_images.day3.eng;
+          day4_img = second_images.day4.eng;
+          day5_img = second_images.day5.eng;
+          day6_img = second_images.day6.eng;
+        }
+
+        // create flippy objects
+        $(function(){
+          setTimeout(function (){
+            flip_image(second_images.day1.id, day1_img);
+          }, 1500);
+/*          setTimeout(function (){
+            flip_image(second_images.day2.id, day2_img);
+          }, 2250);
+          setTimeout(function (){
+            flip_image(second_images.day3.id, day3_img);
+          }, 3000);
+          setTimeout(function (){
+            flip_image(second_images.day4.id, day4_img);
+          }, 3750);
+          setTimeout(function (){
+            flip_image(second_images.day5.id, day5_img);
+          }, 4500);
+          setTimeout(function (){
+            flip_image(second_images.day6.id, day6_img);
+          }, 5250);
+*/
+        });
+
       });
 
 
