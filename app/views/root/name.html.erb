@@ -75,7 +75,6 @@
   </div>
 
   <div class="row-fluid" id="datatables">
-    <div class="span3"></div>
     <div class="span6">
       <% name_type = @name.name_type == Name::TYPE[:first_name] ? 'last' : @name.name_type == Name::TYPE[:last_name] ? 'first' : '' %>
       <h3><%= t("tables.name.title_#{name_type}", :name => @name.name)%></h3>
@@ -91,7 +90,6 @@
         </tbody>
       </table>
     </div>
-    <div class="span3"></div>
   </div>
 
 <% else %>

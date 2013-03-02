@@ -43,7 +43,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%= link_to(t('app.common.app_name'), root_path(:locale => I18n.locale),:class=>"brand font")%>
+          <%= link_to(t('app.common.app_name').capitalize, root_path(:locale => I18n.locale),:class=>"brand font")%>
           <div class="container-fluid nav-collapse">
             <%= form_tag search_name_path, :method => :get, :class => "navbar-search pull-left" do %>
           		<%= text_field_tag 'q', nil, :class => "search-query", :placeholder => t('.search_placeholder') %>
