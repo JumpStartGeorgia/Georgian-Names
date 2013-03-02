@@ -256,12 +256,12 @@ en:
       not_exist: "'%{first} %{last}' could not be found."
       description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:
-      title: "District: '%{district}'"
-      subtitle: "Number of People in '%{district}': %{count}"
+      title: "District: %{district}"
+      subtitle: "Number of People in %{district}: %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
-      not_exist: "District '%{district}' could not be found."
-      description: "In August 2012, there were %{count} people registered to vote in '%{name}'."
+      not_exist: "District %{district} could not be found."
+      description: "In August 2012, there were %{count} people registered to vote in %{name}."
     year:
       title: "%{year} (%{age} Years Old)"
       subtitle: "Number of People Alive from %{year}: %{count}"

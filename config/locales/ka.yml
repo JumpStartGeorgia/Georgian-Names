@@ -256,12 +256,12 @@ ka:
       not_exist: "'%{first} %{last}' არ მოიძებნა."
       description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:
-      title: "რაიონი: '%{district}'"
-      subtitle: "რაოდენობა '%{district}': %{count}"
+      title: "რაიონი: %{district}"
+      subtitle: "რაოდენობა %{district}: %{count}"
       total_first: "სახელის რაოდენობა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"
-      not_exist: "რაიონი'%{district}' არ მოიძებნა."
-      description: "In August 2012, there were %{count} people registered to vote in '%{name}'."
+      not_exist: "რაიონი %{district} არ მოიძებნა."
+      description: "In August 2012, there were %{count} people registered to vote in %{name}."
     year:
       title: "%{year} (%{age} Years Old)"
       subtitle: "ადამიანთა რაოდენობა %{year}: %{count}"
