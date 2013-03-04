@@ -22,7 +22,9 @@ $(function () {
                 },
                 labels: {
                   style: chartconfig.bar.xAxis.labelStyle
-                }
+                },
+                tickColor: chartconfig.bar.xAxis.tickColor,
+                lineColor: chartconfig.bar.xAxis.lineColor
             },
             yAxis: {
                 min: 0,
@@ -34,7 +36,8 @@ $(function () {
                 labels: {
                     overflow: 'justify',
                     style: chartconfig.bar.yAxis.labelStyle
-                }
+                },
+                gridLineColor: chartconfig.bar.yAxis.gridLineColor
             },
             tooltip: {
                 formatter: function() {

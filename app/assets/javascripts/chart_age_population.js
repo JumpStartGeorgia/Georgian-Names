@@ -10,25 +10,29 @@ $(function () {
             title: {
                 text: gon.chart_age_pop_title,
                 style: {
-                  color: '#fff'
+                  color: '#fff',
+                  fontFamily: 'din'
                 }
             },
             subtitle: {
                 text: gon.chart_age_pop_subtitle,
                 style: {
-                  color: '#ffeaad'
+                  color: '#ffeaad',
+                  fontFamily: 'skia'
                 }
             },
             legend: {
                 borderColor: '#fff',
                 itemStyle: {
                     color: '#fff',
+                    fontFamily: 'skia'
                 }
             },
             xAxis: {
                 title: {
                     text: gon.chart_age_pop_xaxis,
                     style: {
+                      fontFamily: 'din',
                       color: '#ffeaad'
                     }
                 },
@@ -39,7 +43,9 @@ $(function () {
                   style: {
                     color: 'rgba(255, 255, 255, .75)'
                   }
-                }
+                },
+                lineColor: 'rgba(255, 255, 255, .50)',
+                tickColor: 'rgba(255, 255, 255, .50)'
             },
             tooltip: {
                 crosshairs: true,
@@ -92,10 +98,12 @@ $(function () {
                 title: {
                     text: gon.chart_age_pop_yaxis,
                     style: {
+                      fontFamily: 'din',
 	                    color: '#fff',
 	                    fontWeight: 'normal'
                     }
                 },
+                gridLineColor: '#679372',
                 min: 0
             }, { // Secondary yAxis
                 labels: {
@@ -106,9 +114,11 @@ $(function () {
                 title: {
                     text: gon.chart_age_pop_yaxis2,
                     style: {
+                        fontFamily: 'din',
                         color: '#ffeaad'
                     }                    
                 },
+                gridLineColor: '#679372',
                 min: 0,
                 reversed: true,
                 opposite: true
@@ -150,6 +160,7 @@ $(function () {
                 title: {
                     text: gon.chart_age_pop_yaxis,
                     style: {
+                      fontFamily: 'din',
 	                    color: '#ffeaad',
 	                    fontWeight: 'normal'
                     }
@@ -159,6 +170,7 @@ $(function () {
 	                    color: 'rgba(255, 255, 255, .75)'
                     }
                 },
+                gridLineColor: '#679372',
                 min: 0
             };
             
