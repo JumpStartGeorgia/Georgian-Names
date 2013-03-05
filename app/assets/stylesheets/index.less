@@ -3,11 +3,15 @@
 #site_description {
   background-color: #ECD078;
   text-align: center;
-  p {
-    margin: 0px;
-    font-size: 16px;
-    color: #5b4e16;
-    font-family: din, "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+  & > div {
+    margin: 0 auto;
+    width: 1140px;
+    p {
+      margin: 0px;
+      font-size: 16px;
+      color: #5b4e16;
+      font-family: din, "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+    }
   }
 }
 
@@ -68,18 +72,27 @@
 }
 
 @media (max-width: 1280px) {
+  #site_description > div {
+    width: 760px;
+  }
   #stats > div {
     width: 760px;
   }
 }
 
 @media (max-width: 960px) {
+  #site_description > div {
+    width: 570px;
+  }
   #stats > div {
     width: 570px;
   }
 }
 
 @media (max-width: 720px) {
+  #site_description > div {
+    width: auto;
+  }
   #stats > div {
     width: auto;
   }
