@@ -11,14 +11,16 @@ $(function () {
                 text: gon.chart_age_pop_title,
                 style: {
                   color: '#fff',
-                  fontFamily: 'din'
+                  fontFamily: 'din',
+                  fontSize: '18px'
                 }
             },
             subtitle: {
                 text: gon.chart_age_pop_subtitle,
                 style: {
                   color: '#ffeaad',
-                  fontFamily: 'skia'
+                  fontFamily: 'skia',
+                  fontSize: '14px'
                 }
             },
             legend: {
@@ -33,15 +35,20 @@ $(function () {
                     text: gon.chart_age_pop_xaxis,
                     style: {
                       fontFamily: 'din',
-                      color: '#ffeaad'
+                      color: '#ffeaad',
+                      fontSize: '14px'
                     }
                 },
                 labels: {
                   formatter: function() {
-                        return this.value + '<br/> (' + (gon.static_year-this.value) + ')';
+                        return this.value + ' (' + (gon.static_year-this.value) + ')';
                   },
                   style: {
-                    color: 'rgba(255, 255, 255, .75)'
+                    color: 'rgba(255, 255, 255, .75)',
+                    fontFamily: 'skia',
+                    fontSize: '12px',
+                    letterSpacing: '-1px',
+                    lineHeight: '13px'
                   }
                 },
                 lineColor: 'rgba(255, 255, 255, .50)',
@@ -92,7 +99,11 @@ $(function () {
           options.yAxis = [{ // Primary yAxis
                 labels: {
                     style: {
-	                    color: '#fff'
+	                    color: '#fff',
+                      fontFamily: 'skia',
+                      fontSize: '12px',
+                      letterSpacing: '-1px',
+                      lineHeight: '13px'
                     }
                 },
                 title: {
@@ -100,7 +111,8 @@ $(function () {
                     style: {
                       fontFamily: 'din',
 	                    color: '#fff',
-	                    fontWeight: 'normal'
+	                    fontWeight: 'normal',
+                      fontSize: '14px'
                     }
                 },
                 gridLineColor: '#679372',
@@ -108,14 +120,19 @@ $(function () {
             }, { // Secondary yAxis
                 labels: {
                     style: {
-                        color: '#ffeaad'
-                    }
+                        color: '#ffeaad',
+                        fontFamily: 'skia',
+                        fontSize: '12px',
+                        letterSpacing: '-1px',
+                        lineHeight: '13px'
+                     }
                 },
                 title: {
                     text: gon.chart_age_pop_yaxis2,
                     style: {
                         fontFamily: 'din',
-                        color: '#ffeaad'
+                        color: '#ffeaad',
+                        fontSize: '14px'
                     }                    
                 },
                 gridLineColor: '#679372',
@@ -162,12 +179,17 @@ $(function () {
                     style: {
                       fontFamily: 'din',
 	                    color: '#ffeaad',
-	                    fontWeight: 'normal'
+	                    fontWeight: 'normal',
+                      fontSize: '14px',
                     }
                 },
                 labels: {
                     style: {
-	                    color: 'rgba(255, 255, 255, .75)'
+	                    color: 'rgba(255, 255, 255, .75)',
+                      fontFamily: 'skia',
+                      fontSize: '12px',
+                      letterSpacing: '-1px',
+                      lineHeight: '13px'
                     }
                 },
                 gridLineColor: '#679372',
