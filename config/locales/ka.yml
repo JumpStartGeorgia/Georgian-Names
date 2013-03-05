@@ -68,14 +68,16 @@ ka:
         xaxis2: ასაკი
         yaxis: რაოდენობა
       name:
-        title: "'%{name}' დაბადების წლის მიხედვით"
-        subtitle: "რაოდენობა ხალხისა, სახელად '%{name}': %{count}"
+        title_first: "First Name '%{name}' by Birth Year"
+        title_last: "Last Name '%{name}' by Birth Year"
+        subtitle_first: "Number of People with First Name '%{name}': %{count}"
+        subtitle_last: "Number of People with Last Name '%{name}': %{count}"
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
         yaxis1: ხალხის რაოდენობა
         yaxis2: სახელის რეიტინგი
       full_name:
-        title: "'%{first_name} %{last_name}' by Birth Year"
+        title: "Full Name '%{first_name} %{last_name}' by Birth Year"
         subtitle: "Number of People Named '%{first_name} %{last_name}': %{count}"
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
@@ -127,18 +129,24 @@ ka:
         subtitle1: "%{year} წლის საერთო რაოდენობა: %{count}"
       name:
         legend: ლეგენდა
-        title: "'%{name}' რაიონების მიხედვით"
+        title_first: "First Name '%{name}' by District"
+        title_last: "Last Name '%{name}' by District"
+        title_full: "Full Name '%{name}' by District"
         subtitle1: "რეიტინგი: %{rank}"
         subtitle2: " რაოდენობა: %{count}"
   tables:
     year:
-      title: "'%{name}' დაბადების წლის მიხედვით"
+      title_first: "First Name '%{name}' by Birth Year"
+      title_last: "Last Name '%{name}' by Birth Year"
+      title_full: "Full Name '%{name}' by Birth Year"
       year: დაბადების წელი
       age: ასაკი
       rank: სახელის რეიტინგი
       total: ხალხის რაოდენობა
     district:
-      title: "'%{name}' რაიონის მიხედვით"
+      title_first: "First Name '%{name}' by District"
+      title_last: "Last Name '%{name}' by District"
+      title_full: "Full Name '%{name}' by District"
       district: რაიონი
       rank: სახელის რეიტინგი
       total: ხალხის რაოდენობა

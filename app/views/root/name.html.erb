@@ -1,4 +1,11 @@
-
+<% 
+  name_type = ''
+  if @type == Name::TYPE[:first_name]
+    name_type = 'first'
+  elsif @type == Name::TYPE[:last_name]
+    name_type = 'last'
+  end
+%>
 <div id="page_title">
   <div class="clear">
     <div class="medal_wrapper">
@@ -11,15 +18,10 @@
             description = ''
             sub_title = ''
             name = @name ? @name.name : params[:name]
-         if @type == Name::TYPE[:first_name]
-           page_title << t('.title_first', :name => name)
-           description << t('.description_first', :name => name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
-           sub_title << t('.subtitle_first', :name => name, :count => number_with_delimiter(@name.count)) if @name
-        elsif @type == Name::TYPE[:last_name]
-           page_title << t('.title_last', :name => name)
-           description << t('.description_last', :name => name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
-           sub_title << t('.subtitle_last', :name => name, :count => number_with_delimiter(@name.count)) if @name
-        end
+
+           page_title << t(".title_#{name_type}", :name => name)
+           description << t(".description_#{name_type}", :name => name, :count => number_with_delimiter(@name.count), :rank => number_with_delimiter(@name.rank)) if @name
+           sub_title << t(".subtitle_#{name_type}", :name => name, :count => number_with_delimiter(@name.count)) if @name
         
         title page_title.html_safe
         og_description description.html_safe if description.present?
@@ -42,7 +44,7 @@
 
   <div class="row-fluid" id="datatables">
     <div class="span6">
-      <h3><%= t('tables.year.title', :name => @name.name)%></h3>
+      <h3><%= t("tables.year.title_#{name_type}", :name => @name.name)%></h3>
       <table id="birth_years_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_birth_years_url(:name_id => @name.id, :format => :json) %>">
         <thead>
@@ -58,7 +60,7 @@
       </table>
     </div>
     <div class="span6">
-      <h3><%= t('tables.district.title', :name => @name.name)%></h3>
+      <h3><%= t("tables.district.title_#{name_type}", :name => @name.name)%></h3>
       <table id="districts_datatable" class="display table table-striped table-bordered" 
             data-source="<%= search_districts_url(:name_id => @name.id, :format => :json) %>">
         <thead>

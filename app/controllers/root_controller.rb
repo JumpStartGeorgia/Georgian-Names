@@ -106,7 +106,7 @@ class RootController < ApplicationController
         json = GenerateJson.full_name_population(district_names,d)
         
         gon.map_population_json_svg = json
-        @map_title = I18n.t('charts.map.name.title', :name => "#{@first_name.name} #{@last_name.name}")
+        @map_title = I18n.t('charts.map.name.title_full', :name => "#{@first_name.name} #{@last_name.name}")
         @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@full_name_count))
         @color_legend = GenerateJson.full_name_population_colors
 
@@ -223,6 +223,13 @@ class RootController < ApplicationController
   protected
   def load_name_variables
     if @name
+      name_type = ''
+      if @type == Name::TYPE[:first_name]
+        name_type = 'first'
+      elsif @type == Name::TYPE[:last_name]
+        name_type = 'last'
+      end
+
       @birth_years = @name.by_years_hash
       years_array = @name.by_age_array
       @districts = @name.by_districts
@@ -231,8 +238,8 @@ class RootController < ApplicationController
       gon.chart_age_population = true
       gon.chart_age_pop_data = years_array
       gon.chart_age_rank_data = years_array.map{|x| [x[0], x[2], x[1]]}
-      gon.chart_age_pop_title = I18n.t('charts.population.name.title', :name => @name.name)
-      gon.chart_age_pop_subtitle = I18n.t('charts.population.name.subtitle', :name => @name.name, :count => view_context.number_with_delimiter(@name.count))
+      gon.chart_age_pop_title = I18n.t("charts.population.name.title_#{name_type}", :name => @name.name)
+      gon.chart_age_pop_subtitle = I18n.t("charts.population.name.subtitle_#{name_type}", :name => @name.name, :count => view_context.number_with_delimiter(@name.count))
       gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.name.xaxis1')}<br />(#{I18n.t('charts.population.name.xaxis2')})"
       gon.chart_age_pop_yaxis = I18n.t('charts.population.name.yaxis1')
       gon.chart_age_pop_yaxis2 = I18n.t('charts.population.name.yaxis2')
@@ -245,7 +252,7 @@ class RootController < ApplicationController
       district_names = DistrictName.all
       json = GenerateJson.district_population(district_names,@districts)
       gon.map_name_json_svg = json
-      @map_title = I18n.t('charts.map.name.title', :name => @name.name)
+      @map_title = I18n.t("charts.map.name.title_#{name_type}", :name => @name.name)
       @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))
       @map_sub_title2 = I18n.t('charts.map.name.subtitle1', :rank => view_context.number_with_delimiter(@name.rank))
       @color_legend = GenerateJson.district_population_colors
