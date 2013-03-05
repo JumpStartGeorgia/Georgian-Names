@@ -69,10 +69,10 @@
             </ul>
 
 	          <ul class="nav pull-right">
-              <li><%= link_to t('.menu_download'), download_path %></li>
+              <li id="download-link"><%= link_to t('.menu_download'), download_path %></li>
 							<% I18n.available_locales.each do |locale| %>
 								<% if locale != I18n.locale %>
-									<li><%= link_to t("app.language.#{locale}"), params.merge(:locale => locale) %></li>
+									<li id="locale-switcher"><%= link_to t("app.language.#{locale}"), params.merge(:locale => locale) %></li>
 								<% end %>
 							<% end %>
 	          </ul>

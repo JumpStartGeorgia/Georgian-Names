@@ -39,19 +39,7 @@ $(function () {
                 },
                 gridLineColor: chartconfig.bar.yAxis.gridLineColor
             },
-            tooltip: {
-                formatter: function() {
-                    return this.x +': '+ Highcharts.numberFormat(this.y,0,',');
-                },
-                backgroundColor: '#5b4e16',
-                borderWidth: 0,
-                borderRadius: 0,
-                shadow: false,
-                style: {
-                  color: '#d6d3c5',
-                  padding: 8
-                }
-            },
+            tooltip: chartconfig.bar.tooltip,
             plotOptions: {
                 bar: chartconfig.bar.plotOptions
             },

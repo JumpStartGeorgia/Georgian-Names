@@ -11,20 +11,25 @@
   }
 }
 
+#stats_container {
+  background-color: #ecd078;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
 
 #stats{
   & > div {
     text-align: center;
     padding: 0px 0px 20px;
     margin: 0 auto;
-    width: 1140px;
+    width: 1200px;
     .clearfix();
     & > div {
       float: left;
-      width: 120px;
-      height: 120px;
-      margin: 0px 35px 23px;
-      padding: 18px 10px;
+      width: 140px;
+      height: 140px;
+      margin: 0px 30px 23px;
+      padding: 20px 13px;
       font-size: 14px;
       font-family: skia;
       background-color: #d95b43;
@@ -67,19 +72,31 @@
   } 
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   #stats > div {
-    width: 760px;
+    width: 800px;
   }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 800px) {
   #stats > div {
-    width: 570px;
+    width: 600px;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 600px) {
+  #stats > div {
+    width: 400px;
+  }
+}
+
+@media (max-width: 400px) {
+  #stats > div {
+    width: 200px;
+  }
+}
+
+@media (max-width: 200px) {
   #stats > div {
     width: auto;
   }
@@ -94,16 +111,14 @@ rect[fill="#FFFFFF"] {
   fill: none;
 }
 
-#stats_container {
-  background-color: #ecd078;
-}
-
 #datatables {
   background-color: #88a65e;
   color: #fff;
   h3 {
     font-weight: normal;
     color: #fff;
+    font-family: din;
+    font-size: 18px;
   }
   .dataTables_wrapper {
     margin-top: 10px;
@@ -191,17 +206,16 @@ rect[fill="#FFFFFF"] {
     .box-shadow(none);
     border: none;
     background: #faffe6;
-    color: rgba(0, 0, 0, .4);
+    color: #B7ACA3;
     font-family: street;
     padding-left: 10px;
     padding-right: 10px;
-    &:focus {
-      font-style: normal;
-    }
   }
 }
 
 .dataTables_length {
+  font-family: skia;
+  font-size: 12px;
   select {
     .border-radius(0px);
     .box-shadow(none);

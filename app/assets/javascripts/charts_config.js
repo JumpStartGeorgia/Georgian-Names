@@ -9,7 +9,11 @@ var chartconfig = {
         formatter: function() {
             return Highcharts.numberFormat(this.y,0,',');
         },
-        color: '#746727'
+        color: '#746727',
+        style: {
+          fontSize: '12px',
+          fontFamily: 'skia'
+        }
       },
       color: '#fff',
       borderWidth: 0,
@@ -17,11 +21,13 @@ var chartconfig = {
     },
     titleStyle: {
       color: '#5b4e16',
-      fontFamily: 'din'
+      fontFamily: 'din',
+      fontSize: '18px'
     },
     subtitleStyle: {
       color: '#5b4e16',
-      fontFamily: 'skia'
+      fontFamily: 'skia',
+      fontSize: '14px'
     },
     yAxis: {
       titleStyle: {
@@ -40,10 +46,28 @@ var chartconfig = {
       },
       labelStyle: {
         fontFamily: 'skia',
-        color: '#5b4e16'
+        color: '#5b4e16',
+        fontSize: '12px'
       },
       lineColor: '#5b4e16',
       tickColor: '#5b4e16'
+    },
+    tooltip: {
+      formatter: function() {
+        return this.x +': '+ Highcharts.numberFormat(this.y,0,',');
+      },
+      backgroundColor: '#5b4e16',
+      borderWidth: 0,
+      borderRadius: 0,
+      shadow: false,
+      style: {
+        color: '#d6d3c5',
+        padding: 8,
+        fontSize: '13px',
+        fontWeight: 'bold',
+        fontFamily: 'skia',
+        letterSpacing: '-1px'
+      }
     }
   }
 

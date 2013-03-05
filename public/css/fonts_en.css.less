@@ -14,7 +14,7 @@ for italic text - BPG Phone Sans Italic
   font-family: fenix;
   font-style: normal;
   font-weight: 400;
-  src: url('/assets/Skia Regular.ttf');
+  src: local('Fenix'), local('Fenix-Regular'), url(/assets/fonts/Fenix.woff) format('woff');
 }
 
 
@@ -23,7 +23,7 @@ for italic text - BPG Phone Sans Italic
   font-family: din;
   font-style: normal;
   font-weight: normal;
-  src: url('/assets/DIN Medium.ttf');
+  src: url('/assets/fonts/DIN Medium.ttf');
 }
 
 
@@ -32,24 +32,42 @@ for italic text - BPG Phone Sans Italic
   font-family: street;
   font-style: normal;
   font-weight: normal;
-  src: url('/assets/STREETI.ttf');
+  src: url('/assets/fonts/STREETI.ttf');
 }
 
 
-@font-face
-{
+@font-face {
   font-family: skia;
-  font-style: normal;
+  src: url('/assets/fonts/skiaregular.eot');
+  src: url('/assets/fonts/skiaregular.eot?#iefix') format('embedded-opentype'),
+		   url('/assets/fonts/skiaregular.woff') format('woff'),
+		   url('/assets/fonts/skiaregular.ttf') format('truetype'),
+		   url('/assets/fonts/skiaregular.svg#skiaregular') format('svg');
   font-weight: normal;
-  src: url('/assets/Skia Regular.ttf');
+  font-style: normal;
 }
 
 
-@font-face
-{
-  font-family: mercury;
-  font-style: normal;
+@font-face {
+  font-family: bgp_ingiri_arial;
+  src: url('/assets/fonts/bpgingiriarial.eot');
+  src: url('/assets/fonts/bpgingiriarial.eot?#iefix') format('embedded-opentype'),
+		   url('/assets/fonts/bpgingiriarial.woff') format('woff'),
+		   url('/assets/fonts/bpgingiriarial.ttf') format('truetype'),
+		   url('/assets/fonts/bpgingiriarial.svg#bpgingiriarial') format('svg');
   font-weight: normal;
-  src: url('/assets/Skia Regular.ttf');
+  font-style: normal;
 }
+
+
+#locale-switcher {
+  font-family: bgp_ingiri_arial;
+}
+
+
+
+
+
+
+
 
