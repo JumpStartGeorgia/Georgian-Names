@@ -80,13 +80,15 @@ var chartconfig = {
         symbol: 'url(/assets/chart_icons/download_age_chart.png)',
         backgroundColor: null,
         borderColor: null,
-        hoverBorderColor: null
+        hoverBorderColor: null,
+        y: 25
       },
       printButton: {
         symbol: 'url(/assets/chart_icons/print_age_chart.png)',
         backgroundColor: null,
         borderColor: null,
-        hoverBorderColor: null
+        hoverBorderColor: null,
+        y: 25
       }
     }
   },
@@ -96,13 +98,15 @@ var chartconfig = {
         symbol: 'url(/assets/chart_icons/download_names_chart.png)',
         backgroundColor: null,
         borderColor: null,
-        hoverBorderColor: null
+        hoverBorderColor: null,
+        y: 25
       },
       printButton: {
         symbol: 'url(/assets/chart_icons/print_names_chart.png)',
         backgroundColor: null,
         borderColor: null,
-        hoverBorderColor: null
+        hoverBorderColor: null,
+        y: 25
       }
     }
   },
