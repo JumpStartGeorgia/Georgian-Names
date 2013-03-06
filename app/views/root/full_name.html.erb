@@ -13,6 +13,9 @@
 
       <%= page_title %>
     </h1>
+    <h3>
+      <%= t(".subtitle", :first => @first_name.name, :last => @last_name.name, :count => number_with_delimiter(@full_name_count)) %>
+    </h3>
   </div>
 </div>
 <% if @first_name && @last_name %>

@@ -66,21 +66,21 @@ en:
       birth_year: "Birth Year: "
       all:
         title: Population by Birth Year
-        subtitle: "Total Population: %{count}"
+        subtitle: "Total: %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis: Number of People
       district:
         title: "%{district} Population by Birth Year"
-        subtitle: "%{district} Population: %{count}"
+        subtitle: "%{district} Total: %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis: Number of People
       name:
         title_first: "First Name '%{name}' by Birth Year"
         title_last: "Last Name '%{name}' by Birth Year"
-        subtitle_first: "Number of People with First Name '%{name}': %{count}"
-        subtitle_last: "Number of People with Last Name '%{name}': %{count}"
+        subtitle_first: "First Name '%{name}' Total: %{count}"
+        subtitle_last: "Last Name '%{name}' Total: %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis1: Number of People
@@ -88,7 +88,7 @@ en:
         yaxis2_last: Last Name Rank
       full_name:
         title: "Full Name '%{first_name} %{last_name}' by Birth Year"
-        subtitle: "Number of People with Full Name '%{first_name} %{last_name}': %{count}"
+        subtitle: "Full Name '%{first_name} %{last_name}' Total: %{count}"
         xaxis1: Birth Year
         xaxis2: Age
         yaxis: Number of People
@@ -134,18 +134,18 @@ en:
       all:
         legend: Legend
         title: Population by District
-        subtitle1: "Total Population: %{count}"
+        subtitle1: "Total: %{count}"
       year:
         legend: Legend
         title: Population by District for People Born in %{year}
-        subtitle1: "Total for %{year}: %{count}"
+        subtitle1: "Total: %{count}"
       name:
         legend: Legend
         title_first: "First Name '%{name}' by District"
         title_last: "Last Name '%{name}' by District"
         title_full: "Full Name '%{name}' by District"
-        subtitle1: "Country Rank: %{rank}"
-        subtitle2: "Country Total: %{count}"
+        subtitle1: "Rank: %{rank}"
+        subtitle2: "Total: %{count}"
   tables:
     year:
       title_first: "First Name '%{name}' by Birth Year"
@@ -276,6 +276,7 @@ en:
       description_last: "In August 2012, there were %{count} people in Georgia with the last name '%{name}', which has a rank of %{rank} in the country."
     full_name:
       title: "Full Name: '%{first} %{last}'"
+      subtitle: "Number of People with Full Name '%{first} %{last}': %{count}"
       not_exist: "'%{first} %{last}' could not be found."
       description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:

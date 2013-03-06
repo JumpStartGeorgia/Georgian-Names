@@ -276,6 +276,7 @@ ka:
       description_last: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, გვარად '%{name}', რომლის რეიტინგიც ქვეყნის მასშტაბით არის '%{rank}'."
     full_name:
       title: "სახელი და გვარი: '%{first} %{last}'"
+      subtitle: "რაოდენობა ხალხისა, სახელითა და გვარით '%{first} %{last}': %{count}"
       not_exist: "'%{first} %{last}' არ მოიძებნა."
       description: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, სახელად და გვარად '%{first_name} %{last_name}'."
     district:
