@@ -3,6 +3,7 @@
 var chartconfig = {
 
   bar: {
+    background: '#bfb35a',
     plotOptions: {
       dataLabels: {
         enabled: true,
@@ -69,6 +70,9 @@ var chartconfig = {
         letterSpacing: '-1px'
       }
     }
+  },
+  line: {
+    background: '#5e8c6a'
   },
   exporting_population: {
     buttons: {

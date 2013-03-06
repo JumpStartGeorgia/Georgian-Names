@@ -255,7 +255,7 @@ en:
         when_text: August 2012
         where_header: Where
         where_text: Georgia
-        population_header: "People (18 and older)"
+        population_header: "People<br />(18 and older)"
         districts_header: Districts
         precincts_header: Voting Precincts
         first_names_header: First Names

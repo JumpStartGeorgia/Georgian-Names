@@ -5,6 +5,7 @@ $(function () {
         chart = new Highcharts.Chart({
             chart: {
                 renderTo: gon.chart_top_fnames_id,
+                backgroundColor: chartconfig.bar.background,
                 type: 'bar'
             },
             title: {
