@@ -3,13 +3,15 @@
     <h1>
       <% page_title = t('.title', :year => params[:id], :age => @static_year-params[:id].to_i) 
         title page_title.html_safe
-         og_description t('.description', :year => params[:id], :age => @static_year-params[:id].to_i, :count => number_with_delimiter(@population.count)).html_safe 
+         og_description t('.description', :year => params[:id], :age => @static_year-params[:id].to_i, :count => number_with_delimiter(@population.count)).html_safe if @population 
       %>
       <%= page_title %>
     </h1>
-    <h3>
-      <%= t('.subtitle', :year => params[:id], :count => number_with_delimiter(@population.count)) %>
-    </h3>
+    <% if @population  %>
+      <h3>
+        <%= t('.subtitle', :year => params[:id], :count => number_with_delimiter(@population.count)) %>
+      </h3>
+    <% end %>
   </div>
 </div>
 
@@ -59,5 +61,9 @@
     </div>
   </div>   
 <% else %>
-  <%= t('.not_exist', :year => params[:id])%>
+  <div>
+    <p>
+      <%= t('.not_exist', :year => params[:id])%>
+    </p>
+  </div>
 <% end %>  

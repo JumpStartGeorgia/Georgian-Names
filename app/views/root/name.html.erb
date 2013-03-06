@@ -97,5 +97,9 @@
   </div>
 
 <% else %>
-  <%= t('.not_found', :name => params[:name]) %>
+  <div>
+    <p>
+      <%= t('.not_exist', :name => params[:name]) %>
+    </p>
+  </div>
 <% end %>

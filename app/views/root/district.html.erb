@@ -62,5 +62,9 @@
   </div>
 
 <% else %>
-  <%= t('.not_exist', :district => params[:id])%>
+  <div>
+    <p>
+      <%= t('.not_exist', :district => params[:id])%>
+    </p>
+  </div>
 <% end %>

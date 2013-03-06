@@ -14,7 +14,7 @@
 
 <div class="row-fluid" id="datatables">
   <div class="span6">
-    <h3><%= t('tables.first_name.title')%></h3>
+    <h3><%= t('tables.first_name.all.title')%></h3>
     <table id="first_name_search_datatable" class="display table table-striped table-bordered" 
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:first_name], :format => :json) %>">
       <thead>
@@ -29,7 +29,7 @@
     </table>
   </div> 
   <div class="span6">
-    <h3><%= t('tables.last_name.title')%></h3>
+    <h3><%= t('tables.last_name.all.title')%></h3>
     <table id="last_name_search_datatable" class="display table table-striped table-bordered" 
           data-source="<%= search_names_country_url(:name_type => Name::TYPE[:last_name], :format => :json) %>">
       <thead>
