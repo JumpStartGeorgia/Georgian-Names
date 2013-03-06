@@ -42,16 +42,16 @@ class PngController < ApplicationController
     if !params[:rank].blank?
       respond_to do |format|
         format.png {  
-          size = 12
+          size = 23
           case params[:rank].length
             when 1
-              size = 24
+              size = 42
             when 2
-              size = 21
+              size = 39
             when 3
-              size = 18
+              size = 36
             when 4
-              size = 15
+              size = 29
           end
 
           if I18n.locale == :ka
@@ -63,14 +63,14 @@ class PngController < ApplicationController
           file_path = "#{Rails.root}/tmp/share_rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
 
           x = Subexec.run "convert \"#{Rails.root}/app/assets/images/#{img}\" \\
-                      -size 54x \\
+                      -size 200x \\
                       -background transparent \\
                       -fill \"#FFECBD\" \\
                       -pointsize #{size} \\
                       -gravity center \\
                       caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
                       -gravity center \\
-                      -geometry +3+12 \\
+                      -geometry +6+25 \\
                       -composite \"#{file_path}\""
 
           send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "share_rank_#{params[:rank]}"
