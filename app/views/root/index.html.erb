@@ -8,78 +8,79 @@
 <div class="row-fluid" id="stats_container">
   <div class="span12" id="stats">
     <div class="">
-      <div class="">
+      <% en_classname = (locale == :en ? 'morespace' : '') %>
+      <div class="smalltext">
+        <div class="img" style="background-image: url('/assets/stats_icons/source.png');"><%= image_tag 'stats_icons/source.png' %></div>
         <h4><%= t('.stats.source_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/source.png' %></div>
         <%= t('.stats.source_text') %>
       </div>
-      <div class="">
+      <div class="morespace">
+        <div class="img" style="background-image: url('/assets/stats_icons/when.png');"><%= image_tag 'stats_icons/when.png' %></div>
         <h4><%= t('.stats.when_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/when.png' %></div>
         <%= t('.stats.when_text') %>
       </div>
-      <div class="">
+      <div class="morespace">
+        <div class="img" style="background-image: url('/assets/stats_icons/where.png');"><%= image_tag 'stats_icons/where.png' %></div>
         <h4><%= t('.stats.where_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/where.png' %></div>
         <%= t('.stats.where_text') %>
       </div>
       <div class="">
+        <div class="img" style="background-image: url('/assets/stats_icons/people.png');"><%= image_tag 'stats_icons/people.png' %></div>
         <h4><%= t('.stats.population_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/people.png' %></div>
         <%= number_with_delimiter 3613745 %>
       </div>
-      <div class="">
+      <div class="morespace">
+        <div class="img" style="background-image: url('/assets/stats_icons/districts.png');"><%= image_tag 'stats_icons/districts.png' %></div>
         <h4><%= t('.stats.districts_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
         <%= number_with_delimiter 75 %>
       </div>
-      <div class="">
+      <div class="morespace">
+        <div class="img" style="background-image: url('/assets/stats_icons/precincts.png');"><%= image_tag 'stats_icons/precincts.png' %></div>
         <h4><%= t('.stats.precincts_header') %></h4>
-        <div class="img"><%= image_tag 'stats_icons/precincts.png' %></div>
         <%= number_with_delimiter 3648 %>
       </div>
-      <div class="">
+      <div class="morespace">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/names.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/names.png');"><%= image_tag 'stats_icons/names.png' %></div>
           <h4><%= t('.stats.first_names_header') %></h4>
           <%= number_with_delimiter 47180 %>
         </div>
       </div>
-      <div class="">
+      <div class="morespace">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/names.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/names.png');"><%= image_tag 'stats_icons/names.png' %></div>
           <h4><%= t('.stats.last_names_header') %></h4>
           <%= number_with_delimiter 74481 %>
         </div>
       </div>
-      <div class="">
+      <div class="<%= en_classname %>">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/districts.png');"><%= image_tag 'stats_icons/districts.png' %></div>
           <h4><%= t('.stats.largest_district_header') %></h4>
           <%= t('.stats.largest_district_text') %>
           - 
           <%= number_with_delimiter 163083 %>
         </div>
       </div>
-      <div class="">
+      <div class="<%= en_classname %>">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/districts.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/districts.png');"><%= image_tag 'stats_icons/districts.png' %></div>
           <h4><%= t('.stats.smallest_district_header') %></h4>
           <%= t('.stats.smallest_district_text') %>
           -
           <%= number_with_delimiter 5788 %>
         </div>
       </div>
-      <div class="">
+      <div class="<%= en_classname %>">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/oldest.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/oldest.png');"><%= image_tag 'stats_icons/oldest.png' %></div>
           <h4><%= t('.stats.oldest_header') %></h4>
           <%= number_with_delimiter 132 %>
         </div>
       </div>
       <div class="">
         <div>
-          <div class="img"><%= image_tag 'stats_icons/common.png' %></div>
+          <div class="img" style="background-image: url('/assets/stats_icons/common.png');"><%= image_tag 'stats_icons/common.png' %></div>
           <h4><%= t('.stats.popular_age_header') %></h4>
           <%= number_with_delimiter 22 %>
           -

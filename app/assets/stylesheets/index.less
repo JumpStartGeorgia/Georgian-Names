@@ -34,19 +34,28 @@
       width: 140px;
       height: 140px;
       margin: 0px 30px 23px;
-      padding: 20px 13px;
+      padding: 13px 13px;
       font-size: 14px;
       font-family: skia;
       background-color: #d95b43;
       color: #fff;
+      line-height: 17px;
       .border-radius(50%);
       .box-sizing(border-box);
+      &.morespace {
+        h4 {
+          margin-bottom: 10px;
+        }
+        .img {
+          margin-bottom: 8px;
+        }
+      }
       h4 {
         font-family: din;
         font-style: normal;
         padding: 4px 0;
         font-size: 14px;
-        letter-spacing: 2.5px;
+        line-height: 14px;
         margin-bottom: 3px;
       }
       img {
@@ -55,8 +64,11 @@
       }
       div.img {
         text-align: center;
+        height: 30px;
+        background: center center no-repeat;
         img {
           display: inline-block;
+          display: none;
           margin: 0px;
           vertical-align: baseline;
         }
