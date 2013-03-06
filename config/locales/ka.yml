@@ -137,8 +137,8 @@ ka:
         subtitle1: "სულ: %{count}"
       year:
         legend: ლეგენდა
-        title: მოსახლეობა ოლქების მიხედვით %{year} წელს დაბადებულთათვის
-        subtitle1: "%{year} წლის საერთო რაოდენობა: %{count}"
+        title: მოსახლეობა რაიონების მიხედვით %{year} წელს დაბადებულთათვის
+        subtitle1: "%{year} წელს დაბადებულთა რაოდენობა: %{count}"
       name:
         legend: ლეგენდა
         title_first: "სახელი '%{name}' რაიონების მიხედვით"
@@ -256,13 +256,13 @@ ka:
         where_header: სად
         where_text: საქართველო
         population_header: "მოსახლეობა<br />(18 წელს ზემოთ)"
-        districts_header: ოლქი
+        districts_header: რაიონი
         precincts_header: საარჩევნო უბანი
         first_names_header: სახელი
         last_names_header: გვარი
-        largest_district_header: ყველაზე დიდი ოლქი
+        largest_district_header: ყველაზე დიდი რაიონი
         largest_district_text: ქუთაისი
-        smallest_district_header: ყველაზე პატარა ოლქი
+        smallest_district_header: ყველაზე პატარა რაიონი
         smallest_district_text: ყაზბეგი
         oldest_header: ყველაზე ხანდაზმული ადამიანი
         popular_age_header: ყველაზე ხშირი ასაკი
@@ -275,7 +275,7 @@ ka:
       description_first: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, სახელად '%{name}', რომლის რეიტინგიც ქვეყნის მასშტაბით არის '%{rank}'."
       description_last: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, გვარად '%{name}', რომლის რეიტინგიც ქვეყნის მასშტაბით არის '%{rank}'."
     full_name:
-      title: "სრული სახელი: '%{first} %{last}'"
+      title: "სახელი და გვარი: '%{first} %{last}'"
       not_exist: "'%{first} %{last}' არ მოიძებნა."
       description: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, სახელად და გვარად '%{first_name} %{last_name}'."
     district:
