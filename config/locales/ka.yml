@@ -235,7 +235,7 @@ ka:
       description: "Mashasada.me allows you to explore and visualize trends found in Georgian names and share them with your friends and family. These trends are derived from the official list of voters for the Georgian parliamentary elections in October 2012, which is the most comprehensive and recent dataset on Georgian names to date."
       stats:
         source_header: წყარო
-        source_text: "Voters' List Verification Commission"
+        source_text: "ამომრჩეველთა სიების დაზუსტების უზრუნველყოფის კომისია"
         when_header: როდის
         when_text: აგვისტო 2012
         where_header: სად
