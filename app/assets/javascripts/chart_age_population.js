@@ -5,6 +5,7 @@ $(function () {
         var options = {
             chart: {
                 renderTo: 'chart_age_population',
+                backgroundColor: chartconfig.line.background,
                 type: 'spline'
             },
             title: {
@@ -44,15 +45,15 @@ $(function () {
                         return this.value + ' (' + (gon.static_year-this.value) + ')';
                   },
                   style: {
-                    color: 'rgba(255, 255, 255, .75)',
+                    color: '#dce9dd',
                     fontFamily: 'skia',
                     fontSize: '12px',
                     letterSpacing: '-1px',
                     lineHeight: '13px'
                   }
                 },
-                lineColor: 'rgba(255, 255, 255, .50)',
-                tickColor: 'rgba(255, 255, 255, .50)'
+                lineColor: '#7ea387',
+                tickColor: '#7ea387'
             },
             tooltip: {
                 crosshairs: true,
@@ -79,7 +80,7 @@ $(function () {
                 borderRadius: 0,
                 shadow: false,
                 style: {
-                  color: 'rgba(0, 0, 0, .6)',
+                  color: '#494949',
                   padding: 8
                 }
             },
@@ -188,7 +189,7 @@ $(function () {
                 },
                 labels: {
                     style: {
-	                    color: 'rgba(255, 255, 255, .75)',
+	                    color: '#dce9dd',
                       fontFamily: 'skia',
                       fontSize: '12px',
                       letterSpacing: '-1px',

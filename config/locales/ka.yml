@@ -255,7 +255,7 @@ ka:
         when_text: აგვისტო 2012
         where_header: სად
         where_text: საქართველო
-        population_header: "მოსახლეობა (18 წელს ზემოთ)"
+        population_header: "მოსახლეობა<br />(18 წელს ზემოთ)"
         districts_header: რაიონი
         precincts_header: საარჩევნო უბანი
         first_names_header: სახელი
