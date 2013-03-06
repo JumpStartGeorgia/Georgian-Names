@@ -57,7 +57,9 @@ $(function () {
             credits: {
                 enabled: false
             },
+            exporting: chartconfig.exporting_top_names,
             lang: chartconfig.lang,
+            navigation: chartconfig.navigation,
             series: [{
                 showInLegend: false,
                 cursor: 'pointer',

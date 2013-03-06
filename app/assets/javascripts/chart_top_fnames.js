@@ -54,7 +54,9 @@ $(function () {
                 backgroundColor: '#FFFFFF',
                 shadow: true
             },
+            exporting: chartconfig.exporting_top_names,
             lang: chartconfig.lang,
+            navigation: chartconfig.navigation,
             credits: {
                 enabled: false
             },

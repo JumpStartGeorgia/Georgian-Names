@@ -70,44 +70,47 @@ var chartconfig = {
       }
     }
   },
-  exporting: {
+  exporting_population: {
     buttons: {
       exportButton: {
-        _title: gon.highcharts_exportButtonTitle,
-        menuItems: [{
-          text: gon.highcharts_downloadPNG,
-          onclick: function () {
-              this.exportChart()
-              }
-          }, {
-          text: gon.highcharts_downloadJPEG,
-          onclick: function () {
-              this.exportChart({
-                  type: "image/jpeg"
-              })
-          }
-          }, {
-          text: gon.highcharts_downloadPDF,
-          onclick: function () {
-              this.exportChart({
-                  type: "application/pdf"
-              })
-          }
-          }, {
-          text: gon.highcharts_downloadSVG,
-          onclick: function () {
-              this.exportChart({
-                  type: "image/svg+xml"
-              })
-          }
-        }]
+        symbol: 'url(/assets/chart_icons/download_age_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
       },
       printButton: {
-        _title: gon.highcharts_printButtonTitle,
-        onclick: function () {
-            this.print()
-        }
+        symbol: 'url(/assets/chart_icons/print_age_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
       }
+    }
+  },
+  exporting_top_names: {
+    buttons: {
+      exportButton: {
+        symbol: 'url(/assets/chart_icons/download_names_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      },
+      printButton: {
+        symbol: 'url(/assets/chart_icons/print_names_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      }
+    }
+  },
+  navigation: {
+    menuItemStyle: {
+      padding: '5px',
+    	background: null,
+	    color: '#494949'
+    },
+    menuItemHoverStyle: {
+    	backgroundColor: '#D95B43',
+	    color: '#fff'
     }
   },
   lang: {

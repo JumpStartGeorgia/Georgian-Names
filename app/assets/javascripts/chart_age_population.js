@@ -91,7 +91,9 @@ $(function () {
                 color: '#fff'
               }
             },
-            lang: chartconfig.lang
+            exporting: chartconfig.exporting_population,
+            lang: chartconfig.lang,
+            navigation: chartconfig.navigation
         };
         
         // if secondary y axis/data is needed include it
