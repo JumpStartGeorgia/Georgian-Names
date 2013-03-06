@@ -32,6 +32,14 @@ module ApplicationHelper
 		text.html_safe
 	end
 
+  def share_img_path
+    if I18n.locale == :ka
+      image_path('share_geo.png')
+    else
+      image_path('share_eng.png')
+    end
+  end
+
 	def current_url
 		return "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
 	end

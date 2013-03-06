@@ -26,6 +26,7 @@ BootstrapStarter::Application.routes.draw do
 
     # generate image
     match '/png/rank/:rank', :to => 'png#rank', :as => :generate_rank, :via => :get
+    match '/png/share_rank/:rank', :to => 'png#share_rank', :as => :generate_share_rank, :via => :get
 
 		root :to => 'root#index'
 	  match "*path", :to => redirect("/#{I18n.default_locale}") # handles /en/fake/path/whatever
