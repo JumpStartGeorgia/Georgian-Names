@@ -65,6 +65,14 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		gon.no_data = I18n.t('app.common.no_data')
 		@static_year = 2012
 		gon.static_year = @static_year
+
+    # text for print and export buttons in highcharts
+    gon.highcharts_downloadPNG = t('highcharts.downloadPNG')
+    gon.highcharts_downloadJPEG = t('highcharts.downloadJPEG')
+    gon.highcharts_downloadPDF = t('highcharts.downloadPDF')
+    gon.highcharts_downloadSVG = t('highcharts.downloadSVG')
+    gon.highcharts_exportButtonTitle = t('highcharts.exportButtonTitle')
+    gon.highcharts_printButtonTitle = t('highcharts.printButtonTitle')
 		
 		if I18n.locale == :ka
 		  gon.datatable_i18n_url = "/datatable_ka.txt"

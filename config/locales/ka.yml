@@ -49,6 +49,13 @@ ka:
       first_name: სახელი
       last_name: გვარი
       no_data: არ არის მონაცემები
+  highcharts:
+    downloadPNG: "ჩამოტვირთე PNG გამოსახულება"
+    downloadJPEG: "ჩამოტვირთე JPEG გამოსახულება"
+    downloadPDF: "ჩამოტვირთე PDF დოკუმენტი"
+    downloadSVG: "ჩამოტვირთე SVG ვექტორული გამოსახულება"
+    exportButtonTitle: "შეინახე გამოსახულება"
+    printButtonTitle: "ამობეჭდე გრაფიკი"
   charts:
     population:
       total: "ხალხის რაოდენობა: "

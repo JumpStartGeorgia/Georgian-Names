@@ -49,6 +49,13 @@ en:
       first_name: First Name
       last_name: Last Name
       no_data: No Data
+  highcharts:
+    downloadPNG: "Download PNG image"
+    downloadJPEG: "Download JPEG image"
+    downloadPDF: "Download PDF document"
+    downloadSVG: "Download SVG vector image"
+    exportButtonTitle: "Export the chart"
+    printButtonTitle: "Print the chart"
   charts:
     population:
       total: "Number of People: "

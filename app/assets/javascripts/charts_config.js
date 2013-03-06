@@ -69,8 +69,56 @@ var chartconfig = {
         letterSpacing: '-1px'
       }
     }
+  },
+  exporting_population: {
+    buttons: {
+      exportButton: {
+        symbol: 'url(/assets/chart_icons/download_age_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      },
+      printButton: {
+        symbol: 'url(/assets/chart_icons/print_age_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      }
+    }
+  },
+  exporting_top_names: {
+    buttons: {
+      exportButton: {
+        symbol: 'url(/assets/chart_icons/download_names_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      },
+      printButton: {
+        symbol: 'url(/assets/chart_icons/print_names_chart.png)',
+        backgroundColor: null,
+        borderColor: null,
+        hoverBorderColor: null
+      }
+    }
+  },
+  navigation: {
+    menuItemStyle: {
+      padding: '5px',
+    	background: null,
+	    color: '#494949'
+    },
+    menuItemHoverStyle: {
+    	backgroundColor: '#D95B43',
+	    color: '#fff'
+    }
+  },
+  lang: {
+    downloadPNG: gon.highcharts_downloadPNG,
+    downloadJPEG: gon.highcharts_downloadJPEG,
+    downloadPDF: gon.highcharts_downloadPDF,
+    downloadSVG: gon.highcharts_downloadSVG,
+    exportButtonTitle: gon.highcharts_exportButtonTitle,
+    printButtonTitle: gon.highcharts_printButtonTitle
   }
-
-  
-
 };
