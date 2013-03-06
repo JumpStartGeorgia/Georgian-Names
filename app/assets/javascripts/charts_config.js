@@ -69,8 +69,53 @@ var chartconfig = {
         letterSpacing: '-1px'
       }
     }
+  },
+  exporting: {
+    buttons: {
+      exportButton: {
+        _title: gon.highcharts_exportButtonTitle,
+        menuItems: [{
+          text: gon.highcharts_downloadPNG,
+          onclick: function () {
+              this.exportChart()
+              }
+          }, {
+          text: gon.highcharts_downloadJPEG,
+          onclick: function () {
+              this.exportChart({
+                  type: "image/jpeg"
+              })
+          }
+          }, {
+          text: gon.highcharts_downloadPDF,
+          onclick: function () {
+              this.exportChart({
+                  type: "application/pdf"
+              })
+          }
+          }, {
+          text: gon.highcharts_downloadSVG,
+          onclick: function () {
+              this.exportChart({
+                  type: "image/svg+xml"
+              })
+          }
+        }]
+      },
+      printButton: {
+        _title: gon.highcharts_printButtonTitle,
+        onclick: function () {
+            this.print()
+        }
+      }
+    }
+  },
+  lang: {
+    downloadPNG: gon.highcharts_downloadPNG,
+    downloadJPEG: gon.highcharts_downloadJPEG,
+    downloadPDF: gon.highcharts_downloadPDF,
+    downloadSVG: gon.highcharts_downloadSVG,
+    exportButtonTitle: gon.highcharts_exportButtonTitle,
+    printButtonTitle: gon.highcharts_printButtonTitle
   }
-
-  
-
 };

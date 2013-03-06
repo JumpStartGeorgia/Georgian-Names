@@ -90,7 +90,8 @@ $(function () {
               series: {
                 color: '#fff'
               }
-            }
+            },
+            lang: chartconfig.lang
         };
         
         // if secondary y axis/data is needed include it

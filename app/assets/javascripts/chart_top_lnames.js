@@ -57,6 +57,7 @@ $(function () {
             credits: {
                 enabled: false
             },
+            lang: chartconfig.lang,
             series: [{
                 showInLegend: false,
                 cursor: 'pointer',

@@ -54,6 +54,7 @@ $(function () {
                 backgroundColor: '#FFFFFF',
                 shadow: true
             },
+            lang: chartconfig.lang,
             credits: {
                 enabled: false
             },
