@@ -53,6 +53,8 @@ en:
     population:
       total: "Number of People: "
       rank: "Name Rank: "
+      rank_first: "First Name Rank: "
+      rank_last: "Last Name Rank: "
       years_old: "Age: "
       birth_year: "Birth Year: "
       all:
@@ -75,7 +77,8 @@ en:
         xaxis1: Birth Year
         xaxis2: Age
         yaxis1: Number of People
-        yaxis2: Name Rank
+        yaxis2_first: First Name Rank
+        yaxis2_last: Last Name Rank
       full_name:
         title: "Full Name '%{first_name} %{last_name}' by Birth Year"
         subtitle: "Number of People with Full Name '%{first_name} %{last_name}': %{count}"
@@ -114,6 +117,8 @@ en:
       district: District
       total: Number of People
       rank: Name Rank
+      rank_first: First Name Rank
+      rank_last: Last Name Rank
       tbilisi: Tbilisi
       rustavi: Rustavi
       kutaisi: Kutaisi
@@ -141,46 +146,48 @@ en:
       title_full: "Full Name '%{name}' by Birth Year"
       year: Birth Year
       age: Age
-      rank: Name Rank
+      rank_first: First Name Rank
+      rank_last: Last Name Rank
       total: Number of People
     district:
       title_first: "First Name '%{name}' by District"
       title_last: "Last Name '%{name}' by District"
       title_full: "Full Name '%{name}' by District"
       district: District
-      rank: Name Rank
+      rank_first: First Name Rank
+      rank_last: Last Name Rank
       total: Number of People
     first_name:
       all:
         title: First Names
         name: First Name
-        rank: Name Rank
+        rank: First Name Rank
         total: Number of People
       district:
         title: First Names in %{name}
         name: First Name
-        rank: Name Rank
+        rank: First Name Rank
         total: Number of People
       birth_year:
         title: First Names for People Born in %{year}
         name: First Name
-        rank: Name Rank
+        rank: First Name Rank
         total: Number of People
     last_name:
       all:
         title: Last Names
         name: Last Name
-        rank: Name Rank
+        rank: Last Name Rank
         total: Number of People
       district:
         title: Last Names in %{name}
         name: Last Name
-        rank: Name Rank
+        rank: Last Name Rank
         total: Number of People
       birth_year:
         title: Last Names for People Born in %{year}
         name: Last Name
-        rank: Name Rank
+        rank: Last Name Rank
         total: Number of People
     full_name:
       title: Full Names

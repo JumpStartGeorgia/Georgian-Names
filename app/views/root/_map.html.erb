@@ -1,6 +1,13 @@
 <%
   show_subtitle2 ||= false
   show_rank ||= false
+
+  rank_text = t('charts.map.rank')
+  if @type == Name::TYPE[:first_name]
+    rank_text = t('charts.map.rank_first')
+  elsif @type == Name::TYPE[:last_name]
+    rank_text = t('charts.map.rank_last')
+  end
 %>
 <div id="map_container">
   <div id="map_title">
@@ -41,7 +48,7 @@
       </li>
       <% if show_rank %>
         <li>
-          <%= "#{t('charts.map.rank')}:"%> <span id="map_district_rank"></span>
+          <%= "#{rank_text}:"%> <span id="map_district_rank"></span>
         </li>
       <% end %>
     </ul>

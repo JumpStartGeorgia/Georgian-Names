@@ -53,6 +53,8 @@ ka:
     population:
       total: "ხალხის რაოდენობა: "
       rank: "სახელის რეიტინგი: "
+      rank_first: "სახელის რეიტინგი: "
+      rank_last: "გვარის რეიტინგი: "
       years_old: "ასაკი: "
       birth_year: "დაბადების წელი: "
       all:
@@ -75,7 +77,8 @@ ka:
         xaxis1: დაბადების წელი
         xaxis2: ასაკი
         yaxis1: ხალხის რაოდენობა
-        yaxis2: სახელის რეიტინგი
+        yaxis2_first: სახელის რეიტინგი
+        yaxis2_last: გვარის რეიტინგი
       full_name:
         title: "სახელი და გვარი '%{first_name} %{last_name}' დაბადების წლის მიხედვით"
         subtitle: "რაოდენობა ხალხისა, სახელითა და გვარით '%{first_name} %{last_name}': %{count}"
@@ -113,6 +116,8 @@ ka:
     map:
       district: რაიონი
       rank: სახელის რეიტინგი
+      rank_first: სახელის რეიტინგი
+      rank_last: გვარის რეიტინგი
       total: ხალხის რაოდენობა
       tbilisi: თბილისი
       rustavi: რუსთავი
@@ -141,14 +146,16 @@ ka:
       title_full: "სახელი და გვარი '%{name}' დაბადების წლის მიხედვით"
       year: დაბადების წელი
       age: ასაკი
-      rank: სახელის რეიტინგი
+      rank_first: სახელის რეიტინგი
+      rank_last: გვარის რეიტინგი
       total: ხალხის რაოდენობა
     district:
       title_first: "სახელი '%{name}' რაიონების მიხედვით"
       title_last: "გვარი '%{name}' რაიონების მიხედვით"
       title_full: "სახელი და გვარი '%{name}' რაიონების მიხედვით"
       district: რაიონი
-      rank: სახელის რეიტინგი
+      rank_first: სახელის რეიტინგი
+      rank_last: გვარის რეიტინგი
       total: ხალხის რაოდენობა
     first_name:
       all:
@@ -170,17 +177,17 @@ ka:
       all:
         title: გვარი
         name: გვარი
-        rank: სახელის რეიტინგი
+        rank: გვარის რეიტინგი
         total: ხალხის რაოდენობა
       district:
         title: "გვარები: %{name}"
         name: გვარი
-        rank: სახელის რეიტინგი
+        rank: გვარის რეიტინგი
         total: ხალხის რაოდენობა
       birth_year:
         title: "გვარები %{year} წელს დაბადებულთათვის"
         name: გვარი
-        rank: სახელის რეიტინგი
+        rank: გვარის რეიტინგი
         total: ხალხის რაოდენობა
     full_name:
       title: სახელი და გვარი
@@ -266,7 +273,7 @@ ka:
       description: "2012 წლის აგვისტოში საქართველოში იყო %{count} ადამიანი, სახელად და გვარად '%{first_name} %{last_name}'."
     district:
       title: "რაიონი: %{district}"
-      subtitle: "რაოდენობა %{district}: %{count}"
+      subtitle: "მოსახლეობა: %{count}"
       total_first: "სახელის რაოდენობა: %{count}"
       total_last: "გვარის რაოდენობა: %{count}"
       not_exist: "რაიონი %{district} არ მოიძებნა."

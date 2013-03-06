@@ -92,7 +92,6 @@ class RootController < ApplicationController
         gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.full_name.xaxis1')} (#{I18n.t('charts.population.full_name.xaxis2')})"
         gon.chart_age_pop_yaxis = I18n.t('charts.population.full_name.yaxis')
         gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
-        gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
         gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
         gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
         gon.chart_age_pop_data = years_array
@@ -203,7 +202,6 @@ class RootController < ApplicationController
       gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.district.xaxis1')} (#{I18n.t('charts.population.district.xaxis2')})"
       gon.chart_age_pop_yaxis = I18n.t('charts.population.district.yaxis')
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
-      gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
       gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
       gon.chart_age_pop_data = pop.map{|x| [x.birth_year, x.count]}
@@ -242,9 +240,9 @@ class RootController < ApplicationController
       gon.chart_age_pop_subtitle = I18n.t("charts.population.name.subtitle_#{name_type}", :name => @name.name, :count => view_context.number_with_delimiter(@name.count))
       gon.chart_age_pop_xaxis = "#{I18n.t('charts.population.name.xaxis1')} (#{I18n.t('charts.population.name.xaxis2')})"
       gon.chart_age_pop_yaxis = I18n.t('charts.population.name.yaxis1')
-      gon.chart_age_pop_yaxis2 = I18n.t('charts.population.name.yaxis2')
+      gon.chart_age_pop_yaxis2 = I18n.t("charts.population.name.yaxis2_#{name_type}")
       gon.chart_age_pop_popup_total = I18n.t('charts.population.total')
-      gon.chart_age_pop_popup_rank = I18n.t('charts.population.rank')
+      gon.chart_age_pop_popup_rank = I18n.t("charts.population.rank_#{name_type}")
       gon.chart_age_pop_popup_years_old = I18n.t('charts.population.years_old')
       gon.chart_age_pop_popup_birth_year = I18n.t('charts.population.birth_year')
  
