@@ -47,8 +47,6 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
     @is_ie = false
 		user_agent = UserAgent.parse(request.user_agent)
     @is_ie = true if user_agent.browser == 'Internet Explorer'
-
-@is_ie = true
 	end
 
 	def set_locale
