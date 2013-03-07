@@ -302,3 +302,5 @@ en:
       p_3: "Due to spreadsheet application row size limits, the data was split into 8 files."
       csv: "CSV (%{size})"
       excel: "Excel (%{size})"
+    map:
+      ie: "For a better map experience, please upgrade to Microsoft IE 10 or use a modern, standards-based browser such as Chrome or Firefox."

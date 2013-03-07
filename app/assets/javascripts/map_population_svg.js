@@ -60,6 +60,9 @@ $(function () {
       $('#map_legend').css('left', '100px');
       $('#map_info_box').css('top', '150px');
       $('#map_info_box').css('left', '675px');
+
+      // show ie map text
+      $('#map_ie_text').show();
     }else{
       // resize the map as the window resizes
       $(window).bind('load resize', adjust_map_scales);
