@@ -2,7 +2,8 @@
 class RootController < ApplicationController
   require 'utf8_converter'
   require 'generate_json'
-  
+  require 'add_data_to_json'  
+
   def index
     @top_first = Name.top_first_names
     @top_last = Name.top_last_names
@@ -50,7 +51,14 @@ class RootController < ApplicationController
       @population << {:district_id => count.identifier, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
     end
 
-    json = GenerateJson.population(district_names,@population)
+    if @is_ie
+      json = JSON.parse(File.open("#{Rails.root}/public/districts.json", "r") {|f| f.read()})
+      AddDataToJson.population(json,@population)
+      gon.is_ie = true
+    else
+      json = GenerateJson.population(district_names,@population)
+      gon.is_ie = false
+    end
     
     gon.map_population_json_svg = json
     @map_title = I18n.t('charts.map.all.title')
@@ -102,7 +110,15 @@ class RootController < ApplicationController
         district_names = DistrictName.all
         d = districts.map{|x| {:district_id => x.district_id, :district_name => x.district_name,
                 		  :permalink => x.district_permalink, :count => x.count}}
-        json = GenerateJson.full_name_population(district_names,d)
+
+        if @is_ie
+          json = JSON.parse(File.open("#{Rails.root}/public/districts.json", "r") {|f| f.read()})
+          AddDataToJson.full_name_population(json,d)
+          gon.is_ie = true
+        else
+          json = GenerateJson.full_name_population(district_names,d)
+          gon.is_ie = false
+        end
         
         gon.map_population_json_svg = json
         @map_title = I18n.t('charts.map.name.title_full', :name => "#{@first_name.name} #{@last_name.name}")
@@ -158,7 +174,14 @@ class RootController < ApplicationController
         district_population << {:district_id => count.district_id, :district_name => district_names[index].name, :permalink => district_names[index].permalink, :count => count.count} if index
       end
 
-      json = GenerateJson.year_population(district_names,district_population)
+      if @is_ie
+        json = JSON.parse(File.open("#{Rails.root}/public/districts.json", "r") {|f| f.read()})
+        AddDataToJson.year_population(json,district_population)
+        gon.is_ie = true
+      else
+        json = GenerateJson.year_population(district_names,district_population)
+        gon.is_ie = false
+      end
 
       gon.map_population_json_svg = json
       @map_title = I18n.t('charts.map.year.title', :year => params[:id])
@@ -248,7 +271,16 @@ class RootController < ApplicationController
  
        # get shape json and add data to json
       district_names = DistrictName.all
-      json = GenerateJson.district_population(district_names,@districts)
+
+      if @is_ie
+        json = JSON.parse(File.open("#{Rails.root}/public/districts.json", "r") {|f| f.read()})
+        AddDataToJson.district_population(json,@districts)
+        gon.is_ie = true
+      else
+        json = GenerateJson.district_population(district_names,@districts)
+        gon.is_ie = false
+      end
+
       gon.map_name_json_svg = json
       @map_title = I18n.t("charts.map.name.title_#{name_type}", :name => @name.name)
       @map_sub_title1 = I18n.t('charts.map.name.subtitle2', :count => view_context.number_with_delimiter(@name.count))

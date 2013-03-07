@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
 	before_filter :set_locale
 #	before_filter :is_browser_supported?
+	before_filter :is_ie?
 	before_filter :initialize_gon
 
 	unless Rails.application.config.consider_all_requests_local
@@ -42,6 +43,11 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		end
 	end
 
+	def is_ie?
+    @is_ie = false
+		user_agent = UserAgent.parse(request.user_agent)
+    @is_ie = true if user_agent.browser == 'Internet Explorer'
+	end
 
 	def set_locale
     if params[:locale] and I18n.available_locales.include?(params[:locale].to_sym)
