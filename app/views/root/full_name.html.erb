@@ -13,14 +13,14 @@
 
       <%= page_title %>
     </h1>
-    <% if @first_name && @last_name %>
-    <h3>
-      <%= t(".subtitle", :first => @first_name.name, :last => @last_name.name, :count => number_with_delimiter(@full_name_count)) %>
-    </h3>
+    <% if @first_name && @last_name && @full_name_count %>
+      <h3>
+        <%= t(".subtitle", :first => @first_name.name, :last => @last_name.name, :count => number_with_delimiter(@full_name_count)) %>
+      </h3>
     <% end %>
   </div>
 </div>
-<% if @first_name && @last_name %>
+<% if @first_name && @last_name && @full_name_count%>
 
   <%= render "root/map" %>
 
@@ -58,6 +58,12 @@
     </div>
   </div>
 
+<% elsif @first_name && @last_name %>
+  <div>
+    <p>
+      <%= t('.not_exist', :first => @first_name.name, :last => @last_name.name) %>
+    </p>
+  </div>
 <% else %>
   <div>
     <p>

@@ -30,12 +30,14 @@
   <div id="map_legend">
     <h3><%= t('charts.map.all.legend')%></h3>
     <ul>
-      <% @color_legend.each do |color|%>
-        <li>
-          <span class="<%=color[:classname]%>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          <%= color[:rank] %>
-        </li>
-      <% end %>
+      <% if @color_legend.present? 
+          @color_legend.each do |color|%>
+          <li>
+            <span class="<%=color[:classname]%>">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <%= color[:rank] %>
+          </li>
+      <%  end 
+        end%>
     </ul>
   </div>
   <div id="map_info_box" style="display: none;">
