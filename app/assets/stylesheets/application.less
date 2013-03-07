@@ -244,13 +244,25 @@ footer, footer ul li, footer div#right ul li {
   .box-shadow(none);
   .border-radius(0px);
   -webkit-transition: font-weight .5s;
+  width: 400px;
 }
+
 
 #q:focus {
   font-style: normal;
   outline: none;
 }
 
+@media(max-width: 1020px) {
+  #q{
+    width: 300px;
+  }
+}
+@media(max-width: 890px) {
+  #q{
+    width: 200px;
+  }
+}
 
 /* download page*/
 #download_container{
