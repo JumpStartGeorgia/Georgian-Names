@@ -42,9 +42,7 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <%= image_tag('dropdown_icon.png') %>
           </a>
           <%= link_to(t('app.common.app_name').capitalize, root_path(:locale => I18n.locale),:class=>"brand font")%>
             <%= form_tag search_name_path, :method => :get, :class => "navbar-search pull-left" do %>
