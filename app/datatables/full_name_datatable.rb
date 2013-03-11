@@ -20,8 +20,9 @@ private
   def data
     people.map do |person|
       [
-        link_to(person.first_name.name, full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)),
-        link_to(person.last_name.name, full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)),
+        link_to('view', full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale), :class => 'btn'),
+        person.first_name.name,
+        person.last_name.name,
         number_with_delimiter(person.count)
       ]
     end
@@ -87,11 +88,11 @@ private
   end
 
   def sort_column
-    columns = %w[first_name_field last_name_field people.count]
+    columns = %w[nothing first_name_field last_name_field people.count]
     # person sure the sorting of person is done for the correct language
-    if params[:iSortCol_0].to_i == 0
+    if params[:iSortCol_0].to_i == 1
       first_name_field
-    elsif params[:iSortCol_0].to_i == 1
+    elsif params[:iSortCol_0].to_i == 2
       last_name_field
     else
       columns[params[:iSortCol_0].to_i]
