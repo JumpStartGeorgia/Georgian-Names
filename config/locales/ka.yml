@@ -22,6 +22,7 @@ ka:
       cancel: გაუქმება
       reset: საწყის კონფიგურაციაზე დაბრუნება
       search: ძიება
+      view: ნახვა
     titles:
       new: "ახალი %{model}"
       edit: "შეცვლა %{model}"
@@ -213,7 +214,7 @@ ka:
       sign_out: გასვლა
       js_link_title: "ეწვიეთ ჯამპსტარტ ჯორჯიას ვებ-გვერდს"
       js_link_text: აგებულია
-      search_placeholder: სახელი და/ან გვარი 
+      search_placeholder: სახელის და/ან გვარის ძიება 
       ka_to_en_note: ""
       menu_download: ჩამოტვირთეთ მონაცემები
     unsupported_browser:

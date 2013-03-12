@@ -149,7 +149,8 @@ $(document).ready(function(){
     },
     "oSearch": {"sSearch": gon.initial_name_search},
     "aoColumnDefs": [
-      { 'bSortable': false, 'aTargets': [ 0 ] }
+      { 'bSortable': false, 'aTargets': [ 0 ] },
+      { "sClass": "datatable_link_col", "aTargets": [ 0 ] }
     ],
     "aaSorting": [[1, 'asc']],
   });

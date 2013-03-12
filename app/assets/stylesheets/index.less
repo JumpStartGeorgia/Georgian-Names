@@ -151,15 +151,24 @@ rect[fill="#FFFFFF"] {
     tbody {
       tr:nth-child(even) td {
         background: #f7f7f7;
+        &.datatable_link_col{
+          background: transparent;
+        }
       }
       tr:nth-child(odd) td {
         background: #fff;
+        &.datatable_link_col{
+          background: transparent;
+        }
       }
     }
     th {
       color: #fff;
       &.sorting_asc, &.sorting_desc {
         background-color: #ed8435;
+      }
+      &.datatable_link_col{
+        background: #88A65E;
       }
     }
     th, td {
@@ -173,6 +182,22 @@ rect[fill="#FFFFFF"] {
         text-decoration: none;
         &:hover {
           color: #ed8435;
+        }
+      }
+      &.datatable_link_col{
+        padding-right: 0;
+        a.datatable_link{
+          display: block;
+          width: 52px;
+          height: 24px;
+          line-height: 24px;
+          background-color: #ed8435;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          &:hover {
+            background-color: #d16720;
+          }
         }
       }
     }

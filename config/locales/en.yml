@@ -22,6 +22,7 @@ en:
       cancel: Cancel
       reset: Reset
       search: Search
+      view: View
     titles:
       new: "New %{model}"
       edit: "Edit %{model}"
@@ -213,7 +214,7 @@ en:
       sign_out: Sign Out
       js_link_title: "Visit JumpStart Georgia's website"
       js_link_text: Built by
-      search_placeholder: "first and/or last name*"
+      search_placeholder: "Search for first and/or last name*"
       ka_to_en_note: "* Some Georgian characters can map to the same English character (e.g., 'ტ' and 'თ' both map to 't') which can lead to duplicate search results"
       menu_download: Download Data
     unsupported_browser:

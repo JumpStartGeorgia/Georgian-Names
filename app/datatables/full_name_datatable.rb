@@ -20,7 +20,7 @@ private
   def data
     people.map do |person|
       [
-        link_to('view', full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale), :class => 'btn'),
+        link_to(I18n.t('helpers.links.view'), full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale), :class => 'datatable_link'),
         person.first_name.name,
         person.last_name.name,
         number_with_delimiter(person.count)

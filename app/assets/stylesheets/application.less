@@ -241,8 +241,9 @@ footer, footer ul li, footer div#right ul li {
 
 #q {
   font-family: street;
-  background: #4b4b4b;
-  color: #cfcfcf;
+  font-size: 14px;
+  background: #88a65e;
+  color: #1e1e1e;
   border: none;
   height: 42px;
   .box-sizing(border-box);
@@ -250,6 +251,24 @@ footer, footer ul li, footer div#right ul li {
   .border-radius(0px);
   -webkit-transition: font-weight .5s;
   width: 400px;
+  margin-bottom: 2px;
+  margin-top: 1px;
+  &::-webkit-input-placeholder {
+    color: #1e1e1e;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: #1e1e1e;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+    color: #1e1e1e;
+  }
+
+  &:-ms-input-placeholder {  
+    color: #1e1e1e;
+  }
+
 }
 
 
