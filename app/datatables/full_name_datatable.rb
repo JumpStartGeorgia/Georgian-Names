@@ -20,9 +20,8 @@ private
   def data
     people.map do |person|
       [
-        link_to(I18n.t('helpers.links.view'), full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale), :class => 'datatable_link'),
-        person.first_name.name,
-        person.last_name.name,
+#        link_to(I18n.t('helpers.links.view'), full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale), :class => 'datatable_link'),
+        link_to("#{person.first_name.name} #{person.last_name.name}", full_name_path(:first_name => person.first_name.permalink, :last_name => person.last_name.permalink, :locale => I18n.locale)),
         number_with_delimiter(person.count)
       ]
     end
@@ -71,8 +70,10 @@ private
   def fetch_people
     people = []
     if params[:sSearch].present? && params[:sSearch].index(' ')
-      people = Person.by_full_name.order("#{sort_column} #{sort_direction}")
+      people = Person.by_full_name.order("#{sort_column}")
       people = people.page(page).per_page(per_page)
+#      people = people.where(["#{first_name_field} = :first_search and #{last_name_field} = :last_search", 
+#                :first_search => first_name_value, :last_search => last_name_value])
       people = people.where(["#{first_name_field} like :first_search and #{last_name_field} like :last_search", 
                 :first_search => "%#{first_name_value}%", :last_search => "%#{last_name_value}%"])
     end
@@ -88,8 +89,15 @@ private
   end
 
   def sort_column
-    columns = %w[nothing first_name_field last_name_field people.count]
+#    columns = %w[nothing full_name_field people.count]
+    columns = %w[full_name_field people.count]
     # person sure the sorting of person is done for the correct language
+    if params[:iSortCol_0].to_i == 0
+      "#{first_name_field} #{sort_direction}, #{last_name_field} #{sort_direction}"
+    else
+      "#{columns[params[:iSortCol_0].to_i]} #{sort_direction}"
+    end
+=begin
     if params[:iSortCol_0].to_i == 1
       first_name_field
     elsif params[:iSortCol_0].to_i == 2
@@ -97,6 +105,7 @@ private
     else
       columns[params[:iSortCol_0].to_i]
     end
+=end
   end
 
   def sort_direction

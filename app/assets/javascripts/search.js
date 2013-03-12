@@ -148,11 +148,11 @@ $(document).ready(function(){
       "sUrl": gon.datatable_i18n_url
     },
     "oSearch": {"sSearch": gon.initial_name_search},
-    "aoColumnDefs": [
+/*    "aoColumnDefs": [
       { 'bSortable': false, 'aTargets': [ 0 ] },
       { "sClass": "datatable_link_col", "aTargets": [ 0 ] }
     ],
-    "aaSorting": [[1, 'asc']],
+    "aaSorting": [[1, 'asc']],*/
   });
 
   $('#districts_full_name_datatable').dataTable({

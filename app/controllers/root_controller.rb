@@ -90,7 +90,8 @@ class RootController < ApplicationController
 Rails.logger.debug "//////////// first = #{@first_name.name}; last = #{@last_name.name}"
       birth_years = Mapping.birth_years(@first_name.id, @last_name.id, true)
       districts = Mapping.districts(@first_name.id, @last_name.id, true)
-      @full_name_count = birth_years.map{|x| x.count}.inject(:+)
+      # do not include tbilisi in overall count
+      @full_name_count = districts.map{|x| x.district_id == 999 ? 0 : x.count}.inject(:+)
 Rails.logger.debug "//////////// full name count = #{@full_name_count}"
 
       if birth_years.present?
