@@ -24,7 +24,7 @@ class Mapping < ActiveRecord::Base
 
   def self.birth_years(first_name_id, last_name_id, sort=false)
     x = select('mappings.birth_year, count(*) as count')
-      .where(:first_name_id => first_name_id, :last_name_id => last_name_id)    
+      .where("first_name_id = ? and last_name_id = ? and district_id != 999", first_name_id, last_name_id)    
       .group('mappings.birth_year')
     x = x.order('mappings.birth_year asc') if sort
     return x
