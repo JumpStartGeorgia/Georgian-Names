@@ -1,6 +1,9 @@
 # encoding: utf-8
 class PngController < ApplicationController
 
+  RANK_FOLDER_PATH = "#{Rails.root}/public/system/ranks/"
+  SHARE_FOLDER_PATH = "#{Rails.root}/public/system/share/"
+
   def rank
     if !params[:rank].blank?
       respond_to do |format|
@@ -17,25 +20,34 @@ class PngController < ApplicationController
               size = 15
           end
 
-          file_path = "#{Rails.root}/tmp/rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
+#          file_path = "#{Rails.root}/tmp/rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
+          file_path = "#{RANK_FOLDER_PATH}rank_#{params[:rank]}.png"
 
-          x = Subexec.run "convert \"#{Rails.root}/app/assets/images/ribbon.png\" \\
-                      -size 54x \\
-                      -background transparent \\
-                      -fill \"#FFECBD\" \\
-                      -pointsize #{size} \\
-                      -gravity center \\
-                      caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
-                      -gravity center \\
-                      -geometry +3-10 \\
-                      -composite \"#{file_path}\""
+          # create directory if not exist
+    			FileUtils.mkpath(RANK_FOLDER_PATH)
 
-          send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "rank_#{params[:rank]}"
 
-          File.delete("#{file_path}")
+          if !File.exists?(file_path)
+            x = Subexec.run "convert \"#{Rails.root}/app/assets/images/ribbon.png\" \\
+                        -size 54x \\
+                        -background transparent \\
+                        -fill \"#FFECBD\" \\
+                        -pointsize #{size} \\
+                        -gravity center \\
+                        caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
+                        -gravity center \\
+                        -geometry +3-10 \\
+                        -composite \"#{file_path}\""
+          end
+          
+#          send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "rank_#{params[:rank]}"
+          send_file "#{file_path}", :type => "image/png", :disposition => 'inline'
+
+#          File.delete("#{file_path}")
         }
       end
     end
+    return
   end
 
   def share_rank
@@ -60,25 +72,33 @@ class PngController < ApplicationController
             img = 'share_rank_eng.png'
           end
 
-          file_path = "#{Rails.root}/tmp/share_rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
+#          file_path = "#{Rails.root}/tmp/share_rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
+          file_path = "#{SHARE_FOLDER_PATH}share_rank_#{params[:rank]}.png"
 
-          x = Subexec.run "convert \"#{Rails.root}/app/assets/images/#{img}\" \\
-                      -size 200x \\
-                      -background transparent \\
-                      -fill \"#FFECBD\" \\
-                      -pointsize #{size} \\
-                      -gravity center \\
-                      caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
-                      -gravity center \\
-                      -geometry +6+25 \\
-                      -composite \"#{file_path}\""
+          # create directory if not exist
+    			FileUtils.mkpath(SHARE_FOLDER_PATH)
 
-          send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "share_rank_#{params[:rank]}"
+          if !File.exists?(file_path)
+            x = Subexec.run "convert \"#{Rails.root}/app/assets/images/#{img}\" \\
+                        -size 200x \\
+                        -background transparent \\
+                        -fill \"#FFECBD\" \\
+                        -pointsize #{size} \\
+                        -gravity center \\
+                        caption:\"##{view_context.number_with_delimiter(params[:rank])} \" \\
+                        -gravity center \\
+                        -geometry +6+25 \\
+                        -composite \"#{file_path}\""
+          end
+          
+#          send_file "#{file_path}", :type => "image/png", :disposition => 'inline', :filename => "share_rank_#{params[:rank]}"
+          send_file "#{file_path}", :type => "image/png", :disposition => 'inline'
 
-          File.delete("#{file_path}")
+#          File.delete("#{file_path}")
         }
       end
     end
+    return
   end
 
 end
