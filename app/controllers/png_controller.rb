@@ -73,10 +73,10 @@ class PngController < ApplicationController
           end
 
 #          file_path = "#{Rails.root}/tmp/share_rank_#{params[:rank]}_#{Time.now.strftime("%Y%m%dT%H%M%S%z")}.png"
-          file_path = "#{SHARE_FOLDER_PATH}share_rank_#{params[:rank]}.png"
+          file_path = "#{SHARE_FOLDER_PATH}#{I18n.locale}/share_rank_#{params[:rank]}.png"
 
           # create directory if not exist
-    			FileUtils.mkpath(SHARE_FOLDER_PATH)
+    			FileUtils.mkpath("#{SHARE_FOLDER_PATH}#{I18n.locale}")
 
           if !File.exists?(file_path)
             x = Subexec.run "convert \"#{Rails.root}/app/assets/images/#{img}\" \\
