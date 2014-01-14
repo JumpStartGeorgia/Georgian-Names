@@ -2,7 +2,7 @@ class Name < ActiveRecord::Base
 	has_many :birth_years
 	has_many :districts
 
-	attr_accessible :name_type, :name, :count, :permalink
+	attr_accessible :name_type, :name, :count, :permalink, :gender
 
   TYPE = {:first_name => 1, :last_name => 2}
 
@@ -75,5 +75,50 @@ class Name < ActiveRecord::Base
 		  :permalink => x.district_name.permalink, :count => x.count, :rank => x.rank}}
 	end
 
+
+
+  ########################
+  ## add gender to names from spreadsheet
+  ########################
+  def self.assign_gender(file)
+    require 'csv'
+		start = Time.now
+    infile = file.read
+    n = 0
+    idx_gender = 0
+    idx_name = 1
+    names_not_found = []
+
+		original_locale = I18n.locale
+    I18n.locale = :en
+
+    Name.transaction do
+		  CSV.parse(infile) do |row|
+        startRow = Time.now
+		    n += 1
+        puts "@@@@@@@@@@@@@@@@@@ processing row #{n}"
+        
+        if n > 1
+          # if name exists, add gender
+          x = Name.where(:name => row[idx_name], :name_type => TYPE[:first_name]).update_all(:gender => row[idx_gender])
+
+          # if no names were updated, then record the name
+          if x == 0
+            names_not_found << [n, row[idx_name]]
+          end
+        end
+      
+      	puts "******** time to process row: #{Time.now-startRow} seconds"
+        puts "************************ total time so far : #{Time.now-start} seconds"
+      end    
+    end
+    
+  	puts "****************** time to process csv: #{Time.now-start} seconds"
+
+		# reset the locale
+		I18n.locale = original_locale
+
+    return names_not_found
+  end
 
 end
