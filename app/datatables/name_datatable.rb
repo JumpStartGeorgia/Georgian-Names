@@ -63,7 +63,7 @@ private
     people = Person.by_name(@name_type, @name_id).order("#{sort_column} #{sort_direction}")
     people = people.page(page).per_page(per_page)
     if params[:sSearch].present?
-      people = people.where("#{name_name_field} like :search", search: "%#{params[:sSearch]}%")
+      people = people.where("#{name_name_field} like :search", search: "%#{params[:sSearch].strip}%")
     end
     people
   end

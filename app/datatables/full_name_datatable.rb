@@ -1,3 +1,4 @@
+# encoding: utf-8
 class FullNameDatatable
   include Rails.application.routes.url_helpers
   delegate :params, :h, :link_to, :number_to_currency, :number_with_delimiter, to: :@view
@@ -49,7 +50,7 @@ private
 
   # only include the text before the first space
   def first_name_value
-    names = params[:sSearch].split(' ')
+    names = params[:sSearch].strip.split(' ')
     name = ''
     if names.length > 1
       name = names[0]
@@ -59,7 +60,7 @@ private
 
   # include all text after the first space
   def last_name_value
-    names = params[:sSearch].split(' ')
+    names = params[:sSearch].strip.split(' ')
     name = ''
     if names.length > 1
       name = names[1..names.length-1].join(' ')

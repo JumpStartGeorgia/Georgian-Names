@@ -39,7 +39,7 @@ private
     birth_years = Mapping.birth_years(@first_name_id, @last_name_id).order("#{sort_column} #{sort_direction}")
     birth_years = birth_years.page(page).per_page(per_page)
     if params[:sSearch].present?
-      birth_years = birth_years.where("birth_year like :search", search: "%#{params[:sSearch]}%")
+      birth_years = birth_years.where("birth_year like :search", search: "%#{params[:sSearch].strip}%")
     end
     birth_years
   end

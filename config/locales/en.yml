@@ -199,6 +199,7 @@ en:
         total: Number of People
     full_name:
       title: Full Names
+      full_name: Full Name
       name: First Name
       rank: Last Name
       total: Number of People

@@ -34,7 +34,7 @@ private
     district_names = DistrictName.order("#{sort_column} #{sort_direction}")
     district_names = district_names.page(page).per_page(per_page)
     if params[:sSearch].present?
-      district_names = district_names.where("name like :search or name_en like :search", search: "%#{params[:sSearch]}%")
+      district_names = district_names.where("name like :search or name_en like :search", search: "%#{params[:sSearch].strip}%")
     end
     district_names
   end

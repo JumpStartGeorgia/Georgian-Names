@@ -56,7 +56,7 @@ private
     names = Name.by_name(@name_type).order("#{sort_column} #{sort_direction}")
     names = names.page(page).per_page(per_page)
     if params[:sSearch].present?
-      names = names.where("#{name_name_field} like :search", search: "%#{params[:sSearch]}%")
+      names = names.where("#{name_name_field} like :search", search: "%#{params[:sSearch].strip}%")
     end
     names
   end
