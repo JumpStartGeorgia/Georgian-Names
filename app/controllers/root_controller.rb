@@ -132,7 +132,7 @@ class RootController < ApplicationController
   def search_name
     # do search across all names
     # - use name country data tables
-    params[:q] = params[:q].gsub(/[^a-zA-Zა-ჰ\s]/, '').strip
+    params[:q] = params[:q].gsub(/[^a-zA-Zა-ჰ\s]/, '').strip if params[:q].present?
     gon.initial_name_search = params[:q]
   end
 
