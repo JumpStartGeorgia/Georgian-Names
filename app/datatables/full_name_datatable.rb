@@ -70,7 +70,7 @@ private
 
   def fetch_people
     people = []
-    if params[:sSearch].present? && params[:sSearch].index(' ')
+    if params[:sSearch].present? && params[:sSearch].strip.index(' ').present?
       people = Person.by_full_name.order("#{sort_column}")
       people = people.page(page).per_page(per_page)
 #      people = people.where(["#{first_name_field} = :first_search and #{last_name_field} = :last_search", 
