@@ -4,7 +4,7 @@ class CreatePermalinkData < ActiveRecord::Migration
     puts "starting to add english to names"
     index = 0
 
-    Name.where("name_type = 2").each do |name|
+    Name.all.each do |name|
       puts "-- index = #{index}" if index%500 == 0
       index = index+1
 

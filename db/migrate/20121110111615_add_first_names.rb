@@ -1,9 +1,9 @@
 class AddFirstNames < ActiveRecord::Migration
   def up
 		puts "***************************"
-		puts "*** This migration script assumes there is a database called voter_list_names"
+		puts "*** This migration script assumes there is a database called voter_list_names_2016"
 		puts "***   which has the raw data from the voter list."
-		puts "*** The user for this database must have select permission for the voter_list_names database."
+		puts "*** The user for this database must have select permission for the voter_list_names_2016 database."
 		puts "*** Look in the db/raw_data folder for the sql file to create this database."
 		puts "***************************"
 
@@ -20,7 +20,7 @@ class AddFirstNames < ActiveRecord::Migration
 		sql << '", "'
 		sql << time
 		sql << '" '
-		sql << 'from voter_list_names.first_names_district '
+		sql << 'from voter_list_names_2016.first_names_district '
 		sql << 'where first_name != "---" '
 		sql << 'group by first_name '
 		sql << 'order by first_name '
@@ -39,7 +39,7 @@ class AddFirstNames < ActiveRecord::Migration
 		sql << '", "'
 		sql << time
 		sql << '" '
-		sql << 'from voter_list_names.first_names_birth_date as vl inner join names as n on n.name = vl.first_name '
+		sql << 'from voter_list_names_2016.first_names_birth_date as vl inner join names as n on n.name = vl.first_name '
 		sql << 'where n.name_type = '
 		sql << Name::TYPE[:first_name].to_s
 		sql << ' order by n.id, vl.year '
@@ -53,7 +53,7 @@ class AddFirstNames < ActiveRecord::Migration
 		sql << '", "'
 		sql << time
 		sql << '" '
-		sql << 'from voter_list_names.first_names_district as vl inner join names as n on n.name = vl.first_name '
+		sql << 'from voter_list_names_2016.first_names_district as vl inner join names as n on n.name = vl.first_name '
 		sql << 'where n.name_type = '
 		sql << Name::TYPE[:first_name].to_s
 		sql << ' order by n.id, vl.district '

@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20130311085157) do
 
   add_index "names", ["count"], :name => "index_names_on_count"
   add_index "names", ["name_en"], :name => "index_names_on_name_en"
-  add_index "names", ["name_type", "count"], :name => "idx_name_type_count"
   add_index "names", ["name_type", "name"], :name => "idx_names"
   add_index "names", ["permalink"], :name => "index_names_on_permalink"
 
@@ -131,17 +130,5 @@ ActiveRecord::Schema.define(:version => 20130311085157) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "will_filter_filters", :force => true do |t|
-    t.string   "type"
-    t.string   "name"
-    t.text     "data"
-    t.integer  "user_id"
-    t.string   "model_class_name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "will_filter_filters", ["user_id"], :name => "index_will_filter_filters_on_user_id"
 
 end

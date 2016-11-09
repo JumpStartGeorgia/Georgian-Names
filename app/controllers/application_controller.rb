@@ -69,7 +69,7 @@ logger.debug "////////////////////////// BROWSER NOT SUPPORTED"
 		gon.first_name_path = first_name_path(x).gsub(x, "")
 		gon.last_name_path = last_name_path(x).gsub(x, "")
 		gon.no_data = I18n.t('app.common.no_data')
-		@static_year = 2012
+		@static_year = 2016
 		gon.static_year = @static_year
 
     # text for print and export buttons in highcharts

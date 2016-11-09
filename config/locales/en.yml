@@ -249,12 +249,12 @@ en:
   root:
     index:
       p1: "Mashasada.me allows you to explore and visualize trends found in the names of living people in Georgia and share them with your friends and family."
-      p2: "These trends are derived from the official list of voters for the Georgian parliamentary elections in October 2012, which is the most comprehensive and recent dataset on Georgian names to date."
+      p2: "These trends are derived from the official list of voters for the Georgian parliamentary elections in October 2016, which is the most comprehensive and recent dataset on Georgian names to date."
       stats:
         source_header: Source
         source_text: "Voters' List Verification Commission"
         when_header: When
-        when_text: August 2012
+        when_text: September 2016
         where_header: Where
         where_text: Georgia
         population_header: "People<br />(18 and older)"
@@ -274,32 +274,32 @@ en:
       subtitle_first: "Number of People with First Name '%{name}': %{count}"
       subtitle_last: "Number of People with Last Name '%{name}': %{count}"
       not_exist: "'%{name}' could not be found."
-      description_first: "In August 2012, there were %{count} people in Georgia with the first name '%{name}', which has a rank of %{rank} in the country."
-      description_last: "In August 2012, there were %{count} people in Georgia with the last name '%{name}', which has a rank of %{rank} in the country."
+      description_first: "In September 2016, there were %{count} people in Georgia with the first name '%{name}', which has a rank of %{rank} in the country."
+      description_last: "In September 2016, there were %{count} people in Georgia with the last name '%{name}', which has a rank of %{rank} in the country."
     full_name:
       title: "Full Name: '%{first} %{last}'"
       subtitle: "Number of People with Full Name '%{first} %{last}': %{count}"
       not_exist: "'%{first} %{last}' could not be found."
-      description: "In August 2012, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
+      description: "In September 2016, there were %{count} people in Georgia with the full name '%{first_name} %{last_name}'."
     district:
       title: "District: %{district}"
       subtitle: "Number of People in %{district}: %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "District %{district} could not be found."
-      description: "In August 2012, there were %{count} people registered to vote in %{name}."
+      description: "In September 2016, there were %{count} people registered to vote in %{name}."
     year:
       title: "%{year} (Age %{age})"
       subtitle: "Number of People Born in %{year}: %{count}"
       total_first: "Total Unique First Names: %{count}"
       total_last: "Total Unique Last Names: %{count}"
       not_exist: "Birth Year '%{year}' could not be found."
-      description: "In August 2012, there were %{count} people in Georgia registered to vote that were born in the year %{year} (age %{age})."
+      description: "In September 2016, there were %{count} people in Georgia registered to vote that were born in the year %{year} (age %{age})."
     search_name:
       title: Search
     download:
       title: Download the Data Set      
-      p_1: "The source of this data is the August 2012 Voters List that was obtained from the Voters' List Verification Commission. There are a total of 3,613,745 records and each record includes the first name, last name, birth year and district in which the person is registered. The first name, last name and district are provided in both Georgian and English languages."
+      p_1: "The source of this data is the September 2016 Voters List that was obtained from the Voters' List Verification Commission. There are a total of 3,613,745 records and each record includes the first name, last name, birth year and district in which the person is registered. The first name, last name and district are provided in both Georgian and English languages."
       p_2: "If you are using Excel on Windows, download the Excel file for Excel does not automatically read the Georgian characters from the CSV file."
       p_3: "Due to spreadsheet application row size limits, the data was split into 8 files."
       csv: "CSV (%{size})"

@@ -105,7 +105,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.2.0)
-    mysql2 (0.3.11)
+    mysql2 (0.3.21)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -186,7 +186,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.2.0)
   capistrano (~> 2.12.0)
   coffee-rails (~> 3.1.1)
   exception_notification (= 2.5.2)
@@ -198,7 +197,7 @@ DEPENDENCIES
   jquery-ui-rails
   json
   less-rails
-  mysql2 (~> 0.3.11)
+  mysql2 (~> 0.3.21)
   psych (= 1.2.2)
   rails (= 3.1.10)
   rails-dev-boost!
@@ -211,3 +210,6 @@ DEPENDENCIES
   unicorn (= 4.2.1)
   useragent!
   will_paginate (= 3.0.3)
+
+BUNDLED WITH
+   1.13.6

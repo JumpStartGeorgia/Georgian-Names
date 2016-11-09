@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'bundler', '~> 1.2.0'
+#ruby "1.9.2-p290"
+
 gem "rails", "3.1.10"
-gem "mysql2", "~> 0.3.11" # this gem works better with utf-8
+gem 'mysql2', '~> 0.3.21' # this gem works better with utf-8
 
 gem "json"
 gem "jquery-rails", "1.0.19"
@@ -49,10 +50,6 @@ group :development do
   gem 'rails-dev-boost', :git => 'git://github.com/thedarkone/rails-dev-boost.git' # speed up loading page in dev mode
 end
 
-group :staging do
-	gem "unicorn", "4.2.1" # http server
-end
-
-group :production do
+group :staging, :production do
 	gem "unicorn", "4.2.1" # http server
 end

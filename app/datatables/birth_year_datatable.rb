@@ -23,7 +23,7 @@ private
     birth_years.map do |birth_year|
       [
         link_to(birth_year.birth_year, year_path(:id => birth_year.birth_year, :locale => I18n.locale)),
-        (2012 - birth_year.birth_year),
+        (2016 - birth_year.birth_year),
         number_with_delimiter(birth_year.count),
         number_with_delimiter(birth_year.rank)
       ]
